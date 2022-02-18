@@ -11,6 +11,10 @@ body {
     width: 100%;
     background: $body-background;
 }
+a:active, a:focus, a:hover, a:link, a:visited {
+    color: $link-color !important;
+    text-decoration: none !important;
+}
 .flex {
     display: flex;
 }
@@ -85,12 +89,16 @@ body {
 .content-center {
     align-content: center;
 }
+
 .space-between {
     justify-content: space-between;
 }
 
 .h-auto {
     height: auto !important;
+}
+.w-auto {
+    width: auto !important;
 }
 .rounded {
     border-radius: 10px !important;
@@ -116,9 +124,18 @@ body {
 .shadow-sm {
     box-shadow: $shadow-sm;
 }
+.border-gray {
+    border: 1.5px solid #ddd;
+}
+.border-0 {
+    border: 0 !important;
+}
+.bold {
+    font-weight: 500;
+}
 .shadow-inset {
     --color: #53C41A;
-    box-shadow: inset 0px -3px 0px 0px var(--color);
+    box-shadow: inset 0px -5px 0px 0px var(--color);
 }
 .flex-end {
     align-content: flex-end;
@@ -131,10 +148,23 @@ body {
     color: $white;
 }
 .grid-column-2 {
-    grid-column: span 2 !important;
+    --n: 2;
+    grid-column: span var(--n) !important;
+}
+.m-0 {
+    margin: 0;
 }
 .p-10 {
-    padding: 10px;
+    --p: 10px;
+    padding: var(--p);
+}
+.p-1 {
+    --p: 10px;
+    --t: var(--p);
+    --b: var(--p);
+    --r: var(--p);
+    --l: var(--p);
+    padding: var(--t) var(--l) var(--b) var(--r);
 }
 .px-10 {
     --p: 10px;
@@ -147,8 +177,10 @@ body {
 }
 .py-10 {
     --p: 10px;
-    padding-bottom: var(--p);
-    padding-top: var(--p);
+    --t: var(--p);
+    --b: var(--p);
+    padding-bottom: var(--b);
+    padding-top: var(--t);
 }
 .py-20 {
     padding-bottom: 20px !important;
@@ -168,6 +200,10 @@ body {
 }
 .h-25 {
     height: 3ch;
+}
+.w-1 {
+    --w: 10%;
+    width: var(--w);
 }
 .w-25 {
     width: 3ch;
@@ -210,6 +246,12 @@ body {
 }
 .text-gray {
     color: $gray-color;
+}
+.text-dark {
+    color: $dark-color;
+}
+.text-secondary {
+    color: $secondary-color;
 }
 .text-center {
     text-align: center;
@@ -487,7 +529,7 @@ svg > circle {
             }
 
             &.active, &:hover {
-                box-shadow: inset 4px 0px 0px $white;
+                background-color: $brand-dark-color;
             }
 
             &:hover {
@@ -606,7 +648,6 @@ svg > circle {
             .setting-link-item {
                 width: 300px;
                 display: inline-block;
-
                 a {
                     padding: 20px;
                     height: 100px;

@@ -22,7 +22,7 @@
                         <div>Congrats! STEVE Claire Moser is on pace.</div>
                         <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
                             <div class="bg-primary px-10 p-5 pill lh-1 h-25">Premium</div>
-                            <div class="p-5 px-10 lh-1 h-25">Policies</div>
+                            <div class="p-5 px-10 lh-1 h-25 text-secondary">Policies</div>
                         </div>
                     </div>
                     <div class="grid column grid-columns g-10 py-10" style="--columns: .5fr 1fr;">
@@ -43,8 +43,8 @@
                                 <div class="absolute right bottom fs-100 o-2" style="right: -20px;"><span class="mdi mdi-bullseye"></span></div>
                             </div>
                         </div>
-                        <div class="grid column center ">
-                            <div class="grid all-center relative">
+                        <div class="grid column center relative">
+                            <div class="grid all-center ">
                                 <div class="flex center content-center grid-area">
                                     <div class="text-center">
                                         <div class="fs-xxl text-gray">STILL NEEDED</div>
@@ -54,24 +54,25 @@
                                 <svg height="300" width="300" viewbox="0 0 82 82" class="circle-progress-bar grid-area">
                                     <circle cx="41" cy="41" r="40" stroke-width="2" fill="rgba(0,0,0,0)" />
                                 </svg>
-                                <div class="absolute right bottom">
-                                    <div class="fs-s text-gray">ACHIEVE TODAY</div>
-                                    <strong>$0</strong>
-                                </div>
+                            </div>
+                            <div class="absolute right bottom">
+                                <ul style="list-style: initial;" class="text-success">
+                                    <li>
+                                        <div class="fs-s text-gray">ACHIEVE TODAY</div>
+                                        <strong class="text-dark">$0</strong>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card grid row-d bg-white shadow-sm rounded px-20 py-10 g-10">
-                <div class="flex space-between py-20">
-                    <div class="flex column">
-                        <div>January</div>
-                        <div>stats</div>
-                    </div>
+            <div class="card grid row-d bg-white shadow-sm rounded p-1 g-10" style="--p:20px;">
+                <div class="flex space-between py-10 center">
+                    <div>January stats</div>
                     <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
                         <div class="bg-primary px-10 p-5 pill lh-1 h-25">Premium</div>
-                        <div class="p-5 px-10 lh-1 h-25">Policies</div>
+                        <div class="p-5 px-10 lh-1 h-25 text-secondary">Policies</div>
                     </div>
                 </div>
                 <div class="bg-light p-10 rounded-s hidden relative flex justify-center column center shadow-inset">
@@ -79,24 +80,69 @@
                     <div class="fs-xxl">$0</div>
                     <div class="fs-xs py-10 lh-1 text-gray">100% GOAL ABOVE OF 0$</div>
                 </div>
-                <div class="bg-light p-10 rounded-s hidden relative flex space-between row center">
+                <div class="bg-light p-10 py-20 rounded-s hidden relative flex space-between row center">
                     <div class="flex column text-left">
-                        <div class="fs-xs py-10 lh-1" style="--p: 5px">VS LAST MONTH</div>
+                        <div class="fs-xs py-10 lh-1 bold" style="--p: 5px">VS LAST MONTH</div>
                         <div><span class="fs-xxl">N/A</span> <span class="mdi mdi-arrow-up text-success bg-white pill shadow fs-x square hl-1 p-3"></span></div>
                     </div>
                     <div class="flex column text-right">
-                        <div class="fs-xxl" style="color: #546E7A">$0</div>
-                        <div class="fs-xs py-10 lh-1">LAST MONTH</div>
+                        <div class="fs-xxl text-secondary">$0</div>
+                        <div class="fs-xs py-10 lh-1 bold">LAST MONTH</div>
                     </div>
                 </div>
-                <div class="bg-light p-10 rounded-s hidden relative flex space-between row center shadow-inset" style="--color: #3a7ef2">
+                <div class="bg-light p-1 rounded-s hidden relative flex space-between row center shadow-inset" style="--color: #3a7ef2">
                     <div class="flex column text-left">
-                        <div class="fs-xs py-10 lh-1" style="--p: 5px">CURRENTLY AT</div>
-                        <div><span class="fs-xxl" style="color: #546E7A">$0</span></div>
+                        <div class="fs-xs p-1 lh-1 bold" style="--p: 5px;--r:0;--l:0;">CURRENTLY AT</div>
+                        <div><span class="fs-xxl lh-1 text-secondary">$0</span></div>
                     </div>
                     <div class="flex column text-right">
-                        <div class="fs-xxl" style="color: #546E7A">$100</div>
-                        <div class="fs-xs py-10 lh-1">OF GOAL</div>
+                        <div class="fs-xxl lh-1 text-secondary" >$100</div>
+                        <div class="fs-xs py-10 lh-1 bold">OF GOAL</div>
+                    </div>
+                </div>
+            </div>
+            {{-- business --}}
+            <div class="grid-column-2 bg-white shadow-sm rounded p-1" style="--n: 3; --p: 20px;">
+                <div class="flex row-d space-between">
+                    <select value="write-business" class="p-1 rounded border-gray">
+                        <option value="write-business">Write Business</option>
+                        <option value="write-business">Write Business</option>
+                    </select>
+                    <div class="flex row-d g-10">
+                        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
+                            <div class="bg-primary px-10 p-5 pill lh-1 h-25">Chart</div>
+                            <div class="p-5 px-10 lh-1 h-25 text-secondary">Details</div>
+                        </div>
+                        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
+                            <div class="bg-primary px-10 p-5 pill lh-1 h-25">Permium $133,957</div>
+                            <div class="p-5 px-10 lh-1 h-25 text-secondary">Policies</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid column grid-columns p-1" style="--p: 0; --t: 10px; --columns: repeat(3,1fr);">
+                    <div class="flex column">
+                        <h1 class="fs-x">Filters</h1>
+                        <div class="grid row-d column g-10 w-1" style="--w: 70%;">
+                            <div class="bg-light border-gray p-1 rounded">
+                                <p class="m-0 py-10" style="--t:0;">Time Frame</p>
+                                <select name="time-frame" id="time-frame" class="border-0 bg-light text-secondary">
+                                    <option value="MTD">MDT</option>
+                                    <option value="MTD">MDT</option>
+                                </select>
+                            </div>
+                            <div class="bg-light border-gray p-1 rounded">
+                                <p class="m-0 py-10" style="--t:0;">All carries</p>
+                                <select name="all-carries" id="all-carries" class="border-0 bg-light text-secondary">
+                                    <option value="all-carries">All carries</option>
+                                    <option value="all-carries">All carries</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-column-2">
+                        <div id="chart">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,14 +153,27 @@
 @stop
 
 @push('scripts')
-    <script type="text/x-template" id="selected-cards-template">
-        <date-range
-            :update="updateCardData"
-            end-date="{{ $endDate }}"
-            start-date="{{ $startDate }}"
-            class="card-filter-container"
-        ></date-range>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+        chart: {
+            type: 'bar'
+        },
+        series: [{
+            name: 'sales',
+            data: [30,40,45,50,49,60,70,91,125]
+        }],
+        xaxis: {
+            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+        }
+        }
 
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+
+    </script>
+    <script type="text/x-template" id="selected-cards-template">
         {{-- <button type="button" @click="exportDashboard">Export</button> --}}
     </script>
 
