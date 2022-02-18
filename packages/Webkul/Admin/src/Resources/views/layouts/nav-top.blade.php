@@ -1,7 +1,7 @@
 <div class="navbar-top">
     <div class="navbar-top-left h-auto">
         <div class="brand-logo flex">
-            <a href="{{ route('admin.dashboard.index') }}" class="fs-xl">
+            <a href="{{ route('admin.dashboard.index') }}" class="fs-50">
                 Steve<strong><i>CRM</i></strong>
             </a>
         </div>
@@ -45,7 +45,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('mail.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.mail.index', ['route' => 'compose']) }}">
@@ -55,7 +55,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('contacts.persons.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.contacts.persons.create') }}">
@@ -65,7 +65,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('contacts.organizations.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.contacts.organizations.create') }}">
@@ -75,7 +75,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('products.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.products.create') }}">
@@ -85,7 +85,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('settings.automation.attributes.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.settings.attributes.create') }}">
@@ -95,7 +95,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('settings.user.roles.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.settings.roles.create') }}">
@@ -105,7 +105,7 @@
                                 </a>
                             </div>
                         @endif
-                        
+
                         @if (bouncer()->hasPermission('settings.user.users.create'))
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.settings.users.create') }}">

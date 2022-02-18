@@ -7,7 +7,6 @@
 @section('content-wrapper')
     <div class="content full-page dashboard">
         <h1>{{ __('admin::app.dashboard.title') }}</h1>
-
         {!! view_render_event('admin.dashboard.index.filter.before') !!}
 
         <selected-cards-filter></selected-cards-filter>
@@ -16,9 +15,93 @@
 
 
         {!! view_render_event('admin.dashboard.index.cards.before') !!}
-
+        <div class="grid grid-columns row-d g-10" style="--columns: repeat(3,1fr);">
+            <div class="card grid-column-2 bg-white shadow-sm rounded">
+                <div class="card-header flex column p-10 px-20 space-between">
+                    <div class="flex row-d space-between py-20 center lh-1">
+                        <div>Congrats! STEVE Claire Moser is on pace.</div>
+                        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
+                            <div class="bg-primary px-10 p-5 pill lh-1 h-25">Premium</div>
+                            <div class="p-5 px-10 lh-1 h-25">Policies</div>
+                        </div>
+                    </div>
+                    <div class="grid column grid-columns g-10 py-10" style="--columns: .5fr 1fr;">
+                        <div class="grid row-d g-10 relative">
+                            <div class="bg-light p-10 rounded-s hidden relative flex justify-center column">
+                                <div class="fs-s py-10 lh-1" style="--p: 5px">STARTED TODAY AT</div>
+                                <div class="fs-xxl">$0</div>
+                                <div class="absolute right bottom fs-100 o-2" style="right: -20px;"><span class="mdi mdi-star-outline"></span></div>
+                            </div>
+                            <div class="bg-light p-10 rounded-s hidden relative flex justify-center column">
+                                <div class="fs-s py-10 lh-1" style="--p: 5px">SHOULD BE AT</div>
+                                <div class="fs-xxl">$0</div>
+                                <div class="absolute right bottom fs-100 o-2 " style="right: -20px;"><span class="mdi mdi-bullseye-arrow rotate"></span></div>
+                            </div>
+                            <div class="bg-gray p-10 rounded-s hidden relative flex justify-center column">
+                                <div class="fs-xxl">$0</div>
+                                <div class="fs-s py-10 lh-1" style="--p: 5px">GOAL FOR TODAY</div>
+                                <div class="absolute right bottom fs-100 o-2" style="right: -20px;"><span class="mdi mdi-bullseye"></span></div>
+                            </div>
+                        </div>
+                        <div class="grid column center ">
+                            <div class="grid all-center relative">
+                                <div class="flex center content-center grid-area">
+                                    <div class="text-center">
+                                        <div class="fs-xxl text-gray">STILL NEEDED</div>
+                                        <div class="fs-50 lh-1 py-10">$0</div>
+                                    </div>
+                                </div>
+                                <svg height="300" width="300" viewbox="0 0 82 82" class="circle-progress-bar grid-area">
+                                    <circle cx="41" cy="41" r="40" stroke-width="2" fill="rgba(0,0,0,0)" />
+                                </svg>
+                                <div class="absolute right bottom">
+                                    <div class="fs-s text-gray">ACHIEVE TODAY</div>
+                                    <strong>$0</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card grid row-d bg-white shadow-sm rounded px-20 py-10 g-10">
+                <div class="flex space-between py-20">
+                    <div class="flex column">
+                        <div>January</div>
+                        <div>stats</div>
+                    </div>
+                    <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm" style="padding: 15px 5px;">
+                        <div class="bg-primary px-10 p-5 pill lh-1 h-25">Premium</div>
+                        <div class="p-5 px-10 lh-1 h-25">Policies</div>
+                    </div>
+                </div>
+                <div class="bg-light p-10 rounded-s hidden relative flex justify-center column center shadow-inset">
+                    <div class="fs-l py-10 lh-1" style="--p: 5px">TRENDING FOR</div>
+                    <div class="fs-xxl">$0</div>
+                    <div class="fs-xs py-10 lh-1 text-gray">100% GOAL ABOVE OF 0$</div>
+                </div>
+                <div class="bg-light p-10 rounded-s hidden relative flex space-between row center">
+                    <div class="flex column text-left">
+                        <div class="fs-xs py-10 lh-1" style="--p: 5px">VS LAST MONTH</div>
+                        <div><span class="fs-xxl">N/A</span> <span class="mdi mdi-arrow-up text-success bg-white pill shadow fs-x square hl-1 p-3"></span></div>
+                    </div>
+                    <div class="flex column text-right">
+                        <div class="fs-xxl" style="color: #546E7A">$0</div>
+                        <div class="fs-xs py-10 lh-1">LAST MONTH</div>
+                    </div>
+                </div>
+                <div class="bg-light p-10 rounded-s hidden relative flex space-between row center shadow-inset" style="--color: #3a7ef2">
+                    <div class="flex column text-left">
+                        <div class="fs-xs py-10 lh-1" style="--p: 5px">CURRENTLY AT</div>
+                        <div><span class="fs-xxl" style="color: #546E7A">$0</span></div>
+                    </div>
+                    <div class="flex column text-right">
+                        <div class="fs-xxl" style="color: #546E7A">$100</div>
+                        <div class="fs-xs py-10 lh-1">OF GOAL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <cards-collection></cards-collection>
-
         {!! view_render_event('admin.dashboard.index.cards.after') !!}
     </div>
 @stop
@@ -37,13 +120,13 @@
 
     <script type="text/x-template" id="cards-collection-template">
         <draggable v-model="filteredCards" @change="onRowDrop" class="dashboard-content">
+
             <div v-for="(filteredCardRow, index) in filteredCards" :key="index">
                 <draggable :key="`inner-${index}`" :list="filteredCardRow" class="row-grid-3" handle=".drag-icon" @change="onColumnDrop">
-                    <div :class="`card ${card.card_border || ''}`" v-for="(card, cardRowIndex) in filteredCardRow" :key="`row-${index}-${cardRowIndex}`">
+                    <div :class="`card rounded ${card.card_border || ''}`" v-for="(card, cardRowIndex) in filteredCardRow" :key="`row-${index}-${cardRowIndex}`">
                         <template v-if="card.label">
-                            <label class="card-header">
-                                @{{ card.label }}
 
+                            <label class="card-header">@{{ card.label }}
                                 <div class="icon-container">
                                     <a v-if="card.view_url" :href="card.view_url">
                                         <i class="icon eye-icon"></i>

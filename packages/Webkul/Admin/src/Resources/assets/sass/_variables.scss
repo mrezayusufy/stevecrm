@@ -1,6 +1,7 @@
 // Typography
 $font-family: 'Roboto';
-$font-size-sm: 14px;
+$font-size-xsm: 10px;
+$font-size-sm: 13px;
 $font-size-md: 16px;
 $font-size-lg: 18px;
 $font-size-xl: 20px;
@@ -10,6 +11,7 @@ $font-weight-medium: 500;
 $font-weight-regular: 400;
 $font-color: #263238;
 $secondary-font-color: #546E7A;
+$shadow-sm: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;;
 
 // Colors
 $black: #000000;
@@ -17,6 +19,7 @@ $white: #FFFFFF;
 $dark-color: #263238;
 $gray-color: #C1C2C3; // Can be modified
 $link-color: #0E90D9;
+$light-color: #f7f7f7;
 $info-color: #204d74;
 $danger-color: #FF4D50;
 $success-color:#53C41A;
