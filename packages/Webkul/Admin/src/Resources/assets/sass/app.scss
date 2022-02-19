@@ -152,7 +152,14 @@ a:active, a:focus, a:hover, a:link, a:visited {
     grid-column: span var(--n) !important;
 }
 .m-0 {
-    margin: 0;
+    --m: 0;
+    margin: var(--m);
+}
+.ml-auto {
+    margin-left: auto;
+}
+.mr-auto {
+    margin-right: auto;
 }
 .p-10 {
     --p: 10px;
@@ -164,7 +171,7 @@ a:active, a:focus, a:hover, a:link, a:visited {
     --b: var(--p);
     --r: var(--p);
     --l: var(--p);
-    padding: var(--t) var(--l) var(--b) var(--r);
+    padding: var(--t) var(--r) var(--b) var(--l);
 }
 .px-10 {
     --p: 10px;
@@ -208,7 +215,10 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .w-25 {
     width: 3ch;
 }
-
+.btn.btn-primary {
+    background: $brand-color;
+    color: #fff !important;
+}
 .square {
     --p: 25px;
     width: var(--p);
@@ -293,22 +303,22 @@ svg > circle {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
-
+.inline-block {
+    display: inline-block;
+}
+.middle {
+    vertical-align: middle;
+}
 .navbar-top {
     height: 60px;
     background-color: $white;
     font-size: 0;
-    @include box-shadow(inset 0px -1px 0px #CDCECF);
     position: fixed;
     left: 0;
     right: 0;
     z-index: 5;
 
     .navbar-top-left {
-        width: 50%;
-        display: inline-block;
-        vertical-align: middle;
-
         .brand-logo {
             padding: 10px 5px;
         }

@@ -14,26 +14,21 @@
         }
     </style>
 @endpush
+@section('title')
+{{ __('admin::app.leads.title') }}
+@stop
+@section('navbar-top')
+@if (bouncer()->hasPermission('leads.create'))
+    @include('admin::leads.index.view-swither')
+    <a href="{{ route('admin.leads.create') }}" class="btn btn-primary fs-xl m-0 p-1 border-0 inline-block middle" style="--m:0 10px; --p: 10px;">
+        <i class="mdi mdi-plus m-0 middle"></i>
+        {{ __('admin::app.leads.title') }}
+    </a>
 
+@endif
+@stop
 <div class="content full-page">
     <div class="table">
-        <div class="table-header">
-            <h1>
-                {!! view_render_event('admin.leads.index.header.before') !!}
-
-                {{ Breadcrumbs::render('leads') }}
-
-                {{ __('admin::app.leads.title') }}
-
-                {!! view_render_event('admin.leads.index.header.after') !!}
-            </h1>
-
-            @if (bouncer()->hasPermission('leads.create'))
-                <div class="table-action">
-                    <a href="{{ route('admin.leads.create') }}" class="btn btn-md btn-primary">{{ __('admin::app.leads.create-title') }}</a>
-                </div>
-            @endif
-        </div>
 
         <div class="table-body viewport-height">
             <kanban-filters></kanban-filters>
@@ -45,7 +40,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="kanban-filters-tempalte">
-        <div class="form-group datagrid-filters">
+        <div class="form-group datagrid-filters inline-block">
             <div class="search-filter">
                 <i class="icon search-icon input-search-icon"></i>
 
@@ -61,7 +56,6 @@
 
             <div class="filter-right">
 
-                @include('admin::leads.index.view-swither')
 
                 <div class="filter-btn">
                     <div class="grid-dropdown-header" @click="toggleSidebarFilter">
@@ -76,17 +70,17 @@
 
     <script type="text/x-template" id="kanban-component-tempalte">
         <kanban-board :stages="stage_names" :blocks="blocks" @update-block="updateLeadStage">
-            <div v-for="(stage, index) in stage_names" :slot="stage" :key="`stage-${stage}`">
+            <div v-for="(stage, index) in stage_names" :slot="stage" :key="`stage-${stage}`" class="rounded">
                 <h2>
                     @{{ stage }}
                     <span class="float-right">@{{ totalCounts[stage] || 0 }}</span>
                 </h2>
 
-                @if (bouncer()->hasPermission('leads.create'))
+                {{-- @if (bouncer()->hasPermission('leads.create'))
                     <a :href="'{{ route('admin.leads.create') }}' + '?stage_id=' + stages[index].id">
                         {{ __('admin::app.leads.create-title') }}
                     </a>
-                @endif
+                @endif --}}
             </div>
 
             <div

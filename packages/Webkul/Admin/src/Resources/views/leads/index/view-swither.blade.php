@@ -1,5 +1,5 @@
 <div class="switch-pipeline-container">
-    <div class="form-group">
+    <div class="form-group m-0">
         @php
             $pipelineRepository = app('Webkul\Lead\Repositories\PipelineRepository');
 

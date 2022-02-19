@@ -28,8 +28,6 @@
 
         <div class="page-header">
 
-            {{ Breadcrumbs::render('leads.view', $lead) }}
-
             <div class="page-title">
                 <h1>
                     {{ $lead->title }}

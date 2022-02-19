@@ -1,13 +1,16 @@
-<div class="navbar-top">
-    <div class="navbar-top-left h-auto">
+<div class="navbar-top flex center space-between">
+    <div class="navbar-top-left h-auto w-auto flex center">
         <div class="brand-logo flex">
-            <a href="{{ route('admin.dashboard.index') }}" class="fs-50">
+            <a href="{{ route('admin.dashboard.index') }}" class="fs-xl">
                 Steve<strong><i>CRM</i></strong>
             </a>
         </div>
+        <div class="fs-xxl p-1 bold" style="--l:20px;">@yield('title')</div>
     </div>
 
-    <div class="navbar-top-right">
+    <div class="navbar-top-right w-auto">
+        @yield('navbar-top')
+        
         @if (bouncer()->hasPermission('leads.create')
             || bouncer()->hasPermission('quotes.create')
             || bouncer()->hasPermission('mail.create')
