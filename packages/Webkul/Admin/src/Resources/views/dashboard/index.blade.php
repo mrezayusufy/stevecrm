@@ -149,7 +149,9 @@
                 </div>
             </div>
         </div>
+        <div class="none">
         <cards-collection></cards-collection>
+        </div>
         {!! view_render_event('admin.dashboard.index.cards.after') !!}
     </div>
 @stop
@@ -160,7 +162,7 @@
         var options = {
         chart: {
             type: 'bar'
-        },
+    },
         series: [{
             name: 'sales',
             data: [30,40,45,50,49,60,70,91,125]

@@ -15,8 +15,17 @@ a:active, a:focus, a:hover, a:link, a:visited {
     color: $link-color !important;
     text-decoration: none !important;
 }
+.none {
+    display: none !important;
+}
 .flex {
     display: flex;
+}
+.flex-end {
+    align-content: flex-end;
+}
+.flex-start {
+    align-content: flex-start;
 }
 .all-center {
     align-self: center;
@@ -68,6 +77,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
 }
 .grid-3-rows {
     grid-template-columns: 1fr 1fr 1fr;
+}
+.l-primary:hover {
+    color: $white !important;
 }
 .column {
     grid-auto-flow: column;
@@ -145,12 +157,7 @@ a:active, a:focus, a:hover, a:link, a:visited {
     --color: #53C41A;
     box-shadow: inset 0px -5px 0px 0px var(--color);
 }
-.flex-end {
-    align-content: flex-end;
-}
-.flex-start {
-    align-content: flex-start;
-}
+
 .bg-primary {
     background-color: $brand-color !important;
     color: $white !important;

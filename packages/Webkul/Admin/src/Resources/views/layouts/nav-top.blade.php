@@ -145,14 +145,14 @@
 
             <div class="dropdown-list bottom-right">
                 <span class="app-version">{{ __('admin::app.layouts.app-version', ['version' => 'v' . config('app.version')]) }}</span>
-
+                <span class="mdi mdi-plus text-primary fs-xl"></span>
                 <div class="dropdown-container">
                     <ul>
                         <li>
-                            <a href="{{ route('admin.user.account.edit') }}">{{ __('admin::app.layouts.my-account') }}</a>
+                            <a class="l-primary" href="{{ route('admin.user.account.edit') }}">{{ __('admin::app.layouts.my-account') }}</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.session.destroy') }}">{{ __('admin::app.layouts.sign-out') }}</a>
+                            <a class="l-primary" href="{{ route('admin.session.destroy') }}">{{ __('admin::app.layouts.sign-out') }}</a>
                         </li>
                     </ul>
                 </div>
