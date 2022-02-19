@@ -33,14 +33,15 @@
 @stop
 @section('content-wrapper')
 <div class="content full-page">
-    <div class="inline-flex">
-        <div class="btn bg-light border text-gray fs-l inline-flex" style="--c: #ccc;">
-            <i class="mdi mdi-filter lh-1"></i>
+    <div class="btn-group">
+        <button class="btn bg-light border center text-dark fs-l inline-flex" style="--c: #ccc;">
+            <i class="mdi mdi-filter lh-1 px-10" style="--l:0;"></i>
             <div>All customers</div>
-        </div>
-        <div class="btn bg-light border text-gray fs-l inline-flex" style="--c: #ccc;">
+            <i class="mdi mdi-chevron-down lh-1 px-10" style="--r:0;"></i>
+        </button>
+        <button class="btn bg-light center border text-dark fs-l inline-flex" style="--c: #ccc;">
             <i class="mdi mdi-pencil lh-1"></i>
-        </div>
+        </button>
     </div>
 </div>
 @stop

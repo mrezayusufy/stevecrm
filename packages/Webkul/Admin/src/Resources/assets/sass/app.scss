@@ -191,8 +191,10 @@ a:active, a:focus, a:hover, a:link, a:visited {
 }
 .px-10 {
     --p: 10px;
-    padding-left: var(--p) !important;
-    padding-right: var(--p) !important;
+    --l: var(--p);
+    --r: var(--p);
+    padding-left: var(--l) !important;
+    padding-right: var(--r) !important;
 }
 .px-20 {
     padding-left: 20px !important;
@@ -325,6 +327,16 @@ svg > circle {
 }
 .inline-flex {
     display: inline-flex;
+}
+.btn-group {
+    display: inline-flex;
+    & button:first-child {
+        border-radius: 5px 0 0 5px;
+        border-right: 0;
+    }
+    & button:last-child {
+        border-radius: 0 5px 5px 0;
+    }
 }
 .inline-block {
     display: inline-block;
