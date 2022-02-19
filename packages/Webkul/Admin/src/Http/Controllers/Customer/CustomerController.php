@@ -2,10 +2,7 @@
 
 namespace Webkul\Admin\Http\Controllers\Customer;
 
-use Illuminate\Support\Facades\Event;
 use Webkul\Admin\Http\Controllers\Controller;
-use Webkul\Attribute\Http\Requests\AttributeForm;
-use Webkul\Customer\Repositories\CustomerRepository;
 
 class CustomerController extends Controller
 {
@@ -14,7 +11,6 @@ class CustomerController extends Controller
      *
      * @var \Webkul\Customer\Repositories\CustomerRepository
      */
-    protected $personRepository;
 
     /**
      * Create a new controller instance.
@@ -23,11 +19,9 @@ class CustomerController extends Controller
      *
      * @return void
      */
-    public function __construct(CustomerRepository $personRepository)
+    public function __construct()
     {
-        $this->personRepository = $personRepository;
 
-        request()->request->add(['entity_type' => 'persons']);
     }
 
     /**
