@@ -8,9 +8,9 @@
         <div class="fs-xxl p-1 bold" style="--l:20px;">@yield('title')</div>
     </div>
 
-    <div class="navbar-top-right w-auto">
+    <div class="navbar-top-right w-auto flex center">
         @yield('navbar-top')
-        
+
         @if (bouncer()->hasPermission('leads.create')
             || bouncer()->hasPermission('quotes.create')
             || bouncer()->hasPermission('mail.create')
@@ -21,9 +21,9 @@
             || bouncer()->hasPermission('settings.user.roles.create')
             || bouncer()->hasPermission('settings.user.users.create')
         )
-            <div class="quick-create">
-                <span class="button dropdown-toggle">
-                    <i class="icon plus-white-icon"></i>
+            <div class="quick-create flex center">
+                <span class="bg-primary pill p-1 square lh-1 button dropdown-toggle" style="--w: 35px;">
+                    <i class="mdi mdi-plus fs-18" style="--m: 5px;"></i>
                 </span>
 
                 <div class="dropdown-list bottom-right">
@@ -33,7 +33,6 @@
                             <div class="quick-link-item">
                                 <a href="{{ route('admin.leads.create') }}">
                                     <i class="icon lead-icon"></i>
-
                                     <span>{{ __('admin::app.layouts.lead') }}</span>
                                 </a>
                             </div>

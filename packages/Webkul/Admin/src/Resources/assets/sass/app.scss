@@ -127,6 +127,14 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .border-gray {
     border: 1.5px solid #ddd;
 }
+.border-primary {
+    border-color: $brand-color;
+}
+.border {
+    --c: $brand-color;
+    --bb: 1px solid var(--c);
+    border: var(--bb);
+}
 .border-0 {
     border: 0 !important;
 }
@@ -144,16 +152,17 @@ a:active, a:focus, a:hover, a:link, a:visited {
     align-content: flex-start;
 }
 .bg-primary {
-    background-color: $brand-color;
-    color: $white;
+    background-color: $brand-color !important;
+    color: $white !important;
 }
+
 .grid-column-2 {
     --n: 2;
     grid-column: span var(--n) !important;
 }
 .m-0 {
     --m: 0;
-    margin: var(--m);
+    margin: var(--m) !important;
 }
 .ml-auto {
     margin-left: auto;
@@ -171,7 +180,7 @@ a:active, a:focus, a:hover, a:link, a:visited {
     --b: var(--p);
     --r: var(--p);
     --l: var(--p);
-    padding: var(--t) var(--r) var(--b) var(--l);
+    padding: var(--t) var(--r) var(--b) var(--l) !important;
 }
 .px-10 {
     --p: 10px;
@@ -212,6 +221,10 @@ a:active, a:focus, a:hover, a:link, a:visited {
     --w: 10%;
     width: var(--w);
 }
+.h-1 {
+    --h: 10%;
+    height: var(--h);
+}
 .w-25 {
     width: 3ch;
 }
@@ -220,9 +233,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
     color: #fff !important;
 }
 .square {
-    --p: 25px;
-    width: var(--p);
-    height: var(--p);
+    --w: 25px;
+    width: var(--w);
+    height: var(--w);
 }
 .fs-x {
     font-size: $font-size-xl;
@@ -325,13 +338,7 @@ svg > circle {
     }
 
     .navbar-top-right {
-        width: 50%;
-        height: 60px;
-        padding: 10px;
         text-align: right;
-        display: inline-block;
-        vertical-align: middle;
-
         .quick-create {
             display: inline-block;
             vertical-align: middle;

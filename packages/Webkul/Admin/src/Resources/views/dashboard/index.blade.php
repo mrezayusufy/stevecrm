@@ -3,10 +3,12 @@
 @section('page_title')
     {{ __('admin::app.dashboard.title') }}
 @stop
+@section('title')
+    {{ __('admin::app.dashboard.title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page dashboard">
-        <h1>{{ __('admin::app.dashboard.title') }}</h1>
         {!! view_render_event('admin.dashboard.index.filter.before') !!}
 
         <selected-cards-filter></selected-cards-filter>

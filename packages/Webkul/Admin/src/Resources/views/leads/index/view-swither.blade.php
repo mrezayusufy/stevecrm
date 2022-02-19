@@ -1,5 +1,5 @@
 <div class="switch-pipeline-container">
-    <div class="form-group m-0">
+    <div class="form-group m-0 px-10">
         @php
             $pipelineRepository = app('Webkul\Lead\Repositories\PipelineRepository');
 
@@ -8,7 +8,7 @@
             }
         @endphp
 
-        <select class="control" onchange="window.location.href = this.value">
+        <select class="control rounded " onchange="window.location.href = this.value">
             @foreach (app('Webkul\Lead\Repositories\PipelineRepository')->all() as $pipeline)
                 @php
                     if ($viewType = request('view_type')) {
@@ -23,7 +23,7 @@
 
                 <option value="{{ $url }}" {{ $pipelineId == $pipeline->id ? 'selected' : '' }}>
                     {{ $pipeline->name }}
-                </option> 
+                </option>
             @endforeach
         </select>
     </div>
@@ -31,20 +31,22 @@
 
 <div class="switch-view-container">
     @if (request('view_type'))
-        <a href="{{ route('admin.leads.index') }}" class="icon-container">
-            <i class="icon layout-column-line-icon"></i>
-        </a>
-
-        <a class="icon-container active">
-            <i class="icon table-line-active-icon"></i>
-        </a>
+        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary" style="padding: 15px 5px;">
+            <a href="{{ route('admin.leads.index') }}" class="px-10 p-5 pill lh-1 h-25 ">
+                Pipeline
+            </a>
+            <a class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
+                Table
+            </a>
+        </div>
     @else
-        <a  class="icon-container active">
-            <i class="icon layout-column-line-active-icon"></i>
-        </a>
-
-        <a href="{{ route('admin.leads.index', ['view_type' => 'table']) }}" class="icon-container">
-            <i class="icon table-line-icon"></i>
-        </a>
+        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary" style="padding: 15px 5px;">
+            <a class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
+                Pipeline
+            </a>
+            <a href="{{ route('admin.leads.index', ['view_type' => 'table']) }}" class="px-10 p-5 pill lh-1 h-25">
+                Table
+            </a>
+        </div>
     @endif
 </div>

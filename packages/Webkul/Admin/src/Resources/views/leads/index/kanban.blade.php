@@ -18,21 +18,19 @@
 {{ __('admin::app.leads.title') }}
 @stop
 @section('navbar-top')
-@if (bouncer()->hasPermission('leads.create'))
-    @include('admin::leads.index.view-swither')
-    <a href="{{ route('admin.leads.create') }}" class="btn btn-primary fs-xl m-0 p-1 border-0 inline-block middle" style="--m:0 10px; --p: 10px;">
-        <i class="mdi mdi-plus m-0 middle"></i>
-        {{ __('admin::app.leads.title') }}
-    </a>
-
-@endif
+    @if (bouncer()->hasPermission('leads.create'))
+        @include('admin::leads.index.view-swither')
+        <kanban-filters></kanban-filters>
+        <a href="{{ route('admin.leads.create') }}" class="btn btn-primary fs-xl m-0 p-1 border-0 inline-block middle" style="--m:0 10px; --p: 8px;">
+            <i class="mdi mdi-plus m-0 middle"></i>
+            {{ __('admin::app.leads.title') }}
+        </a>
+    @endif
 @stop
 <div class="content full-page">
     <div class="table">
 
         <div class="table-body viewport-height">
-            <kanban-filters></kanban-filters>
-
             <kanban-component></kanban-component>
         </div>
     </div>
@@ -40,13 +38,13 @@
 
 @push('scripts')
     <script type="text/x-template" id="kanban-filters-tempalte">
-        <div class="form-group datagrid-filters inline-block">
-            <div class="search-filter">
-                <i class="icon search-icon input-search-icon"></i>
+        <div class="form-group datagrid-filters flex center m-0 flex-end w-auto">
 
+            <div class="search-filter relative">
+                <i class="icon search-icon absolute m-0" style="--m:10px;"></i>
                 <input
                     type="search"
-                    class="control"
+                    class="control rounded p-1 m-0" style="--l: 35px;"
                     id="search-field"
                     :placeholder="__('ui.datagrid.search')"
                 />
@@ -54,13 +52,10 @@
 
             <sidebar-filter :columns="columns"></sidebar-filter>
 
-            <div class="filter-right">
-
-
+            <div class="filter-right px-10">
                 <div class="filter-btn">
                     <div class="grid-dropdown-header" @click="toggleSidebarFilter">
                         <span class="name">{{ __('ui::app.datagrid.filter.title') }}</span>
-
                         <i class="icon add-icon"></i>
                     </div>
                 </div>
