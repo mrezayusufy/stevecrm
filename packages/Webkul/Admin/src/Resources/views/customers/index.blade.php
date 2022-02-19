@@ -33,6 +33,14 @@
 @stop
 @section('content-wrapper')
 <div class="content full-page">
-    
+    <div class="inline-flex">
+        <div class="btn bg-light border text-gray fs-l inline-flex" style="--c: #ccc;">
+            <i class="mdi mdi-filter lh-1"></i>
+            <div>All customers</div>
+        </div>
+        <div class="btn bg-light border text-gray fs-l inline-flex" style="--c: #ccc;">
+            <i class="mdi mdi-pencil lh-1"></i>
+        </div>
+    </div>
 </div>
 @stop
