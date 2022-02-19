@@ -15,7 +15,6 @@
 
         {!! view_render_event('admin.dashboard.index.filter.after') !!}
 
-
         {!! view_render_event('admin.dashboard.index.cards.before') !!}
         <div class="grid grid-columns row-d g-10" style="--columns: repeat(3,1fr);">
             <div class="card grid-column-2 bg-white shadow-sm rounded">
@@ -26,6 +25,7 @@
                             <div class="bg-primary px-10 p-5 pill lh-1 h-25">Premium</div>
                             <div class="p-5 px-10 lh-1 h-25 text-secondary">Policies</div>
                         </div>
+
                     </div>
                     <div class="grid column grid-columns g-10 py-10" style="--columns: .5fr 1fr;">
                         <div class="grid row-d g-10 relative">
