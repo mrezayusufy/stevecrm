@@ -61,7 +61,7 @@ class DashboardController extends Controller
     }
     public function customer()
     {
-        return view('admin::customer.index');
+        return view('admin::customers.index');
     }
 
     /**

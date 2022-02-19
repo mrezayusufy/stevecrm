@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
             // Dashboard Route
             Route::get('dashboard', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard.index');
             // customers
-            Route::get('customer', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@customer')->name('admin.dashboard.customer');
+            // Route::get('customer', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@customer')->name('admin.customer.index');
 
             Route::get('template', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@template')->name('admin.dashboard.template');
 
@@ -123,7 +123,7 @@ Route::group(['middleware' => ['web']], function () {
                 'prefix'    => 'customers',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Customer',
             ], function () {
-                Route::get('', 'CustomerController@index')->name('admin.quotes.index');
+                Route::get('', 'CustomerController@index')->name('admin.customers.index');
             });
 
             Route::group([

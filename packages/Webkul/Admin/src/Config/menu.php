@@ -14,11 +14,11 @@ return [
         'sort'       => 2,
         'icon-class' => 'mdi-account-card-details',
     ], [
-        'key'        => 'quotes',
-        'name'       => 'admin::app.layouts.quotes',
-        'route'      => 'admin.quotes.index',
+        'key'        => 'customers',
+        'name'       => 'customers',
+        'route'      => 'admin.customers.index',
         'sort'       => 3,
-        'icon-class' => 'mdi-note-text',
+        'icon-class' => 'mdi-account-group',
     ], [
         'key'        => 'mail',
         'name'       => 'admin::app.layouts.mail.title',
