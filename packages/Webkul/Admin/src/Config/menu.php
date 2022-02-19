@@ -20,12 +20,6 @@ return [
         'sort'       => 3,
         'icon-class' => 'mdi-note-text',
     ], [
-        'key'        => 'customers',
-        'name'       => 'customers',
-        'route'      => 'admin.customers.index',
-        'sort'       => 3,
-        'icon-class' => 'mdi-acount-group',
-    ], [
         'key'        => 'mail',
         'name'       => 'admin::app.layouts.mail.title',
         'route'      => 'admin.mail.index',

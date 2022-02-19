@@ -59,6 +59,10 @@ class DashboardController extends Controller
     {
         return view('admin::dashboard.template');
     }
+    public function customer()
+    {
+        return view('admin::customer.index');
+    }
 
     /**
      * Returns json data for dashboard card.

@@ -31,6 +31,8 @@ Route::group(['middleware' => ['web']], function () {
 
             // Dashboard Route
             Route::get('dashboard', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard.index');
+            // customers
+            Route::get('customer', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@customer')->name('admin.dashboard.customer');
 
             Route::get('template', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@template')->name('admin.dashboard.template');
 
@@ -115,6 +117,13 @@ Route::group(['middleware' => ['web']], function () {
                 Route::delete('{id}', 'QuoteController@destroy')->name('admin.quotes.delete');
 
                 Route::put('mass-destroy', 'QuoteController@massDestroy')->name('admin.quotes.mass_delete');
+            });
+            // Customers Routes
+            Route::group([
+                'prefix'    => 'customers',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Customer',
+            ], function () {
+                Route::get('', 'CustomerController@index')->name('admin.quotes.index');
             });
 
             Route::group([
