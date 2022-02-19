@@ -32,7 +32,7 @@ class CustomerController extends Controller
     public function index()
     {
 
-        return view('admin::contacts.persons.index');
+        return view('admin::customers.index');
     }
 
 }
