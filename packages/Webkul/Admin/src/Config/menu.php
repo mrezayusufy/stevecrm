@@ -8,13 +8,13 @@ return [
         'sort'       => 1,
         'icon-class' => 'mdi-grid',
     ], 
-    // [
-    //     'key'        => 'task',
-    //     'name'       => 'task',
-    //     'route'      => 'admin.task.index',
-    //     'sort'       => 1,
-    //     'icon-class' => 'mdi-grid',
-    // ],
+    [
+        'key'        => 'task',
+        'name'       => 'task',
+        'route'      => 'admin.task.index',
+        'sort'       => 1,
+        'icon-class' => 'mdi-calendar-check-outline',
+    ],
      [
         'key'        => 'leads',
         'name'       => 'admin::app.layouts.leads',
