@@ -4,7 +4,7 @@
     <ul class="menubar flex column center">
         @foreach ($menu->items as $menuItem)
             <li
-                class="menu-item  {{ Menu::getActive($menuItem) }}"
+                class="menu-item p-5 {{ Menu::getActive($menuItem) }}"
                 title="{{ $menuItem['name'] }}"
                 @if (! count($menuItem['children'])
                     && $menuItem['key'] != 'configuration'
@@ -49,6 +49,6 @@
     </ul>
 
     <div class="menubar-bottom" @click="toggleMenu">
-        <span class="icon" v-bind:class="[isMenuOpen ? 'menu-fold-icon' : 'menu-unfold-icon']"></span>
+        <span class="mdi" v-bind:class="[isMenuOpen ? 'mdi-menu' : 'mdi-dots-vetical']"></span>
     </div>
 </div>

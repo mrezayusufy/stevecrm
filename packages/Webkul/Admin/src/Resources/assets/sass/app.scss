@@ -550,12 +550,14 @@ svg > circle {
             background: $brand-color;
             font-size: $font-size-sm;
             position: relative;
+            width: 100%;
             overflow: hidden;
             > a {
-                padding: 10px;
+                padding: 5px;
                 display: block;
                 width: 100%;
-                .icon, .mdi {
+                .mdi {
+                    padding: 5px;
                     color: $white;
                     display: inline-block;
                     vertical-align: middle;
@@ -600,10 +602,9 @@ svg > circle {
                     }
                 }
             }
-
+            // menuitem hover
             &.active, &:hover {
                 background-color: $brand-dark-color;
-                padding: 0 5px;
                 box-shadow: inset 3px 0 0 #fff;
             }
 
@@ -631,7 +632,6 @@ svg > circle {
 
     &.open {
         width: 160px;
-
         ul.menubar {
             li.menu-item {
                 a {
@@ -639,7 +639,7 @@ svg > circle {
                         font-size: 16px;
                         font-weight: 200;
                         display: inline-block;
-                        color: #B0BEC5;
+                        color: $white;
                     }
                 }
 
@@ -659,11 +659,11 @@ svg > circle {
                 }
 
                 &.active {
-                    background: #12171a;
+                    background: $brand-dark-color;
                     width: calc(100% - 1px);
 
                     .menu-label {
-                        color: $primary-color;
+                        color: $white;
                     }
 
                     ul.sub-menubar {
@@ -685,7 +685,7 @@ svg > circle {
 
                 &:hover {
                     .menu-label {
-                        color: $primary-color;
+                        color: $white;
                     }
                 }
             }
@@ -698,7 +698,8 @@ svg > circle {
         cursor: pointer;
         position: absolute;
         width: calc(100% - 1px);
-        background-color: $dark-color;
+        color: $white;
+        background-color: $brand-dark-color;
     }
 }
 

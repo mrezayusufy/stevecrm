@@ -144,7 +144,7 @@ Route::group(['middleware' => ['web']], function () {
                 'prefix'    => 'compensation',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Compensation',
             ], function () {
-                Route::get('', 'CompensationController@index')->name('admin.Compensations.index');
+                Route::get('', 'CompensationController@index')->name('admin.compensations.index');
             });
 
             Route::group([
