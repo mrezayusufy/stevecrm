@@ -76,12 +76,20 @@ return [
         'route'      => 'admin.activities.index',
         'sort'       => 5,
         'icon-class' => 'mdi-lightbulb-outline',
-    ], [
+    ], 
+    [
         'key'        => 'reports',
         'name'       => 'reports',
         'route'      => 'admin.reports.index',
         'sort'       => 5,
         'icon-class' => 'mdi-chart-areaspline',
+    ], 
+    [
+        'key'        => 'compensation',
+        'name'       => 'compensation',
+        'route'      => 'admin.compensations.index',
+        'sort'       => 5,
+        'icon-class' => 'mdi-cash-100',
     ], 
     // [
     //     'key'        => 'conversations',

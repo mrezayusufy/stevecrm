@@ -515,7 +515,24 @@ svg > circle {
         }
     }
 }
+.tooltip {
 
+  &.popover {
+    $color: #f9f9f9 !important;
+
+    .popover-inner {
+      background: $color;
+      color: black !important;
+      padding: 24px;
+      border-radius: 5px;
+      box-shadow: 0 5px 30px rgba(black, .1) !important;
+    }
+
+    .popover-arrow {
+      border-color: $color !important;
+    }
+  }
+}
 .navbar-left {
     left: 0;
     bottom: 0;
@@ -535,7 +552,7 @@ svg > circle {
             position: relative;
             overflow: hidden;
             > a {
-                padding: 16px 12px;
+                padding: 10px;
                 display: block;
                 width: 100%;
                 .icon, .mdi {
@@ -586,6 +603,8 @@ svg > circle {
 
             &.active, &:hover {
                 background-color: $brand-dark-color;
+                padding: 0 5px;
+                box-shadow: inset 3px 0 0 #fff;
             }
 
             &:hover {

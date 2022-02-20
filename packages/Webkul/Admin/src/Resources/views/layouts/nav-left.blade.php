@@ -1,10 +1,10 @@
 @php($menu = Menu::prepare())
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
-    <ul class="menubar">
+    <ul class="menubar flex column center">
         @foreach ($menu->items as $menuItem)
             <li
-                class="menu-item {{ Menu::getActive($menuItem) }}"
+                class="menu-item  {{ Menu::getActive($menuItem) }}"
                 title="{{ $menuItem['name'] }}"
                 @if (! count($menuItem['children'])
                     && $menuItem['key'] != 'configuration'

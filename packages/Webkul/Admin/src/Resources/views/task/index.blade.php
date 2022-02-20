@@ -17,10 +17,10 @@
           List
       </button>
   </div>
-  <button class="btn text-dark fs-x bg-white fs-l p-1 border-gray inline-block middle">
+  <button class="btn text-dark fs-x bg-white fs-l p-1 border-gray inline-block middle px-20">
       <i class="mdi mdi-magnify m-0 middle"></i> Filter
   </button>
-  <button class="btn btn-primary fs-l p-1 border-0 inline-block middle" style="--m:0 10px; --p: 10px;">
+  <button class="btn btn-primary fs-l p-1 border-0 inline-block middle px-20" style="--m:0 10px; --p: 10px;">
       <i class="mdi mdi-plus m-0 middle"></i> Task
   </button> 
 </div>
