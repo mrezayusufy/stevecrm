@@ -2,12 +2,20 @@
 
 return [
     [
-        'key'        => 'dashboard ssss',
+        'key'        => 'dashboard',
         'name'       => 'admin::app.layouts.dashboard',
         'route'      => 'admin.dashboard.index',
         'sort'       => 1,
         'icon-class' => 'mdi-grid',
-    ], [
+    ], 
+    // [
+    //     'key'        => 'task',
+    //     'name'       => 'task',
+    //     'route'      => 'admin.task.index',
+    //     'sort'       => 1,
+    //     'icon-class' => 'mdi-grid',
+    // ],
+     [
         'key'        => 'leads',
         'name'       => 'admin::app.layouts.leads',
         'route'      => 'admin.leads.index',
@@ -62,21 +70,27 @@ return [
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'trash'],
         'sort'       => 5,
-    ]
-    // , [
-    //     'key'        => 'mail.setting',
-    //     'name'       => 'admin::app.layouts.mail.setting',
-    //     'route'      => 'admin.mail.index',
-    //     'params'     => ['route' => 'setting'],
-    //     'sort'       => 5,
-    // ]
-    , [
+    ], [
         'key'        => 'activities',
         'name'       => 'admin::app.layouts.activities',
         'route'      => 'admin.activities.index',
         'sort'       => 5,
         'icon-class' => 'mdi-lightbulb-outline',
     ], [
+        'key'        => 'reports',
+        'name'       => 'reports',
+        'route'      => 'admin.reports.index',
+        'sort'       => 5,
+        'icon-class' => 'mdi-chart-areaspline',
+    ], 
+    // [
+    //     'key'        => 'conversations',
+    //     'name'       => 'conversations',
+    //     'route'      => 'admin.conversations.index',
+    //     'sort'       => 5,
+    //     'icon-class' => 'mdi-chart-areaspline',
+    // ], 
+    [
         'key'        => 'contacts',
         'name'       => 'admin::app.layouts.contacts',
         'route'      => 'admin.contacts.persons.index',

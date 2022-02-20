@@ -23,7 +23,7 @@
         )
             <div class="quick-create flex center">
                 <span class="bg-primary pill p-1 square lh-1 button dropdown-toggle" style="--w: 35px;">
-                    <i class="mdi mdi-plus fs-18" style="--m: 5px;"></i>
+                    <i class="mdi mdi-plus fs-18 lh-1" style="--m: 5px;"></i>
                 </span>
 
                 <div class="dropdown-list bottom-right">

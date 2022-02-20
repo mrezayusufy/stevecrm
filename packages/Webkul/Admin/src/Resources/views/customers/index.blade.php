@@ -35,9 +35,9 @@
 <div class="content full-page">
     <div class="btn-group dropdown-open">
         <button class="btn fs-s bg-light border relative center text-dark fs-l inline-flex dropdown-toggle" style="--c: #ccc;">
-            <i class="mdi mdi-filter lh-1 px-10" style="--l:0;"></i>
+            <i class="mdi mdi-filter px-10"></i>
             <div>All customers</div>
-            <i class="mdi mdi-chevron-down lh-1 px-10" style="--r:0;"></i>
+            <i class="mdi mdi-chevron-down px-10" style="--r:0;"></i>
             <div class="dropdown-list bottom-right left m-0 rounded hidden" style="--m: 2px;">
                 <ul>
                     <li class="p-1 h-light uline px-20">All Customers</li>
@@ -46,8 +46,16 @@
             </div>
         </button>
         <button class="btn bg-light center border fs-l inline-flex" style="--c: #ccc;">
-            <i class="mdi mdi-pencil lh-1"></i>
+            <i class="mdi mdi-pencil"></i>
         </button>
     </div>
 </div>
 @stop
+
+@push('scripts')
+<script type="text/x-template" id="tree-select-template">
+    <treeselect v-model="value" :multiple="true" :options="options" />
+</script>
+<script>
+</script>
+@endpush

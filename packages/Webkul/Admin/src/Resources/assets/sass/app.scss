@@ -15,6 +15,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
     color: $link-color !important;
     text-decoration: none !important;
 }
+.mdi {
+    line-height: 0;
+}
 .none {
     display: none !important;
 }

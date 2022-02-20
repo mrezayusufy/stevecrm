@@ -125,6 +125,13 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'CustomerController@index')->name('admin.customers.index');
             });
+            // reports routes
+            Route::group([
+                'prefix'    => 'reports',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Report',
+            ], function () {
+                Route::get('', 'ReportController@index')->name('admin.reports.index');
+            });
 
             Route::group([
                 'prefix'    => 'activities',

@@ -4,9 +4,9 @@ import VueTimeago from 'vue-timeago';
 import VeeValidate from 'vee-validate';
 import VueKanban from 'vue-kanban';
 import VueCal from 'vue-cal'
-
-import 'vue-cal/dist/vuecal.css'
-
+import Treeselect from "@riophae/vue-treeselect";
+import '@riophae/vue-treeselect/dist/vue-treeselect.css'
+import 'vue-cal/dist/vuecal.css';
 import './bootstrap';
 window.moment = require('moment');
 
@@ -25,7 +25,7 @@ Vue.use(VueKanban);
 Vue.use(VueTimeago, {name: 'Timeago', locale: 'en'})
 
 Vue.component('draggable', draggable);
-
+Vue.component('treeselect', Treeselect.Treeselect)
 Vue.component('vue-cal', VueCal);
 
 $(function() {
@@ -35,11 +35,9 @@ $(function() {
         data: function () {
             return {
                 pageLoaded: false,
-
-                modalIds: {},
-
-                isMenuOpen: localStorage.getItem('crm-sidebar') == 'true',
-            }
+                modalIds: {}, 
+                isMenuOpen: localStorage.getItem("crm-sidebar") == "true",
+            };
         },
 
         mounted() {

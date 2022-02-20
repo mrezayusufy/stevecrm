@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@riophae/vue-treeselect": "^0.4.0",
         "moment": "^2.29.1",
         "vee-validate": "^2.2.15",
         "vue-cal": "^3.10.1",

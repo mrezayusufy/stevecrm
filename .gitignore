@@ -14,6 +14,7 @@ Homestead.json
 Homestead.yaml
 /ignorables/*
 /node_modules
+packages/Webkul/Admin/node_modules
 npm-debug.log
 package-lock.json
 /public/css
