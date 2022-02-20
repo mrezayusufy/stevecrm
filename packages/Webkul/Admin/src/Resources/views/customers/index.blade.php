@@ -33,13 +33,19 @@
 @stop
 @section('content-wrapper')
 <div class="content full-page">
-    <div class="btn-group">
-        <button class="btn bg-light border center text-dark fs-l inline-flex" style="--c: #ccc;">
+    <div class="btn-group dropdown-open">
+        <button class="btn fs-s bg-light border relative center text-dark fs-l inline-flex dropdown-toggle" style="--c: #ccc;">
             <i class="mdi mdi-filter lh-1 px-10" style="--l:0;"></i>
             <div>All customers</div>
             <i class="mdi mdi-chevron-down lh-1 px-10" style="--r:0;"></i>
+            <div class="dropdown-list bottom-right left m-0 rounded hidden" style="--m: 2px;">
+                <ul>
+                    <li class="p-1 h-light uline px-20">All Customers</li>
+                    <li class="p-1 h-light uline text-primary px-20"> <i class="mdi mdi-plus "></i> Add A new Segment</li>
+                </ul>
+            </div>
         </button>
-        <button class="btn bg-light center border text-dark fs-l inline-flex" style="--c: #ccc;">
+        <button class="btn bg-light center border fs-l inline-flex" style="--c: #ccc;">
             <i class="mdi mdi-pencil lh-1"></i>
         </button>
     </div>
