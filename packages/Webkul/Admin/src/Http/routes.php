@@ -139,6 +139,13 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'TaskController@index')->name('admin.task.index');
             });
+            // compensation routes
+            Route::group([
+                'prefix'    => 'compensation',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Compensation',
+            ], function () {
+                Route::get('', 'CompensationController@index')->name('admin.Compensations.index');
+            });
 
             Route::group([
                 'prefix'    => 'activities',
