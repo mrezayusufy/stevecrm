@@ -49,6 +49,6 @@
     </ul>
 
     <div class="menubar-bottom" @click="toggleMenu">
-        <span class="mdi" v-bind:class="[isMenuOpen ? 'mdi-menu' : 'mdi-dots-vetical']"></span>
+        <span class="mdi" v-bind:class="[isMenuOpen ? 'mdi-menu' : 'mdi-dots-vertical']"></span>
     </div>
 </div>
