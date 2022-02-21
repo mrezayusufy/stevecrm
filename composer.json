@@ -1,7 +1,7 @@
 {
-    "name": "krayin/laravel-crm",
+    "name": "steve/laravel-crm",
     "type": "project",
-    "description": "Krayin CRM",
+    "description": "Steve CRM",
     "keywords": [
         "framework",
         "laravel"
