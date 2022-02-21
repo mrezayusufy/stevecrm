@@ -3,6 +3,9 @@
 @section('page_title')
     {{ __('admin::app.activities.title') }}
 @stop
+@section('title')
+    {{ __('admin::app.activities.title') }}
+@stop
 
 @section('content-wrapper')
     @php

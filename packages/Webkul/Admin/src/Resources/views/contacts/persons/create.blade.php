@@ -4,21 +4,12 @@
     {{ __('admin::app.contacts.persons.create-title') }}
 @stop
 
+@section('title')
+    {{ __('admin::app.contacts.persons.create-title') }}
+@stop
+
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-
-        {!! view_render_event('admin.contacts.persons.create.header.before') !!}
-
-        <div class="page-header">
-
-            {{ Breadcrumbs::render('contacts.persons.create') }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.contacts.persons.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.contacts.persons.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.contacts.persons.store') }}" @submit.prevent="onSubmit" enctype="multipart/form-data">
 

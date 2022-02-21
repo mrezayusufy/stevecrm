@@ -4,6 +4,10 @@
     {{ __('admin::app.settings.attributes.edit-title') }}
 @stop
 
+@section('title')
+    {{ __('admin::app.settings.attributes.edit-title') }}
+@stop
+
 @push('css')
     <style>
         #options > div {
@@ -15,18 +19,6 @@
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.attributes.edit.header.before', ['attribute' => $attribute]) !!}
-
-        <div class="page-header">
-
-            {{ Breadcrumbs::render('settings.attributes.edit', $attribute) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.attributes.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.attributes.edit.header.after', ['attribute' => $attribute]) !!}
 
         <form method="POST" action="{{ route('admin.settings.attributes.update', $attribute->id) }}" @submit.prevent="onSubmit">
 

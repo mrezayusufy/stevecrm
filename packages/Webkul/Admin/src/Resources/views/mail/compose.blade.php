@@ -3,22 +3,13 @@
 @section('page_title')
     {{ __('admin::app.mail.compose') }}
 @stop
+@section('title')
+    {{ __('admin::app.mail.compose') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
 
-        {!! view_render_event('admin.mail.compose.header.before', ['email' => $email ?? null]) !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('mail.route', request('route')) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.mail.compose') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.mail.compose.header.after', ['email' => $email ?? null]) !!}
 
         <div class="page-content">
 

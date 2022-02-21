@@ -732,7 +732,7 @@ svg > circle {
 
                 &.active {
                     background: $brand-dark-color;
-                    width: calc(100% - 1px);
+                    width: 100%;
 
                     .menu-label {
                         color: $white;

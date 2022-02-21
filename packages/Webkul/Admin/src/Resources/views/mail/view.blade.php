@@ -3,6 +3,9 @@
 @section('page_title')
     {{ $email->subject }}
 @stop
+@section('title')
+    {{ $email->subject }}
+@stop
 
 @section('css')
     <style>
@@ -34,11 +37,6 @@
 
         <div class="page-header">
             
-            {{ Breadcrumbs::render('mail.route.view', request('route'), $email) }}
-
-            <div class="page-title">
-                <h1>{{ $email->subject }}</h1>
-            </div>
 
             <div class="page-action">
 

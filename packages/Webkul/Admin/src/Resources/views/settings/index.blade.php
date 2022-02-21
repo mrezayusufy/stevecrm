@@ -3,20 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page">
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings') }}
-
-            <div class="page-title">
-                <h1>
-                    {{ __('admin::app.settings.title') }}
-                </h1>
-            </div>
-        </div>
 
         <div class="page-content settings-container">
             @php($menu = Menu::prepare())
