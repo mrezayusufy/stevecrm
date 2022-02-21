@@ -299,6 +299,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .text-dark {
     color: $dark-color;
 }
+.text-white {
+    color: $white;
+}
 .text-secondary {
     color: $secondary-color;
 }
@@ -364,12 +367,15 @@ svg > circle {
 .navbar-top {
     height: 60px;
     background-color: $white;
-    font-size: 0;
     position: fixed;
     left: 0;
     right: 0;
     z-index: 5;
-
+    margin-left: auto;
+    width: calc(100vw - 48px);
+    &.open {
+        width: calc(100vw - 160px)
+    }
     .navbar-top-left {
         .brand-logo {
             padding: 10px 5px;
@@ -536,7 +542,7 @@ svg > circle {
 .navbar-left {
     left: 0;
     bottom: 0;
-    top: 60px;
+    top: 0;
     z-index: 2;
     width: 48px;
     height: auto;
@@ -629,7 +635,7 @@ svg > circle {
             }
         }
     }
-
+    
     &.open {
         width: 160px;
         ul.menubar {

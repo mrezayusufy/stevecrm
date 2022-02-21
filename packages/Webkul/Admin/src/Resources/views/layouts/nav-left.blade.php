@@ -1,6 +1,11 @@
 @php($menu = Menu::prepare())
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
+    <div class="brand-logo flex text-white">
+        <a href="{{ route('admin.dashboard.index') }}" class="fs-xl">
+            Steve<strong><i>CRM</i></strong>
+        </a>
+    </div>
     <ul class="menubar flex column center">
         @foreach ($menu->items as $menuItem)
             <li

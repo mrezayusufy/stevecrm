@@ -91,6 +91,13 @@ return [
         'sort'       => 5,
         'icon-class' => 'mdi-cash-100',
     ], 
+    [
+        'key'        => 'automation',
+        'name'       => 'automation',
+        'route'      => 'admin.automation.index',
+        'sort'       => 5,
+        'icon-class' => 'mdi-rocket',
+    ], 
     // [
     //     'key'        => 'conversations',
     //     'name'       => 'conversations',

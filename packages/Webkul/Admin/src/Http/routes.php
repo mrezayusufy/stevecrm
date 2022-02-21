@@ -146,6 +146,13 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'CompensationController@index')->name('admin.compensations.index');
             });
+            // automation routes
+            Route::group([
+                'prefix'    => 'automation',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Automation',
+            ], function () {
+                Route::get('', 'AutomationController@index')->name('admin.automation.index');
+            });
 
             Route::group([
                 'prefix'    => 'activities',
