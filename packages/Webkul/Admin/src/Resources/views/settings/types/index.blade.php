@@ -3,27 +3,21 @@
 @section('page_title')
     {{ __('admin::app.settings.types.title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.types.title') }}
+@stop
+@section('navbar-top')
+<div class="flex px-10">
+    @if (bouncer()->hasPermission('settings.lead.types.create'))
+        <button class="btn btn-md btn-primary" @click="openModal('addTypeModal')">{{ __('admin::app.settings.types.create-title') }}</button>
+    @endif
+</div>
+@stop
 
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.types.index') }}">
-            <template v-slot:table-header>
-                <h1>
-                    {!! view_render_event('admin.settings.types.index.header.before') !!}
 
-                    {{ Breadcrumbs::render('settings.types') }}
-
-                    {{ __('admin::app.settings.types.title') }}
-
-                    {!! view_render_event('admin.settings.types.index.header.after') !!}
-                </h1>
-            </template>
-
-            @if (bouncer()->hasPermission('settings.lead.types.create'))
-                <template v-slot:table-action>
-                    <button class="btn btn-md btn-primary" @click="openModal('addTypeModal')">{{ __('admin::app.settings.types.create-title') }}</button>
-                </template>
-            @endif
         <table-component>
     </div>
 

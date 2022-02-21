@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.types.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.types.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.types.edit.header.before', ['type' => $type]) !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.types.edit', $type) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.types.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.types.edit.header.after', ['type' => $type]) !!}
 
         <form method="POST" action="{{ route('admin.settings.types.update', ['id' => $type->id]) }}" @submit.prevent="onSubmit">
             <div class="page-content">

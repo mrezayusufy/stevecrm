@@ -3,27 +3,19 @@
 @section('page_title')
     {{ __('admin::app.settings.sources.title') }}
 @stop
-
+@section('title')
+    {{ __('admin::app.settings.sources.title') }}
+@stop
+@section('navbar-top')
+<div class="flex px-10">
+    @if (bouncer()->hasPermission('settings.lead.sources.create'))
+        <button class="btn btn-md btn-primary" @click="openModal('addSourceModal')">{{ __('admin::app.settings.sources.create-title') }}</button>
+    @endif
+</div>
+@stop
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.sources.index') }}">
-            <template v-slot:table-header>
-                <h1>
-                    {!! view_render_event('admin.settings.sources.index.header.before') !!}
-
-                    {{ Breadcrumbs::render('settings.sources') }}
-
-                    {{ __('admin::app.settings.sources.title') }}
-
-                    {!! view_render_event('admin.settings.sources.index.header.after') !!}
-                </h1>
-            </template>
-
-            @if (bouncer()->hasPermission('settings.lead.sources.create'))
-                <template v-slot:table-action>
-                    <button class="btn btn-md btn-primary" @click="openModal('addSourceModal')">{{ __('admin::app.settings.sources.create-title') }}</button>
-                </template>
-            @endif
         <table-component>
     </div>
 

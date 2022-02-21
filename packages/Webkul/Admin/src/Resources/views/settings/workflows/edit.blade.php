@@ -3,21 +3,15 @@
 @section('page_title')
     {{ __('admin::app.settings.workflows.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.workflows.edit-title') }}
+@stop
+@section('navbar-top')
+    {{ __('admin::app.settings.workflows.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.workflows.edit.header.before') !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.workflows.edit', $workflow) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.workflows.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.workflows.edit.header.after') !!}
 
         <form method="POST" action="{{ route('admin.settings.workflows.update', $workflow->id) }}" @submit.prevent="onSubmit">
             <div class="page-content">

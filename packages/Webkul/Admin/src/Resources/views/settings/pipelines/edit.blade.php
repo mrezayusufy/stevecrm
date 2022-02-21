@@ -3,20 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.pipelines.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.pipelines.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.pipelines.edit.header.before', ['pipeline' => $pipeline]) !!}
-
-        <div class="page-header">
-            {{ Breadcrumbs::render('settings.pipelines.edit', $pipeline) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.pipelines.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.pipelines.edit.header.after', ['pipeline' => $pipeline]) !!}
 
         <form method="POST" action="{{ route('admin.settings.pipelines.update', $pipeline->id) }}" @submit.prevent="onSubmit">
             <div class="page-content">

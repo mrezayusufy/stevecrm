@@ -3,6 +3,16 @@
 @section('page_title')
     {{ __('admin::app.settings.tags.title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.tags.title') }}
+@stop
+@section('navbar-top')
+<div class="flex px-10">
+    @if (bouncer()->hasPermission('settings.other_settings.tags.create'))
+        <button class="btn btn-md btn-primary" @click="openModal('addTagModal')">{{ __('admin::app.settings.tags.create-title') }}</button>
+    @endif
+</div>
+@stop
 
 @section('css')
     <style>
@@ -41,23 +51,7 @@
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.tags.index') }}">
-            <template v-slot:table-header>
-                <h1>
-                    {!! view_render_event('admin.settings.tags.index.header.before') !!}
 
-                    {{ Breadcrumbs::render('settings.tags') }}
-
-                    {{ __('admin::app.settings.tags.title') }}
-
-                    {!! view_render_event('admin.settings.tags.index.header.after') !!}
-                </h1>
-            </template>
-
-            @if (bouncer()->hasPermission('settings.other_settings.tags.create'))
-                <template v-slot:table-action>
-                    <button class="btn btn-md btn-primary" @click="openModal('addTagModal')">{{ __('admin::app.settings.tags.create-title') }}</button>
-                </template>
-            @endif
         <table-component>
     </div>
 

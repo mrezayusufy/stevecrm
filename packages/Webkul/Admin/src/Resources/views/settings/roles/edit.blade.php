@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.roles.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.roles.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.roles.edit.header.before', ['role' => $role]) !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.roles.edit', $role) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.roles.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.roles.edit.header.after', ['role' => $role]) !!}
 
         <form method="POST" action="{{ route('admin.settings.roles.update', ['id' => $role->id]) }}" @submit.prevent="onSubmit">
             <div class="page-content">

@@ -3,29 +3,21 @@
 @section('page_title')
     {{ __('admin::app.settings.pipelines.title') }}
 @stop
-
+@section('title')
+    {{ __('admin::app.settings.pipelines.title') }}
+@stop
+@section('navbar-top')
+@if (bouncer()->hasPermission('settings.lead.pipelines.create'))
+<div class="flex px-10">
+    <button href="{{ route('admin.settings.pipelines.create') }}" class="btn btn-md btn-primary">
+        {{ __('admin::app.settings.pipelines.create-title') }}
+    </button>
+</div>
+@endif
+@stop
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.pipelines.index') }}">
-            <template v-slot:table-header>
-                <h1>
-                    {!! view_render_event('admin.settings.pipelines.index.header.before') !!}
-
-                    {{ Breadcrumbs::render('settings.pipelines') }}
-
-                    {{ __('admin::app.settings.pipelines.title') }}
-
-                    {!! view_render_event('admin.settings.pipelines.index.header.after') !!}
-                </h1>
-            </template>
-
-            @if (bouncer()->hasPermission('settings.lead.pipelines.create'))
-                <template v-slot:table-action>
-                    <a href="{{ route('admin.settings.pipelines.create') }}" class="btn btn-md btn-primary">
-                        {{ __('admin::app.settings.pipelines.create-title') }}
-                    </button>
-                </template>
-            @endif
         <table-component>
     </div>
 @stop

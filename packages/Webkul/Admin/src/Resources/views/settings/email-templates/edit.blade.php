@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.email-templates.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.email-templates.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.email_templates.edit.header.before', ['emailTemplate' => $emailTemplate]) !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.email_templates.edit', $emailTemplate) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.email-templates.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.email_templates.edit.header.after', ['emailTemplate' => $emailTemplate]) !!}
 
         <form method="POST" action="{{ route('admin.settings.email_templates.update', ['id' => $emailTemplate->id]) }}" @submit.prevent="onSubmit">
             <div class="page-content">
