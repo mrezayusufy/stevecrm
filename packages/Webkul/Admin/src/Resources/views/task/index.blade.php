@@ -54,13 +54,11 @@
             </div>
         </div>
         <div class="absolute right flex column px-10" >
-            <div class="c bold fs-xl flex py-10 self-end">
+            <div class="c bold fs-xl flex py-10 self-end" style="--t: 0;">
                 progress
                 <div class="px-10 text-gray">0 / 0</div>
             </div>
-            <div class="bg-gray square pill" style="--w: 300px; --h: 10px;">
-
-            </div>
+            <div class="bg-gray square pill" style="--w: 300px; --h: 10px;"></div>
         </div>
     </section>
 </div>
