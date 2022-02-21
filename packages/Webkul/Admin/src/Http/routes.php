@@ -153,6 +153,13 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'AutomationController@index')->name('admin.automation.index');
             });
+            // conversations routes
+            Route::group([
+                'prefix'    => 'conversations',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Conversation',
+            ], function () {
+                Route::get('', 'ConversationController@index')->name('admin.conversations.index');
+            });
 
             Route::group([
                 'prefix'    => 'activities',

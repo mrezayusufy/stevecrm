@@ -2,7 +2,7 @@
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
     <div class="menubar-bottom pill shadow-sm relative text-gray border-gray" @click="toggleMenu">
-        <span class="mdi absolute right" style="margin-right: 2px;" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
+        <span class="mdi absolute right" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
     </div>
     <div class="text-white p-1 flex lh-1" v-bind:class="[isMenuOpen ? 'fs-xxl row' : 'fs-xs column']">
         <div>Steve</div><div class="bold italic"><strong>CRM</strong></div>

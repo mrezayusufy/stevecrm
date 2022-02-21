@@ -290,6 +290,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .o-2 {
     opacity: 0.2;
 }
+.c {
+    text-transform: capitalize;
+}
 .text-primary {
     color: $brand-color;
 }
@@ -711,6 +714,9 @@ svg > circle {
         width: 10px;
         height: 10px;
         background-color: $white;
+        &.mdi {
+            margin-right: 3px;
+        }
     }
 }
 
