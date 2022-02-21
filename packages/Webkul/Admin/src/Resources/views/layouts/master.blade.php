@@ -24,6 +24,7 @@
 
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('tailwind/app.css') }}"> --}}
         {{-- <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/fonts/agencyzoom-logo/style.css') }}">
         @yield('head')
