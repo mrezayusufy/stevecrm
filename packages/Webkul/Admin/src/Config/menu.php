@@ -105,13 +105,6 @@ return [
         'sort'       => 5,
         'icon-class' => 'mdi-chat',
     ], 
-    // [
-    //     'key'        => 'conversations',
-    //     'name'       => 'conversations',
-    //     'route'      => 'admin.conversations.index',
-    //     'sort'       => 5,
-    //     'icon-class' => 'mdi-chart-areaspline',
-    // ], 
     [
         'key'        => 'contacts',
         'name'       => 'admin::app.layouts.contacts',

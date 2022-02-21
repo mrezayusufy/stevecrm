@@ -1,14 +1,14 @@
 {
-    "name": "krayin/laravel-crm",
+    "name": "steve/laravel-crm",
     "type": "project",
-    "description": "Krayin CRM",
+    "description": "Steve CRM",
     "keywords": [
         "framework",
         "laravel"
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3.0",
         "barryvdh/laravel-dompdf": "^0.9.0",
         "diglactic/laravel-breadcrumbs": "^7.0",
         "doctrine/dbal": "^3.1",

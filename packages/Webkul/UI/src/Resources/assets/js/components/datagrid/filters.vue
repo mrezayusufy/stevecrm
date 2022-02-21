@@ -12,7 +12,7 @@
 
                     <input
                         type="search"
-                        class="control"
+                        class="control rounded"
                         id="search-field"
                         v-model="searchValue"
                         :placeholder="__('ui.datagrid.search')"

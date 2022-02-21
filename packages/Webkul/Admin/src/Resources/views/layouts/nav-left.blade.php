@@ -2,7 +2,7 @@
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
     <div class="menubar-bottom pill shadow-sm relative text-gray border-gray" @click="toggleMenu">
-        <span class="mdi absolute right" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
+        <span class="mdi absolute right m-0" style="--m:0 2.5px;" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
     </div>
     <div class="text-white p-1 flex lh-1" v-bind:class="[isMenuOpen ? 'fs-xxl row' : 'fs-xs column']">
         <div>Steve</div><div class="bold italic"><strong>CRM</strong></div>
@@ -24,7 +24,7 @@
 
                 <a href="{{ $menuItem['url'] }}">
                     <i class="mdi fs-l sprite {{ $menuItem['icon-class'] }}"></i>
-                    <span class="menu-label">{{ $menuItem['name'] }}</span>
+                    <span class="menu-label c">{{ $menuItem['name'] }}</span>
                 </a>
 
                 @if ($menuItem['key'] != 'configuration')

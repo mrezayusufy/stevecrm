@@ -3,6 +3,9 @@
 @section('page_title')
     {{ __('admin::app.settings.attributes.create-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.attributes.create-title') }}
+@stop
 
 @push('css')
     <style>
@@ -15,18 +18,6 @@
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.attributes.create.header.before') !!}
-
-        <div class="page-header">
-
-            {{ Breadcrumbs::render('settings.attributes.create') }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.attributes.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.attributes.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.settings.attributes.store') }}" @submit.prevent="onSubmit">
 

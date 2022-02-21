@@ -46,6 +46,17 @@ a:active, a:focus, a:hover, a:link, a:visited {
     gap: 10px;
     grid-gap: 10px;
 }
+.mb-50 {
+    margin-bottom: 50px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+.gap {
+    --g: 10px;
+    gap: var(--g);
+    grid-gap: var(--g);
+}
 .relative {
     position: relative;
 }
@@ -96,13 +107,40 @@ a:active, a:focus, a:hover, a:link, a:visited {
     align-items: center;
     justify-content: center;
 }
-
+.self-end {
+    align-self: end;
+}
+.self-start {
+    align-self: start;
+}
 .justify-center {
     justify-content: center;
 }
+.line-off::after {
+    height: 0;
+}
+.line::after {
+    content: "";
+    width: 2px;
+    height: var(--h);
+    background: #c2c2c2;
+    position: absolute;
+    left: 17px;
+    top: 7px;
+    z-index: 1;
+}
 
+.z-2 {
+    z-index: 2;
+}
+.before::after{
+    content: "";
+}
 .content-center {
     align-content: center;
+}
+.items-center {
+    align-items: center;
 }
 
 .space-between {
@@ -146,8 +184,13 @@ a:active, a:focus, a:hover, a:link, a:visited {
     border-color: $brand-color;
 }
 .border {
-    --c: $brand-color;
+    --c: #ddd;
     --bb: 1px solid var(--c);
+    border: var(--bb);
+}
+.border-2 {
+    --c: #ddd;
+    --bb: 2px solid var(--c);
     border: var(--bb);
 }
 .border-0 {
@@ -163,7 +206,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
     --color: #53C41A;
     box-shadow: inset 0px -5px 0px 0px var(--color);
 }
-
+.border-sh {
+    box-shadow: inset 0px 0px 0px 2px #eee;
+}
 .bg-primary {
     background-color: $brand-color !important;
     color: $white !important;
@@ -249,6 +294,10 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .uline {
     box-shadow: inset 0 -1px #eee;
 }
+.btn {
+    padding: 7px;
+}
+
 .btn.btn-primary {
         background: $brand-color;
         color: #fff !important;
@@ -260,8 +309,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
 }
 .square {
     --w: 25px;
+    --h: var(--w);
     width: var(--w);
-    height: var(--w);
+    height: var(--h);
 }
 .fs-x {
     font-size: $font-size-xl;
@@ -293,6 +343,16 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .c {
     text-transform: capitalize;
 }
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
 .text-primary {
     color: $brand-color;
 }
@@ -672,7 +732,7 @@ svg > circle {
 
                 &.active {
                     background: $brand-dark-color;
-                    width: calc(100% - 1px);
+                    width: 100%;
 
                     .menu-label {
                         color: $white;
@@ -2401,7 +2461,7 @@ body {
                 border: 1px solid;
                 border-radius: 4px;
                 height: 36px;
-                padding: 7px;
+                padding: 8px;
 
                 &:first-child {
                     border-top-right-radius: 0;
