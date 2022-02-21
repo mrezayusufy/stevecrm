@@ -1,10 +1,11 @@
 @php($menu = Menu::prepare())
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
-    <div class="brand-logo flex text-white">
-        <a href="{{ route('admin.dashboard.index') }}" class="fs-xl">
-            Steve<strong><i>CRM</i></strong>
-        </a>
+    <div class="menubar-bottom pill shadow-sm relative text-gray border-gray" @click="toggleMenu">
+        <span class="mdi absolute right" style="margin-right: 2px;" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
+    </div>
+    <div class="text-white p-1 flex lh-1" v-bind:class="[isMenuOpen ? 'fs-xxl row' : 'fs-xs column']">
+        <div>Steve</div><div class="bold italic"><strong>CRM</strong></div>
     </div>
     <ul class="menubar flex column center">
         @foreach ($menu->items as $menuItem)
@@ -53,7 +54,5 @@
         @endforeach
     </ul>
 
-    <div class="menubar-bottom" @click="toggleMenu">
-        <span class="mdi" v-bind:class="[isMenuOpen ? 'mdi-menu' : 'mdi-dots-vertical']"></span>
-    </div>
+    
 </div>

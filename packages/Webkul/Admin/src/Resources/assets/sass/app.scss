@@ -156,6 +156,9 @@ a:active, a:focus, a:hover, a:link, a:visited {
 .bold {
     font-weight: 500;
 }
+.italic {
+    font-style: italic;
+}
 .shadow-inset {
     --color: #53C41A;
     box-shadow: inset 0px -5px 0px 0px var(--color);
@@ -370,7 +373,7 @@ svg > circle {
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 5;
+    z-index: 2;
     margin-left: auto;
     width: calc(100vw - 48px);
     &.open {
@@ -699,13 +702,15 @@ svg > circle {
     }
 
     .menubar-bottom {
+        top: 10px;
+        right: -16px;
         bottom: 0;
         padding: 12px;
         cursor: pointer;
         position: absolute;
-        width: calc(100% - 1px);
-        color: $white;
-        background-color: $brand-dark-color;
+        width: 10px;
+        height: 10px;
+        background-color: $white;
     }
 }
 
