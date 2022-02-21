@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.workflows.create-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.workflows.create-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.workflows.create.header.before') !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.workflows.create') }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.workflows.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.workflows.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.settings.workflows.store') }}" @submit.prevent="onSubmit">
             <div class="page-content">

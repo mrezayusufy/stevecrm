@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.email-templates.create-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.email-templates.create-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.email_templates.create.header.before') !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.email_templates.create') }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.email-templates.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.email_templates.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.settings.email_templates.store') }}" @submit.prevent="onSubmit">
             <div class="page-content">

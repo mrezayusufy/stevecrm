@@ -3,21 +3,12 @@
 @section('page_title')
     {{ __('admin::app.settings.sources.edit-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.settings.sources.edit-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.sources.edit.header.before', ['source' => $source]) !!}
-
-        <div class="page-header">
-            
-            {{ Breadcrumbs::render('settings.sources.edit', $source) }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.sources.edit-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.sources.edit.header.after', ['source' => $source]) !!}
 
         <form method="POST" action="{{ route('admin.settings.sources.update', ['id' => $source->id]) }}" @submit.prevent="onSubmit">
             <div class="page-content">

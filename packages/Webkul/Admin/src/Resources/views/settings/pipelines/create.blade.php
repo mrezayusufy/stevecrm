@@ -4,19 +4,12 @@
     {{ __('admin::app.settings.pipelines.create-title') }}
 @stop
 
+@section('title')
+    {{ __('admin::app.settings.pipelines.create-title') }}
+@stop
+
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.settings.pipelines.create.header.before') !!}
-
-        <div class="page-header">
-            {{ Breadcrumbs::render('settings.pipelines.create') }}
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.settings.pipelines.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.settings.pipelines.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.settings.pipelines.store') }}" @submit.prevent="onSubmit">
             <div class="page-content">
