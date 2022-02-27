@@ -17,14 +17,7 @@ Homestead.yaml
 packages/Webkul/Admin/node_modules
 npm-debug.log
 package-lock.json
-/public/css
-/public/fonts
-/public/js
-/public/hot
-/public/storage
-/public/themes
-/public/vendor
 /storage/*.key
 /storage/dcc-data/
 /stubs
-/vendor
+

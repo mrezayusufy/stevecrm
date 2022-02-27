@@ -7,6 +7,7 @@
     You have 0 Task Today
 @stop
 @section('navbar-top')
+this is a test
 <div class="flex center g-10 px-10">
   <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary" style="padding: 15px 5px;">
       <button class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
