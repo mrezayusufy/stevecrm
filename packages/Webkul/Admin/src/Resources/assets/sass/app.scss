@@ -438,9 +438,9 @@ svg > circle {
     right: 0;
     z-index: 2;
     margin-left: auto;
-    width: calc(100vw - 48px);
+    width: calc(100vw - 58px);
     &.open {
-        width: calc(100vw - 160px)
+        width: calc(100vw - 200px)
     }
     .navbar-top-left {
         .brand-logo {
@@ -610,7 +610,7 @@ svg > circle {
     bottom: 0;
     top: 0;
     z-index: 2;
-    width: 48px;
+    width: 50px;
     height: auto;
     position: fixed;
     background-color: $brand-color !important;
@@ -703,7 +703,7 @@ svg > circle {
     }
     
     &.open {
-        width: 160px;
+        width: 190px;
         ul.menubar {
             li.menu-item {
                 a {

@@ -28,7 +28,6 @@
         {{-- <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/fonts/agencyzoom-logo/style.css') }}">
         @yield('head')
-
         @yield('css')
         @stack('css')
 
@@ -57,7 +56,7 @@
             {!! view_render_event('admin.layout.nav-left.after') !!}
 
 
-            <div class="content-container" :style="{ paddingLeft: isMenuOpen ? '160px' : ''}">
+            <div class="content-container" :style="{ paddingLeft: isMenuOpen ? '190px' : ''}">
 
                 {!! view_render_event('admin.layout.content.before') !!}
 

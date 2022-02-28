@@ -1034,10 +1034,10 @@ svg > circle {
   right: 0;
   z-index: 2;
   margin-left: auto;
-  width: calc(100vw - 48px);
+  width: calc(100vw - 58px);
 }
 .navbar-top.open {
-  width: calc(100vw - 160px);
+  width: calc(100vw - 200px);
 }
 .navbar-top .navbar-top-left .brand-logo {
   padding: 10px 5px;
@@ -1177,7 +1177,7 @@ svg > circle {
   bottom: 0;
   top: 0;
   z-index: 2;
-  width: 48px;
+  width: 50px;
   height: auto;
   position: fixed;
   background-color: #3a7ef2 !important;
@@ -1247,7 +1247,7 @@ svg > circle {
   color: #0E90D9;
 }
 .navbar-left.open {
-  width: 160px;
+  width: 190px;
 }
 .navbar-left.open ul.menubar li.menu-item a .menu-label {
   font-size: 16px;

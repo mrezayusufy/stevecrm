@@ -44,8 +44,7 @@
                 <div class="adjacent-center">
 
                     <div class="brand-logo">
-                        <img src="{{ asset('vendor/webkul/admin/assets/images/logo.svg') }}" alt="{{ config('app.name') }}"/>
-
+                        <h1 class="text-primary">Steve <i>CRM</i></h1>
                         <p>Consumers interaction goes smoothly and efficiently</p>
                     </div>
 
