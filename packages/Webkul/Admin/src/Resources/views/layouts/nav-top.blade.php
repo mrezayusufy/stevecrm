@@ -6,7 +6,7 @@
     <div class="navbar-top-right w-auto flex center">
         @yield('navbar-top')
 
-        @if (bouncer()->hasPermission('leads.create')
+        {{-- @if (bouncer()->hasPermission('leads.create')
             || bouncer()->hasPermission('quotes.create')
             || bouncer()->hasPermission('mail.create')
             || bouncer()->hasPermission('contacts.persons.create')
@@ -116,7 +116,7 @@
 
                 </div>
             </div>
-        @endif
+        @endif --}}
 
         <div class="profile-info">
             <div class="dropdown-toggle n">

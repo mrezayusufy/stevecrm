@@ -70,7 +70,7 @@ return [
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'trash'],
         'sort'       => 5,
-    ], 
+    ],
     // [
     //     'key'        => 'activities',
     //     'name'       => 'admin::app.layouts.activities',
