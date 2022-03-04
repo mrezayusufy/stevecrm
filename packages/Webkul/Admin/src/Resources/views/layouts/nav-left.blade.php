@@ -22,9 +22,9 @@
                 @endif
             >
 
-                <a href="{{ $menuItem['url'] }}">
-                    <i class="mdi fs-l sprite {{ $menuItem['icon-class'] }}"></i>
-                    <span class="menu-label c">{{ $menuItem['name'] }}</span>
+                <a href="{{ $menuItem['url'] }}" class="align-items-center d-flex flex-row">
+                    <i class="mdi mdi-24px mx-1 my-2 d-flex {{ $menuItem['icon-class'] }}"></i>
+                    <span class="menu-label m-0">{{ $menuItem['name'] }}</span>
                 </a>
 
                 @if ($menuItem['key'] != 'configuration')
