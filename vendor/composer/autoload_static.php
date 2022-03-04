@@ -16,26 +16,26 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
-        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
-        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '4a1f389d6ce373bda9e57857d3b61c84' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '0a7adfbeaa3a25e07a8c81c321cd9bb1' => __DIR__ . '/..' . '/konekt/concord/src/Support/functions.php',
@@ -61,13 +61,16 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
             'Webkul\\Workflow\\' => 16,
             'Webkul\\User\\' => 12,
             'Webkul\\UI\\' => 10,
+            'Webkul\\Task\\' => 12,
             'Webkul\\Tag\\' => 11,
             'Webkul\\Quote\\' => 13,
             'Webkul\\Product\\' => 15,
+            'Webkul\\Page\\' => 12,
             'Webkul\\PackageGenerator\\' => 24,
             'Webkul\\Lead\\' => 12,
             'Webkul\\Email\\' => 13,
             'Webkul\\EmailTemplate\\' => 21,
+            'Webkul\\Customer\\' => 16,
             'Webkul\\Core\\' => 12,
             'Webkul\\Contact\\' => 15,
             'Webkul\\Attribute\\' => 17,
@@ -237,8 +240,8 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'ZipStream\\' => 
         array (
@@ -264,6 +267,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/UI/src',
         ),
+        'Webkul\\Task\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/Webkul/Task/src',
+        ),
         'Webkul\\Tag\\' => 
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/Tag/src',
@@ -275,6 +282,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Product\\' => 
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/Product/src',
+        ),
+        'Webkul\\Page\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/Webkul/Page/src',
         ),
         'Webkul\\PackageGenerator\\' => 
         array (
@@ -291,6 +302,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\EmailTemplate\\' => 
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/EmailTemplate/src',
+        ),
+        'Webkul\\Customer\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/Webkul/Customer/src',
         ),
         'Webkul\\Core\\' => 
         array (
@@ -604,8 +619,8 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         ),
         'Fruitcake\\Cors\\' => 
         array (
-            0 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
-            1 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
+            1 => __DIR__ . '/..' . '/fruitcake/php-cors/src',
         ),
         'FontLib\\' => 
         array (
@@ -7278,6 +7293,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\DataGrids\\Setting\\TypeDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Setting/TypeDataGrid.php',
         'Webkul\\Admin\\DataGrids\\Setting\\UserDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Setting/UserDataGrid.php',
         'Webkul\\Admin\\DataGrids\\Setting\\WorkflowDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Setting/WorkflowDataGrid.php',
+        'Webkul\\Admin\\DataGrids\\Task\\TaskDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Task/TaskDataGrid.php',
         'Webkul\\Admin\\Database\\Seeders\\AttributeSeeder' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Database/Seeders/AttributeSeeder.php',
         'Webkul\\Admin\\Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Database/Seeders/DatabaseSeeder.php',
         'Webkul\\Admin\\Database\\Seeders\\EmailTemplateSeeder' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Database/Seeders/EmailTemplateSeeder.php',
@@ -7303,6 +7319,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\Http\\Controllers\\Lead\\QuoteController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Lead/QuoteController.php',
         'Webkul\\Admin\\Http\\Controllers\\Lead\\TagController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Lead/TagController.php',
         'Webkul\\Admin\\Http\\Controllers\\Mail\\EmailController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Mail/EmailController.php',
+        'Webkul\\Admin\\Http\\Controllers\\Page\\PageController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Page/PageController.php',
         'Webkul\\Admin\\Http\\Controllers\\Product\\ProductController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Product/ProductController.php',
         'Webkul\\Admin\\Http\\Controllers\\Quote\\QuoteController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Quote/QuoteController.php',
         'Webkul\\Admin\\Http\\Controllers\\Report\\ReportController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Report/ReportController.php',
@@ -7394,6 +7411,12 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Core\\Repositories\\CountryStateRepository' => __DIR__ . '/../..' . '/packages/Webkul/Core/src/Repositories/CountryStateRepository.php',
         'Webkul\\Core\\Tree' => __DIR__ . '/../..' . '/packages/Webkul/Core/src/Tree.php',
         'Webkul\\Core\\ViewRenderEventManager' => __DIR__ . '/../..' . '/packages/Webkul/Core/src/ViewRenderEventManager.php',
+        'Webkul\\Customer\\Contracts\\Customer' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Contracts/Customer.php',
+        'Webkul\\Customer\\Models\\Customer' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Models/Customer.php',
+        'Webkul\\Customer\\Models\\CustomerProxy' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Models/CustomerProxy.php',
+        'Webkul\\Customer\\Providers\\CustomerServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Providers/CustomerServiceProvider.php',
+        'Webkul\\Customer\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Providers/ModuleServiceProvider.php',
+        'Webkul\\Customer\\Repositories\\CustomerRepository' => __DIR__ . '/../..' . '/packages/Webkul/Customer/src/Repositories/CustomerRepository.php',
         'Webkul\\EmailTemplate\\Contracts\\EmailTemplate' => __DIR__ . '/../..' . '/packages/Webkul/EmailTemplate/src/Contracts/EmailTemplate.php',
         'Webkul\\EmailTemplate\\Models\\EmailTemplate' => __DIR__ . '/../..' . '/packages/Webkul/EmailTemplate/src/Models/EmailTemplate.php',
         'Webkul\\EmailTemplate\\Models\\EmailTemplateProxy' => __DIR__ . '/../..' . '/packages/Webkul/EmailTemplate/src/Models/EmailTemplateProxy.php',
@@ -7466,6 +7489,12 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\PackageGenerator\\Generators\\PackageGenerator' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Generators/PackageGenerator.php',
         'Webkul\\PackageGenerator\\Package' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Package.php',
         'Webkul\\PackageGenerator\\Providers\\PackageGeneratorServiceProvider' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Providers/PackageGeneratorServiceProvider.php',
+        'Webkul\\Page\\Contracts\\Page' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Contracts/Page.php',
+        'Webkul\\Page\\Models\\Page' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Models/Page.php',
+        'Webkul\\Page\\Models\\PageProxy' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Models/PageProxy.php',
+        'Webkul\\Page\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Providers/ModuleServiceProvider.php',
+        'Webkul\\Page\\Providers\\PageServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Providers/PageServiceProvider.php',
+        'Webkul\\Page\\Repositories\\PageRepository' => __DIR__ . '/../..' . '/packages/Webkul/Page/src/Repositories/PageRepository.php',
         'Webkul\\Product\\Contracts\\Product' => __DIR__ . '/../..' . '/packages/Webkul/Product/src/Contracts/Product.php',
         'Webkul\\Product\\Models\\Product' => __DIR__ . '/../..' . '/packages/Webkul/Product/src/Models/Product.php',
         'Webkul\\Product\\Models\\ProductProxy' => __DIR__ . '/../..' . '/packages/Webkul/Product/src/Models/ProductProxy.php',
@@ -7488,6 +7517,12 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Tag\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Tag/src/Providers/ModuleServiceProvider.php',
         'Webkul\\Tag\\Providers\\TagServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Tag/src/Providers/TagServiceProvider.php',
         'Webkul\\Tag\\Repositories\\TagRepository' => __DIR__ . '/../..' . '/packages/Webkul/Tag/src/Repositories/TagRepository.php',
+        'Webkul\\Task\\Contracts\\Task' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Contracts/Task.php',
+        'Webkul\\Task\\Models\\Task' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Models/Task.php',
+        'Webkul\\Task\\Models\\TaskProxy' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Models/TaskProxy.php',
+        'Webkul\\Task\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Providers/ModuleServiceProvider.php',
+        'Webkul\\Task\\Providers\\TaskServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Providers/TaskServiceProvider.php',
+        'Webkul\\Task\\Repositories\\TaskRepository' => __DIR__ . '/../..' . '/packages/Webkul/Task/src/Repositories/TaskRepository.php',
         'Webkul\\UI\\DataGrid\\DataGrid' => __DIR__ . '/../..' . '/packages/Webkul/UI/src/DataGrid/DataGrid.php',
         'Webkul\\UI\\DataGrid\\Exports\\DataGridExport' => __DIR__ . '/../..' . '/packages/Webkul/UI/src/DataGrid/Exports/DataGridExport.php',
         'Webkul\\UI\\DataGrid\\Traits\\ProvideBouncer' => __DIR__ . '/../..' . '/packages/Webkul/UI/src/DataGrid/Traits/ProvideBouncer.php',

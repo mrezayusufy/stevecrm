@@ -372,6 +372,34 @@
             'delete-failed'  => 'Product can not be deleted.',
         ],
 
+        'task' => [
+            'title'          => 'Task',
+            'task'           => 'Task',
+            'create-title'   => 'Create Task',
+            'edit-title'     => 'Edit Task',
+            'save-btn-title' => 'Save as Task',
+            'back'           => 'Back',
+            'cancel'         => 'Cancel',
+            'create-success' => 'Task created successfully.',
+            'update-success' => 'Task updated successfully.',
+            'delete-success' => 'Task deleted successfully.',
+            'delete-failed'  => 'Task can not be deleted.',
+        ],
+
+        'customer' => [
+            'title'          => 'Customer',
+            'customer'       => 'Customer',
+            'create-title'   => 'Create Customer',
+            'edit-title'     => 'Edit Customer',
+            'save-btn-title' => 'Save as Customer',
+            'back'           => 'Back',
+            'cancel'         => 'Cancel',
+            'create-success' => 'Customer created successfully.',
+            'update-success' => 'Customer updated successfully.',
+            'delete-success' => 'Customer deleted successfully.',
+            'delete-failed'  => 'Customer can not be deleted.',
+        ],
+
         'sessions' => [
             'login' => [
                 'title'             => 'Login',
@@ -493,6 +521,7 @@
                 'address'               => 'Address',
                 'phone'                 => 'Phone',
                 'datetime'              => 'Datetime',
+                'time'                  => 'Time',
                 'date'                  => 'Date',
                 'image'                 => 'Image',
                 'file'                  => 'File',

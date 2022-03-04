@@ -24,6 +24,7 @@ trait CustomAttribute {
         'lookup'      => 'integer_value',
         'datetime'    => 'datetime_value',
         'date'        => 'date_value',
+        'time'        => 'time_value',
         'file'        => 'text_value',
         'image'       => 'text_value',
     ];

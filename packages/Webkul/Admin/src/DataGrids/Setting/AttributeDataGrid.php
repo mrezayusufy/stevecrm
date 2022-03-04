@@ -42,11 +42,22 @@ class AttributeDataGrid extends DataGrid
                         'name'      => trans('admin::app.products.title'),
                         'isActive'  => false,
                         'key'       => 'products',
-                    ], [
+                    ], 
+                    [
                         'name'      => trans('admin::app.quotes.title'),
                         'isActive'  => false,
                         'key'       => 'quotes',
-                    ]
+                    ],
+                    [
+                        'name'      => trans('admin::app.task.title'),
+                        'isActive'  => false,
+                        'key'       => 'tasks',
+                    ],
+                    [
+                        'name'      => trans('admin::app.customer.title'),
+                        'isActive'  => false,
+                        'key'       => 'customers',
+                    ],
                 ]
             ]
         ];

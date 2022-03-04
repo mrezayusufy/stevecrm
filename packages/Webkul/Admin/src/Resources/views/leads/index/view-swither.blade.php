@@ -7,7 +7,7 @@
                 $pipelineId = $pipelineRepository->getDefaultPipeline()->id;
             }
         @endphp
-
+        
         <select class="control rounded " onchange="window.location.href = this.value">
             @foreach (app('Webkul\Lead\Repositories\PipelineRepository')->all() as $pipeline)
                 @php
@@ -31,22 +31,14 @@
 
 <div class="switch-view-container">
     @if (request('view_type'))
-        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary" style="padding: 15px 5px;">
-            <a href="{{ route('admin.leads.index') }}" class="px-10 p-5 pill lh-1 h-25 ">
-                Pipeline
-            </a>
-            <a class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
-                Table
-            </a>
+        <div class="flex flex-row bg-light rounded-pill p-1 shadow-sm">
+            <a href="{{ route('admin.leads.index') }}" class="btn rounded-pill btn-xs px-2 py-0">Pipeline</a>
+            <a class="btn btn-primary rounded-pill btn-xs px-2 py-0 disabled" >Table</a>
         </div>
     @else
-        <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary" style="padding: 15px 5px;">
-            <a class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
-                Pipeline
-            </a>
-            <a href="{{ route('admin.leads.index', ['view_type' => 'table']) }}" class="px-10 p-5 pill lh-1 h-25">
-                Table
-            </a>
+        <div class="flex flex-row bg-light rounded-pill p-1 shadow-sm">
+            <a class="btn btn-primary rounded-pill btn-xs px-2 py-0 disabled" >Pipeline</a>
+            <a href="{{ route('admin.leads.index', ['view_type' => 'table']) }}" class="btn rounded-pill btn-xs px-2 py-0">Table</a>
         </div>
     @endif
 </div>

@@ -234,7 +234,10 @@ return [
         Webkul\Tag\Providers\TagServiceProvider::class,
         Webkul\UI\Providers\UIServiceProvider::class,
         Webkul\User\Providers\UserServiceProvider::class,
+        Webkul\Page\Providers\PageServiceProvider::class,
         Webkul\Workflow\Providers\WorkflowServiceProvider::class,
+        Webkul\Task\Providers\TaskServiceProvider::class,
+        Webkul\Customer\Providers\CustomerServiceProvider::class
     ],
 
     /*

@@ -1,5 +1,5 @@
 {
-    "name": "krayin/laravel-email",
+    "name": "krayin/laravel-customer",
     "license": "MIT",
     "authors": [
         {
@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "krayin/laravel-contact": "^1.0",
+        "krayin/laravel-attribute": "^1.0",
         "krayin/laravel-core": "^1.0"
     },
     "autoload": {

@@ -25,4 +25,12 @@ return [
         'name'       => 'Quote',
         'repository' => 'Webkul\Quote\Repositories\QuoteRepository',
     ],
+    'tasks'      => [
+        'name'       => 'Task',
+        'repository' => 'Webkul\Task\Repositories\TaskRepository',
+    ],
+    'customers'      => [
+        'name'       => 'Customer',
+        'repository' => 'Webkul\Customer\Repositories\CustomerRepository',
+    ],
 ];

@@ -36,6 +36,8 @@ class AdminServiceProvider extends ServiceProvider
         ], 'public');
 
         Relation::morphMap([
+            'tasks'         => 'Webkul\Task\Models\Task',
+            'pages'         => 'Webkul\Page\Models\Page',
             'leads'         => 'Webkul\Lead\Models\Lead',
             'products'      => 'Webkul\Product\Models\Product',
             'persons'       => 'Webkul\Contact\Models\Person',

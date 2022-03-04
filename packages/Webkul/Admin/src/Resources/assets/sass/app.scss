@@ -2,8 +2,15 @@
 @import "variables";
 @import "mixins";
 @import "kanban";
-@import "../fonts/agencyzoom-logo/style.css";
 @import "../fonts//mdi/css/materialdesignicons.min.css";
+[aria-modal="true"]{
+    background: hsla(0, 0%, 0%, 70%);
+    display: block;
+}
+[aria-hidden="true"]{
+    display: none;
+}
+
 body {
     margin: 0;
     position: static;
@@ -15,8 +22,18 @@ a:active, a:focus, a:hover, a:link, a:visited {
     color: $link-color !important;
     text-decoration: none !important;
 }
+mdi {
+    background-color: #0041ff;
+    color: white;
+    padding: 10px;
+}
 .mdi {
     line-height: 0;
+    display: flex;
+    justify-content: center;
+}
+.n::after{
+    content: none !important;
 }
 .none {
     display: none !important;
@@ -125,7 +142,7 @@ a:active, a:focus, a:hover, a:link, a:visited {
     height: var(--h);
     background: #c2c2c2;
     position: absolute;
-    left: 17px;
+    left: 20px;
     top: 7px;
     z-index: 1;
 }
@@ -430,6 +447,20 @@ svg > circle {
 .middle {
     vertical-align: middle;
 }
+.btn-circle {
+    border-radius: 100%;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.btn-sm {
+        height: 1.5rem;
+        width: 1.5rem;
+        font-size: .75rem;
+    }
+}
 .navbar-top {
     height: 60px;
     background-color: $white;
@@ -614,8 +645,7 @@ svg > circle {
     height: auto;
     position: fixed;
     background-color: $brand-color !important;
-    box-shadow: inset -1px 0px 0px #CDCECF;
-    // transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
     ul.menubar {
         li.menu-item {
@@ -766,13 +796,10 @@ svg > circle {
 
     .menubar-bottom {
         top: 10px;
-        right: -16px;
-        bottom: 0;
-        padding: 12px;
+
+        right: -12px;
         cursor: pointer;
         position: absolute;
-        width: 10px;
-        height: 10px;
         background-color: $white;
         &.mdi {
             margin-right: 3px;
@@ -2572,11 +2599,13 @@ body {
         display: block;
     }
 }
-
+.btn-xs{
+    height: 30px;
+    font-size: 14px;
+}
 .quote-item-list {
     .table {
         padding: 5px;
-
         table {
             margin-bottom: 20px;
 

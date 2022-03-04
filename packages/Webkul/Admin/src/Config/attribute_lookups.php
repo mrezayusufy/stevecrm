@@ -37,6 +37,11 @@ return [
         'repository'   => 'Webkul\Contact\Repositories\OrganizationRepository',
     ],
 
+    'customers' => [
+        'name'         => 'Customers',
+        'repository'   => 'Webkul\Customer\Repositories\CustomerRepository',
+    ],
+
     'persons' => [
         'name'         => 'Persons',
         'repository'   => 'Webkul\Contact\Repositories\PersonRepository',

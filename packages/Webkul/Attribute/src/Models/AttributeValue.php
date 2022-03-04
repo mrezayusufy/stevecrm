@@ -21,6 +21,7 @@ class AttributeValue extends Model implements AttributeValueContract
         'float_value',
         'datetime_value',
         'date_value',
+        'time_value',
         'json_value',
         'entity_id',
         'entity_type',
@@ -43,6 +44,7 @@ class AttributeValue extends Model implements AttributeValueContract
         'lookup'      => 'integer_value',
         'datetime'    => 'datetime_value',
         'date'        => 'date_value',
+        'time'        => 'time_value',
         'file'        => 'text_value',
         'image'       => 'text_value',
     ];

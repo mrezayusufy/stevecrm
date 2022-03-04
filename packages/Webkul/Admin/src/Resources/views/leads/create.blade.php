@@ -10,8 +10,6 @@
 
         <div class="page-header">
 
-            {{ Breadcrumbs::render('leads.create') }}
-
             <div class="page-title">
                 <h1>{{ __('admin::app.leads.create-title') }}</h1>
             </div>

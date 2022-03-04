@@ -105,6 +105,7 @@
                                     <option value="phone">{{ __('admin::app.settings.attributes.phone') }}</option>
                                     <option value="lookup">{{ __('admin::app.settings.attributes.lookup') }}</option>
                                     <option value="datetime">{{ __('admin::app.settings.attributes.datetime') }}</option>
+                                    <option value="time">{{ __('admin::app.settings.attributes.time') }}</option>
                                     <option value="date">{{ __('admin::app.settings.attributes.date') }}</option>
                                     <option value="image">{{ __('admin::app.settings.attributes.image') }}</option>
                                     <option value="file">{{ __('admin::app.settings.attributes.file') }}</option>

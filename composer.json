@@ -61,6 +61,9 @@
             "Webkul\\Tag\\": "packages/Webkul/Tag/src",
             "Webkul\\UI\\": "packages/Webkul/UI/src",
             "Webkul\\User\\": "packages/Webkul/User/src",
+            "Webkul\\Page\\": "packages/Webkul/Page/src",
+            "Webkul\\Task\\": "packages/Webkul/Task/src",
+            "Webkul\\Customer\\": "packages/Webkul/Customer/src",
             "Webkul\\Workflow\\": "packages/Webkul/Workflow/src"
         }
     },

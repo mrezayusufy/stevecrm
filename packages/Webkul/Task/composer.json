@@ -1,0 +1,36 @@
+{
+    "name": "krayin/laravel-task",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jitendra Singh",
+            "email": "jitendra@webkul.com"
+        }
+    ],
+    "require": {
+        "krayin/laravel-activity": "^1.0",
+        "krayin/laravel-attribute": "^1.0",
+        "krayin/laravel-contact": "^1.0",
+        "krayin/laravel-core": "^1.0",
+        "krayin/laravel-email": "^1.0",
+        "krayin/laravel-product": "^1.0",
+        "krayin/laravel-quote": "^1.0",
+        "krayin/laravel-tag": "^1.0",
+        "krayin/laravel-user": "^1.0",
+        "krayin/laravel-task": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Task\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Task\\Providers\\TaskServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}

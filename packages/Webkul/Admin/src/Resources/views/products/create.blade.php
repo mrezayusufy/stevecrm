@@ -19,7 +19,8 @@
 
         {!! view_render_event('admin.products.create.header.after') !!}
 
-        <form method="POST" action="{{ route('admin.products.store') }}" @submit.prevent="onSubmit" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.products.store') }}" @submit.prevent="onSubmit"
+            enctype="multipart/form-data">
 
             <div class="page-content">
                 <div class="form-container">
@@ -36,16 +37,16 @@
 
                             {!! view_render_event('admin.products.create.form_buttons.after') !!}
                         </div>
-        
+
                         <div class="panel-body">
                             {!! view_render_event('admin.products.create.form_controls.before') !!}
 
                             @csrf()
 
                             @include('admin::common.custom-attributes.edit', [
-                                'customAttributes' => app('Webkul\Attribute\Repositories\AttributeRepository')->findWhere([
-                                    'entity_type' => 'products',
-                                ]),
+                            'customAttributes' => app('Webkul\Attribute\Repositories\AttributeRepository')->findWhere([
+                            'entity_type' => 'products',
+                            ]),
                             ])
 
                             {!! view_render_event('admin.products.create.form_controls.after') !!}

@@ -21,15 +21,14 @@
     @if (bouncer()->hasPermission('leads.create'))
         @include('admin::leads.index.view-swither')
         <kanban-filters></kanban-filters>
-        <a href="{{ route('admin.leads.create') }}" class="btn btn-primary fs-xl m-0 p-1 border-0 inline-block middle" style="--m:0 10px; --p: 8px;">
-            <i class="mdi mdi-plus m-0 middle"></i>
+        <a href="{{ route('admin.leads.create') }}" class="btn btn-primary d-flex align-items-center">
+            <i class="mdi mdi-plus me-2 justify-content-center"></i>
             {{ __('admin::app.leads.title') }}
         </a>
     @endif
 @stop
 <div class="content full-page">
     <div class="table">
-
         <div class="table-body viewport-height">
             <kanban-component></kanban-component>
         </div>
@@ -41,10 +40,10 @@
         <div class="form-group datagrid-filters flex center m-0 flex-end w-auto">
 
             <div class="search-filter relative">
-                <i class="icon search-icon absolute m-0" style="--m:10px;"></i>
+                <i class="mdi mdi-magnify absolute mdi-24px m-0" style="--m: 12% 3% !important;"></i>
                 <input
                     type="search"
-                    class="control rounded p-1 m-0" style="--l: 35px;"
+                    class="control rounded ps-3"
                     id="search-field"
                     :placeholder="__('ui.datagrid.search')"
                 />
@@ -54,9 +53,9 @@
 
             <div class="filter-right px-10">
                 <div class="filter-btn">
-                    <div class="grid-dropdown-header" @click="toggleSidebarFilter">
+                    <div class="grid-dropdown-header btn btn-outline-secondary d-flex align-items-center" @click="toggleSidebarFilter">
                         <span class="name">{{ __('ui::app.datagrid.filter.title') }}</span>
-                        <i class="icon add-icon"></i>
+                        <i class="mdi mdi-plus d-flex justify-content-center ps-2"></i>
                     </div>
                 </div>
             </div>
@@ -110,7 +109,6 @@
     <script>
         Vue.component('kanban-filters', {
             template: '#kanban-filters-tempalte',
-
             data: function () {
                 return {
                     debounce: [],

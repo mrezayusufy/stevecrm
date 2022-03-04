@@ -37,6 +37,7 @@ $(function() {
                 pageLoaded: false,
                 modalIds: {}, 
                 isMenuOpen: localStorage.getItem("crm-sidebar") == "true",
+                isModalOpen: false,
             };
         },
 
@@ -59,7 +60,10 @@ $(function() {
         },
 
         methods: {
-            onSubmit: function (e, formScope = '') {
+            onModalOpen: function () {
+                this.isModalOpen
+            },
+            onSubmit: function (e, formScope='') {
                 this.toggleButtonDisable(true);
 
                 if (typeof tinyMCE !== 'undefined') {
@@ -130,8 +134,6 @@ $(function() {
 
             openModal(id) {
                 this.$set(this.modalIds, id, true);
-
-                this.disableAutoComplete();
             },
 
             closeModal(id) {
@@ -139,11 +141,13 @@ $(function() {
             },
 
             toggleMenu() {
-                this.isMenuOpen = ! this.isMenuOpen;
+                this.isMenuOpen = !this.isMenuOpen;
 
                 localStorage.setItem('crm-sidebar', this.isMenuOpen);
             },
+            toggleTask() {
 
+            },
             disableAutoComplete: function () {
                 queueMicrotask(() => {
                     $('.date-container input').attr('autocomplete', 'off');

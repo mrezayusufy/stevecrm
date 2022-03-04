@@ -19,8 +19,9 @@ mix.js(__dirname + "/src/Resources/assets/js/app.js", "js/admin.js")
     .copy(__dirname + "/src/Resources/assets/images", publicPath + "/images")
     .sass(__dirname + "/src/Resources/assets/sass/app.scss", "css/admin.css")
     .options({
-        processCssUrls: false
-    }).vue();
+        processCssUrls: false,
+    })
+    .vue();
 
 mix.webpackConfig({
     resolve: {

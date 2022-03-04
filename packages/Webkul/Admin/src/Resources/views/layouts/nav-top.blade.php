@@ -1,5 +1,5 @@
 <div class="navbar-top flex center space-between" v-bind:class="{'open': isMenuOpen}">
-    <div class="navbar-top-left h-auto w-auto flex center">
+    <div class="navbar-top-left h-auto w-auto flex center ms-3">
         <div class="fs-xxl p-1 bold" style="--l:20px;">@yield('title')</div>
     </div>
 
@@ -17,8 +17,8 @@
             || bouncer()->hasPermission('settings.user.users.create')
         )
             <div class="quick-create flex center">
-                <span class="bg-primary pill p-1 square lh-1 button dropdown-toggle" style="--w: 35px;">
-                    <i class="mdi mdi-plus fs-18 lh-1" style="--m: 5px;"></i>
+                <span class="bg-primary btn-circle dropdown-toggle n lh-1 p-1 pill btn d-flex">
+                    <i class="mdi mdi-plus fs-18 lh-1"></i>
                 </span>
 
                 <div class="dropdown-list bottom-right">
@@ -119,7 +119,7 @@
         @endif
 
         <div class="profile-info">
-            <div class="dropdown-toggle">
+            <div class="dropdown-toggle n">
                 @if (auth()->guard('user')->user()->image)
                     <div class="avatar">
                         <img src="{{ auth()->guard('user')->user()->image_url }}"/>

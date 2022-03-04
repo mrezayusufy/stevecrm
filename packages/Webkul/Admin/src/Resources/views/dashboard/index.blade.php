@@ -85,7 +85,7 @@
                 <div class="bg-light p-10 py-20 rounded-s hidden relative flex space-between row center">
                     <div class="flex column text-left">
                         <div class="fs-xs py-10 lh-1 bold" style="--p: 5px">VS LAST MONTH</div>
-                        <div><span class="fs-xxl">N/A</span> <span class="mdi mdi-arrow-up text-success bg-white pill shadow fs-x square hl-1 p-3"></span></div>
+                        <div><span class="fs-xxl">N/A</span> <span class="mdi mdi-arrow-up text-success bg-white pill shadow fs-x btn-circle btn-sm hl-1 p-3"></span></div>
                     </div>
                     <div class="flex column text-right">
                         <div class="fs-xxl text-secondary">$0</div>

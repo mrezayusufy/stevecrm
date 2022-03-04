@@ -1,16 +1,16 @@
 @php($menu = Menu::prepare())
 
 <div class="navbar-left" v-bind:class="{'open': isMenuOpen}">
-    <div class="menubar-bottom pill shadow-sm relative text-gray border-gray" @click="toggleMenu">
-        <span class="mdi absolute right m-0" style="--m:0 2.5px;" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
+    <div class="menubar-bottom pill shadow-sm relative text-gray border-gray btn-circle btn-sm fs-18 z-2" @click="toggleMenu">
+        <span class="mdi" v-bind:class="[isMenuOpen ? 'mdi-chevron-right' : 'mdi-chevron-left']"></span>
     </div>
-    <div class="text-white p-1 flex lh-1" v-bind:class="[isMenuOpen ? 'fs-xxl row' : 'fs-xs column']">
+    <div class="d-flex fs-xxl lh-1 px-3 py-2 text-white" v-bind:class="[isMenuOpen ? 'fs-xxl flex-row' : 'fs-xs flex-column']">
         <div>Steve</div><div class="bold italic"><strong>CRM</strong></div>
     </div>
-    <ul class="menubar flex column center">
+    <ul class="menubar flex column center p-0">
         @foreach ($menu->items as $menuItem)
             <li
-                class="menu-item p-5 {{ Menu::getActive($menuItem) }}"
+                class="menu-item {{ Menu::getActive($menuItem) }}"
                 title="{{ $menuItem['name'] }}"
                 @if (! count($menuItem['children'])
                     && $menuItem['key'] != 'configuration'

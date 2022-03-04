@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {{-- <link rel="stylesheet" href="{{ asset('tailwind/app.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         {{-- <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/fonts/agencyzoom-logo/style.css') }}">
         @yield('head')
@@ -39,7 +40,6 @@
         {!! view_render_event('admin.layout.body.before') !!}
         <div id="app">
             <spinner-meter :full-page="true" v-if="! pageLoaded"></spinner-meter>
-
             <flash-wrapper ref='flashes'></flash-wrapper>
 
             {!! view_render_event('admin.layout.nav-top.before') !!}

@@ -154,6 +154,9 @@
                                     <option value="date" {{ $selectedOption == 'date' ? 'selected' : '' }}>
                                         {{ __('admin::app.settings.attributes.date') }}
                                     </option>
+                                    <option value="time" {{ $selectedOption == 'time' ? 'selected' : '' }}>
+                                        {{ __('admin::app.settings.attributes.time') }}
+                                    </option>
 
                                     <option value="image" {{ $selectedOption == 'image' ? 'selected' : '' }}>
                                         {{ __('admin::app.settings.attributes.image') }}

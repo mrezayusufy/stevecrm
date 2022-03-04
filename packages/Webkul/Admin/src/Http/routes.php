@@ -31,8 +31,6 @@ Route::group(['middleware' => ['web']], function () {
 
             // Dashboard Route
             Route::get('dashboard', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@index')->name('admin.dashboard.index');
-            // customers
-            // Route::get('customer', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@customer')->name('admin.customer.index');
 
             Route::get('template', 'Webkul\Admin\Http\Controllers\Admin\DashboardController@template')->name('admin.dashboard.template');
 
@@ -124,6 +122,18 @@ Route::group(['middleware' => ['web']], function () {
                 'namespace' => 'Webkul\Admin\Http\Controllers\Customer',
             ], function () {
                 Route::get('', 'CustomerController@index')->name('admin.customers.index');
+
+                Route::get('/create', 'CustomerController@create')->name('admin.customers.create');
+                
+                Route::post('/create', 'CustomerController@store')->name('admin.customers.store');
+
+                Route::get('edit/{id?}', 'CustomerController@edit')->name('admin.customers.edit');
+
+                Route::put('edit/{id}', 'CustomerController@update')->name('admin.customers.update');
+
+                Route::delete('{id}', 'CustomerController@destroy')->name('admin.customers.delete');
+
+                Route::put('mass-destroy', 'CustomerController@massDestroy')->name('admin.customers.mass_delete');
             });
             // reports routes
             Route::group([
@@ -132,12 +142,32 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'ReportController@index')->name('admin.reports.index');
             });
+
+            // page routes
+            Route::group([
+                'prefix'    => 'page',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Page',
+            ], function () {
+                Route::get('/', 'PageController@index')->name('admin.pages.index');
+            });
             // task routes
             Route::group([
                 'prefix'    => 'task',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Task',
             ], function () {
-                Route::get('', 'TaskController@index')->name('admin.task.index');
+                Route::get('/', 'TaskController@index')->name('admin.task.index');
+                Route::get('create', 'TaskController@create')->name('admin.task.create');
+                Route::post('create', 'TaskController@store')->name('admin.task.store');
+
+                Route::get('edit/{id}', 'TaskController@edit')->name('admin.task.edit');
+
+                Route::put('edit/{id}', 'TaskController@update')->name('admin.task.update');
+
+                Route::get('search', 'TaskController@search')->name('admin.task.search');
+
+                Route::delete('{id}', 'TaskController@destroy')->name('admin.task.delete');
+
+                Route::put('mass-destroy', 'TaskController@massDestroy')->name('admin.task.mass_delete');
             });
             // compensation routes
             Route::group([
