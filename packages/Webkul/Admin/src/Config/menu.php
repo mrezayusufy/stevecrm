@@ -99,13 +99,13 @@ return [
         'sort'       => 5,
         'icon-class' => 'mdi-rocket',
     ], 
-    [
-        'key'        => 'conversations',
-        'name'       => 'conversations',
-        'route'      => 'admin.conversations.index',
-        'sort'       => 5,
-        'icon-class' => 'mdi-chat',
-    ], 
+    // [
+    //     'key'        => 'conversations',
+    //     'name'       => 'conversations',
+    //     'route'      => 'admin.conversations.index',
+    //     'sort'       => 5,
+    //     'icon-class' => 'mdi-chat',
+    // ], 
     // [
     //     'key'        => 'contacts',
     //     'name'       => 'admin::app.layouts.contacts',

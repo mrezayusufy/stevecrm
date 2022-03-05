@@ -8,28 +8,20 @@
 @stop
 
 @section('content-wrapper')
-    <div class="content full-page dashboard">
-        {!! view_render_event('admin.dashboard.index.filter.before') !!}
-
-        <selected-cards-filter></selected-cards-filter>
-
-        {!! view_render_event('admin.dashboard.index.filter.after') !!}
-
-        {!! view_render_event('admin.dashboard.index.cards.before') !!}
-        <div class="grid grid-columns row-d g-10" style="--columns: repeat(3,1fr);">
+    <div class="content full-page dashboard p-2 p-lg-4 d-flex flex-column gap-3">
+        <div class="d-flex flex-column flex-lg-row gap-3">
             {{-- first column --}}
-            <div class="card grid-column-2 bg-white shadow-sm  border-0">
-                <div class="card-body d-flex flex-column p-3 justify-content-between">
-                    <div class="d-flex flex-row justify-content-between py-20 center lh-1">
+            <div class="bg-white col-12 col-lg-9 col-md-auto rounded shadow-sm">
+                <div class="d-flex flex-column p-3 p-md-4 justify-content-between">
+                    <div class="center d-flex flex-column flex-md-row justify-content-between">
                         <h4>Congrats! STEVE Claire Moser is on pace.</h4>
                         <div class="d-flex flex-row bg-light rounded-pill p-1 shadow-sm">
                             <a href="#" class="btn btn-primary rounded-pill btn-xs px-2 py-0">Premium</a>
                             <a class="btn rounded-pill btn-xs px-2 py-0">Policy</a>
                         </div>
-
                     </div>
-                    <div class="grid column grid-columns g-10 py-10" style="--columns: .5fr 1fr;">
-                        <div class="grid row-d g-10 relative">
+                    <div class="d-flex flex-column py-3 flex-md-row">
+                        <div class="col col-md-4 d-flex flex-column g-10 grid relative row-d">
                             <div class="bg-light shadow-sm p-10 rounded hidden relative d-flex justify-center column">
                                 <div class="fs-s pb-2 lh-1">MDT</div>
                                 <div class="fs-xxl">$10,000</div>
@@ -46,13 +38,13 @@
                             </div>
                             <div class="bg-gray p-10 shadow-sm rounded hidden relative d-flex justify-center column">
                                 <div class="fs-xxl">$2,903.23</div>
-                                <div class="fs-s pt-2 lh-1" >GOAL FOR TODAY</div>
+                                <div class="fs-s pt-2 lh-1">GOAL FOR TODAY</div>
                                 <div class="absolute right bottom fs-100 o-2 mb-4" style="right: -20px;">
                                     <span class="mdi mdi-bullseye"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="grid column center relative">
+                        <div class="center col column d-flex grid relative">
                             <div class="grid all-center ">
                                 <div class="d-flex center content-center grid-area">
                                     <div class="text-center">
@@ -77,7 +69,7 @@
                 </div>
             </div>
             {{-- second column --}}
-            <div class="card grid row-d bg-white shadow-sm g-10 border-0 py-3">
+            <div class="d-flex card bg-white shadow-sm g-10 border-0 py-3 col">
                 <div class="align-items-center d-flex flex-row justify-content-between p-2 px-3">
                     <div>January stats</div>
                     <div class="d-flex flex-row bg-light rounded-pill shadow-sm p-1">
@@ -115,232 +107,249 @@
                     </div>
                 </div>
             </div>
-            {{-- business --}}
-            <div class="grid-column-2 bg-white shadow-sm rounded p-3" style="--n: 3;">
-                <div class="d-flex flex-row justify-content-between">
-                    <select value="agents" class="p-1 rounded border-gray">
-                        <option value="agents">All</option>
-                        <option value="agents">Steve Moser</option>
-                        <option value="agents">Johnny Whitfield</option>
-                        <option value="agents">Claire Moser</option>
-                        <option value="agents">Chad Muller</option>
-                    </select>
-                    <div class="d-flex flex-row g-10">
-                        <div class="d-flex flex-row bg-light rounded-pill p-1 shadow-sm">
-                            <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Chart</a>
-                            <a class="btn btn-primary rounded-pill btn-xs px-2 py-0">Details</a>
-                        </div>
-                        <div class="d-flex flex-row bg-light rounded-pill p-1 shadow-sm">
-                            <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Permium $133,957</a>
-                            <a class="btn btn-primary rounded-pill btn-xs px-2 py-0">Policy</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex flex-row">
-                    <div class="col-2">
-                        <div class="d-flex flex-column">
-                            <h1 class="fs-x pt-3">Filters</h1>
-                            <div class="grid row-d column g-10 w-100">
-                                <div class="bg-light border-gray p-2 rounded">
-                                    <p class="m-0 py-10" style="--t:0;">Time Frame</p>
-                                    <select name="time-frame" id="time-frame" class="border-0 bg-light text-secondary">
-                                        <option value="MTD">MDT</option>
-                                        <option value="MTD">MDT</option>
-                                    </select>
-                                </div>
-                                <div class="bg-light border-gray p-2 rounded">
-                                    <p class="m-0 py-10" style="--t:0;">All carries</p>
-                                    <select name="all-carries" id="all-carries" class="border-0 bg-light text-secondary">
-                                        <option value="all-carries">All carries</option>
-                                        <option value="all-carries">All carries</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div id="chart">
 
-                        </div>
+        </div>
+        {{-- business --}}
+        <div class="d-flex flex-column bg-white shadow-sm rounded p-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+                <select value="agents" class="p-1 rounded border-gray">
+                    <option value="agents">All</option>
+                    <option value="agents">Steve Moser</option>
+                    <option value="agents">Johnny Whitfield</option>
+                    <option value="agents">Claire Moser</option>
+                    <option value="agents">Chad Muller</option>
+                </select>
+                <div class="d-flex flex-column flex-md-row align-items-start gap-2">
+                    <div class="d-flex flex-row bg-light rounded-pill p-1 shadow-sm">
+                        <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Chart</a>
+                        <a class="btn btn-primary rounded-pill btn-xs px-2 py-0">Details</a>
+                    </div>
+                    <div class="d-flex flex-row bg-light rounded-pill p-1 shadow-sm">
+                        <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Permium $133,957</a>
+                        <a class="btn btn-primary rounded-pill btn-xs px-2 py-0">Policy</a>
                     </div>
                 </div>
             </div>
+            <div class="d-flex flex-column">
+                <div class="col-auto col-md-3">
+                    <div class="d-flex flex-column pt-3 gap-2">
+                        <h1 class="fs-x ">Filters</h1>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="bg-light border-gray p-2 rounded">
+                                <p class="m-0 py-10" style="--t:0;">Time Frame</p>
+                                <select name="time-frame" id="time-frame" class="border-0 bg-light text-secondary">
+                                    <option value="MTD">MDT</option>
+                                    <option value="MTD">MDT</option>
+                                </select>
+                            </div>
+                            <div class="bg-light border-gray p-2 rounded">
+                                <p class="m-0 py-10" style="--t:0;">All carries</p>
+                                <select name="all-carries" id="all-carries" class="border-0 bg-light text-secondary">
+                                    <option value="all-carries">All carries</option>
+                                    <option value="all-carries">All carries</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 d-none">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
         </div>
-        <div class="none">
+        <div class="d-none">
             <cards-collection></cards-collection>
         </div>
-        {!! view_render_event('admin.dashboard.index.cards.after') !!}
     </div>
 @stop
 
 @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="{{ asset('vendor/webkul/admin/assets/js/chart.min.js') }}"></script>    
     <script>
-        var options = {
-            chart: {
-                type: 'bar'
-            },
-            series: [{
-                name: 'sales',
-                data: [30, 40, 45, 50, 49, 60, 70, 91, 125]
-            }],
-            xaxis: {
-                categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+        const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-        chart.render();
+    }
+});
     </script>
     <script type="text/x-template" id="selected-cards-template">
         {{-- <button type="button" @click="exportDashboard">Export</button> --}}
-                    </script>
+                            </script>
 
     <script type="text/x-template" id="cards-collection-template">
         <draggable v-model="filteredCards" @change="onRowDrop" class="dashboard-content">
 
-                            <div v-for="(filteredCardRow, index) in filteredCards" :key="index">
-                                <draggable :key="`inner-${index}`" :list="filteredCardRow" class="row-grid-3" handle=".drag-icon" @change="onColumnDrop">
-                                    <div :class="`card rounded ${card.card_border || ''}`" v-for="(card, cardRowIndex) in filteredCardRow" :key="`row-${index}-${cardRowIndex}`">
-                                        <template v-if="card.label">
+                                    <div v-for="(filteredCardRow, index) in filteredCards" :key="index">
+                                        <draggable :key="`inner-${index}`" :list="filteredCardRow" class="row-grid-3" handle=".drag-icon" @change="onColumnDrop">
+                                            <div :class="`card rounded ${card.card_border || ''}`" v-for="(card, cardRowIndex) in filteredCardRow" :key="`row-${index}-${cardRowIndex}`">
+                                                <template v-if="card.label">
 
-                                            <label class="card-header">@{{ card.label }}
-                                                <div class="icon-container">
-                                                    <a v-if="card.view_url" :href="card.view_url">
-                                                        <i class="icon eye-icon"></i>
-                                                    </a>
-                                                    <i class="icon drag-icon"></i>
-                                                </div>
-                                            </label>
-                                        </template>
+                                                    <label class="card-header">@{{ card.label }}
+                                                        <div class="icon-container">
+                                                            <a v-if="card.view_url" :href="card.view_url">
+                                                                <i class="icon eye-icon"></i>
+                                                            </a>
+                                                            <i class="icon drag-icon"></i>
+                                                        </div>
+                                                    </label>
+                                                </template>
 
-                                        <card-component
-                                            :index="index"
-                                            :card-type="card.card_type"
-                                            :class-name="card.data_class"
-                                            :card-id="card.card_id || ''"
-                                        ></card-component>
+                                                <card-component
+                                                    :index="index"
+                                                    :card-type="card.card_type"
+                                                    :class-name="card.data_class"
+                                                    :card-id="card.card_id || ''"
+                                                ></card-component>
+                                            </div>
+                                        </draggable>
                                     </div>
                                 </draggable>
-                            </div>
-                        </draggable>
-                    </script>
+                            </script>
 
     <script type="text/x-template" id="card-template">
         <div class="db-wg-spinner" v-if="! dataLoaded">
-                            <spinner-meter></spinner-meter>
-                        </div>
+                                    <spinner-meter></spinner-meter>
+                                </div>
 
-                        <div v-else :class="`card-data ${className || ''}`">
-                            <bar-chart
-                                :id="`bar-chart-${cardId}`"
-                                :data="dataCollection.data"
-                                v-if="
-                                    cardType == 'bar_chart'
-                                    && dataCollection
-                                "
-                            ></bar-chart>
+                                <div v-else :class="`card-data ${className || ''}`">
+                                    <bar-chart
+                                        :id="`bar-chart-${cardId}`"
+                                        :data="dataCollection.data"
+                                        v-if="
+                                            cardType == 'bar_chart'
+                                            && dataCollection
+                                        "
+                                    ></bar-chart>
 
-                            <line-chart
-                                :id="`line-chart-${cardId}`"
-                                :data="dataCollection.data"
-                                v-if="
-                                    cardType == 'line_chart'
-                                    && dataCollection
-                                "
-                            ></line-chart>
+                                    <line-chart
+                                        :id="`line-chart-${cardId}`"
+                                        :data="dataCollection.data"
+                                        v-if="
+                                            cardType == 'line_chart'
+                                            && dataCollection
+                                        "
+                                    ></line-chart>
 
-                            <template v-else-if="['activities', 'pipelines_bar'].indexOf(cardType) > -1">
-                                <h3 v-if="dataCollection.header_data">
-                                    <template v-for="(header_data, index) in dataCollection.header_data">
-                                        @{{ header_data }}
+                                    <template v-else-if="['activities', 'pipelines_bar'].indexOf(cardType) > -1">
+                                        <h3 v-if="dataCollection.header_data">
+                                            <template v-for="(header_data, index) in dataCollection.header_data">
+                                                @{{ header_data }}
+                                            </template>
+                                        </h3>
+
+                                        <div class="activity bar-data" v-for="(data, index) in dataCollection.data">
+                                            <span>@{{ data.label }}</span>
+
+                                            <div class="bar">
+                                                <div
+                                                    class="primary"
+                                                    :style="`width: ${data.count ? (data.count * 100) / (dataCollection.total) : 0}%;`"
+                                                ></div>
+                                            </div>
+
+                                            <span>@{{ `${data.count || 0} / ${(dataCollection.total)}` }}</span>
+                                        </div>
                                     </template>
-                                </h3>
 
-                                <div class="activity bar-data" v-for="(data, index) in dataCollection.data">
-                                    <span>@{{ data.label }}</span>
+                                    <div class="lead" v-else-if="cardType == 'top_card'" v-for="(data, index) in dataCollection.data">
+                                        <a :href="'{{ route('admin.leads.view') }}/' + data.id">@{{ data.title }}</a>
 
-                                    <div class="bar">
-                                        <div
-                                            class="primary"
-                                            :style="`width: ${data.count ? (data.count * 100) / (dataCollection.total) : 0}%;`"
-                                        ></div>
+                                        <div class="details">
+                                            <span>@{{ data.amount | toFixed }}</span>
+                                            <span>@{{ data.created_at | formatDate }}</span>
+                                            <span>
+                                                <span
+                                                    class="badge badge-round badge-primary"
+                                                    :class="{'badge-danger': data.statusLabel == 'Lost', 'badge-success': data.statusLabel == 'Won'}"
+                                                ></span>
+
+                                                @{{ data.statusLabel }}
+                                            </span>
+                                        </div>
                                     </div>
 
-                                    <span>@{{ `${data.count || 0} / ${(dataCollection.total)}` }}</span>
+                                    <div class="column-container" v-else-if="cardType == 'column-grid-2'" v-for="(data, index) in dataCollection.data">
+                                        <span>@{{ data.count }}</span>
+                                        <span>@{{ data.label }}</span>
+                                    </div>
+
+                                    <template v-else-if="cardType == 'custom_card'">
+                                        <div class="custom-card">+</div>
+                                        <div class="custom-card">{{ __('admin::app.dashboard.custom_card') }}</div>
+                                    </template>
+
+                                    <template v-if="! dataCollection || dataCollection.length == 0 || (dataCollection.data && dataCollection.data.length == 0)">
+                                        <div class="custom-card">
+                                            <i
+                                                :class="`icon empty-bar-${cardType == 'line_chart' ? 'vertical-': ''}icon`"
+                                                v-if="cardType == 'bar_chart' || cardType == 'line_chart'"
+                                            ></i>
+
+                                            <img
+                                                v-else
+                                                src="{{ asset('vendor/webkul/admin/assets/images/empty-state-icon.svg') }}"
+                                            />
+
+                                            <span>{{ __('admin::app.dashboard.no_record_found') }}</span>
+                                        </div>
+                                    </template>
                                 </div>
-                            </template>
-
-                            <div class="lead" v-else-if="cardType == 'top_card'" v-for="(data, index) in dataCollection.data">
-                                <a :href="'{{ route('admin.leads.view') }}/' + data.id">@{{ data.title }}</a>
-
-                                <div class="details">
-                                    <span>@{{ data.amount | toFixed }}</span>
-                                    <span>@{{ data.created_at | formatDate }}</span>
-                                    <span>
-                                        <span
-                                            class="badge badge-round badge-primary"
-                                            :class="{'badge-danger': data.statusLabel == 'Lost', 'badge-success': data.statusLabel == 'Won'}"
-                                        ></span>
-
-                                        @{{ data.statusLabel }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="column-container" v-else-if="cardType == 'column-grid-2'" v-for="(data, index) in dataCollection.data">
-                                <span>@{{ data.count }}</span>
-                                <span>@{{ data.label }}</span>
-                            </div>
-
-                            <template v-else-if="cardType == 'custom_card'">
-                                <div class="custom-card">+</div>
-                                <div class="custom-card">{{ __('admin::app.dashboard.custom_card') }}</div>
-                            </template>
-
-                            <template v-if="! dataCollection || dataCollection.length == 0 || (dataCollection.data && dataCollection.data.length == 0)">
-                                <div class="custom-card">
-                                    <i
-                                        :class="`icon empty-bar-${cardType == 'line_chart' ? 'vertical-': ''}icon`"
-                                        v-if="cardType == 'bar_chart' || cardType == 'line_chart'"
-                                    ></i>
-
-                                    <img
-                                        v-else
-                                        src="{{ asset('vendor/webkul/admin/assets/images/empty-state-icon.svg') }}"
-                                    />
-
-                                    <span>{{ __('admin::app.dashboard.no_record_found') }}</span>
-                                </div>
-                            </template>
-                        </div>
-                    </script>
+                            </script>
 
     <script type="text/x-template" id="card-filter-template">
         <div class="card-filter-container">
-                            <div class="toggle-btn dropdown-toggle">
-                                <span>{{ __('admin::app.dashboard.cards') }}</span>
-                                <i class="icon arrow-down-icon"></i>
-                            </div>
+                                    <div class="toggle-btn dropdown-toggle">
+                                        <span>{{ __('admin::app.dashboard.cards') }}</span>
+                                        <i class="icon arrow-down-icon"></i>
+                                    </div>
 
-                            <div class="dropdown-list">
-                                <div class="dropdown-container">
-                                    <ul>
-                                        <template v-if="filterType == 'monthly'">
-                                            <li>This month</li>
-                                            <li>Last month</li>
-                                        </template>
+                                    <div class="dropdown-list">
+                                        <div class="dropdown-container">
+                                            <ul>
+                                                <template v-if="filterType == 'monthly'">
+                                                    <li>This month</li>
+                                                    <li>Last month</li>
+                                                </template>
 
-                                        <template v-else-if="filterType == 'daily'">
-                                            <li>Today</li>
-                                            <li>Yesterday</li>
-                                        </template>
-                                    </ul>
+                                                <template v-else-if="filterType == 'daily'">
+                                                    <li>Today</li>
+                                                    <li>Yesterday</li>
+                                                </template>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </script>
+                            </script>
 
     <script>
         Vue.component('selected-cards-filter', {

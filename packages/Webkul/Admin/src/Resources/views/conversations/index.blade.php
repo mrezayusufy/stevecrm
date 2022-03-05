@@ -8,14 +8,10 @@
 @stop
 @section('navbar-top')
 <div class="flex g-10 center p-10">
-    <div class="pill bg-light grid column content-center fs-s hidden h-25 shadow-sm text-secondary c" style="padding: 15px 5px;">
-        <a href="#" class="px-10 p-5 pill lh-1 h-25 bg-primary btn btn-primary border-0">
-            emails
-        </a>
-        <a class="px-10 p-5 pill lh-1 h-25">
-            texts
-        </a>
-    </div>
+    <div class="flex flex-row bg-light rounded-pill p-1 shadow-sm">
+            <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Emails</a>
+            <a class="btn btn-primary rounded-pill btn-xs px-2 py-0 disabled" >Texts</a>
+        </div>
 </div>
 @stop
 @section('content-wrapper')

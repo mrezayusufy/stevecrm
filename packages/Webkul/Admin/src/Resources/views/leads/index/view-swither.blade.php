@@ -8,7 +8,7 @@
             }
         @endphp
         
-        <select class="control rounded " onchange="window.location.href = this.value">
+        <select class="control rounded px-2 p-0" onchange="window.location.href = this.value">
             @foreach (app('Webkul\Lead\Repositories\PipelineRepository')->all() as $pipeline)
                 @php
                     if ($viewType = request('view_type')) {

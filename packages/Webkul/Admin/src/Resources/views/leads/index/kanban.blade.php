@@ -21,7 +21,7 @@
     @if (bouncer()->hasPermission('leads.create'))
         @include('admin::leads.index.view-swither')
         <kanban-filters></kanban-filters>
-        <a href="{{ route('admin.leads.create') }}" class="btn btn-primary d-flex align-items-center">
+        <a href="{{ route('admin.leads.create') }}" class="btn btn-primary d-flex align-items-center me-2">
             <i class="mdi mdi-plus me-2 justify-content-center"></i>
             {{ __('admin::app.leads.title') }}
         </a>
@@ -39,11 +39,11 @@
     <script type="text/x-template" id="kanban-filters-tempalte">
         <div class="form-group datagrid-filters flex center m-0 flex-end w-auto">
 
-            <div class="search-filter relative">
-                <i class="mdi mdi-magnify absolute mdi-24px m-0" style="--m: 12% 3% !important;"></i>
+            <div class="align-items-center border d-flex flex-row rounded search-filter ">
+                <i class="mdi mdi-magnify mdi-24px px-1 text-black-50"></i>
                 <input
                     type="search"
-                    class="control rounded ps-3"
+                    class="control border-0 p-0 m-0 my-1 "
                     id="search-field"
                     :placeholder="__('ui.datagrid.search')"
                 />
