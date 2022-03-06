@@ -3,6 +3,13 @@
 @section('page_title')
     {{ __('admin::app.customer.title') }}
 @stop
+@push('css')
+    <style>
+        .table-body, form {
+            border: 0 !important;
+        }
+    </style>
+@endpush
 @section('title')
     {{ __('admin::app.customer.title') }}
 @stop
@@ -11,13 +18,6 @@
         <div class="flex flex-row bg-light rounded-pill p-1 shadow-sm text-secondary">
             <a href="#" class="btn rounded-pill btn-xs px-2 py-0">Customers</a>
             <a class="btn btn-primary rounded-pill btn-xs px-2 py-0 disabled">Policies</a>
-        </div>
-        <div class="form-group datagrid-filters flex center m-0 flex-end w-auto">
-            <div class="search-filter relative">
-                <i class="icon search-icon absolute my-2 mx-1"></i>
-                <input type="search" class="control rounded p-1 ps-4 m-0" id="search-field"
-                    placeholder="search for customers" />
-            </div>
         </div>
     </div>
 @stop
@@ -41,7 +41,7 @@
                 <i class="mdi mdi-pencil"></i>
             </button>
         </div>
-        <table-component data-src="{{ route('admin.customers.index') }}"> </table-component>
+        <table-component data-src="{{ route('admin.customers.index') }}" class="table"> </table-component>
     </div>
 @stop
 

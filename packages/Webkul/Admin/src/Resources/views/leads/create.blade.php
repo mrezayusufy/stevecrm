@@ -3,19 +3,12 @@
 @section('page_title')
     {{ __('admin::app.leads.create-title') }}
 @stop
+@section('title')
+    {{ __('admin::app.leads.create-title') }}
+@stop
 
 @section('content-wrapper')
     <div class="content full-page adjacent-center">
-        {!! view_render_event('admin.leads.create.header.before') !!}
-
-        <div class="page-header">
-
-            <div class="page-title">
-                <h1>{{ __('admin::app.leads.create-title') }}</h1>
-            </div>
-        </div>
-
-        {!! view_render_event('admin.leads.create.header.after') !!}
 
         <form method="POST" action="{{ route('admin.leads.store') }}" @submit.prevent="onSubmit" enctype="multipart/form-data">
 
@@ -40,11 +33,6 @@
                         @csrf()
                         
                         <input type="hidden" id="lead_pipeline_stage_id" name="lead_pipeline_stage_id" value="{{ request('stage_id') }}" />
-
-                        <tabs>
-                            {!! view_render_event('admin.leads.create.form_controls.details.before') !!}
-
-                            <tab name="{{ __('admin::app.leads.details') }}" :selected="true">
                                 @include('admin::common.custom-attributes.edit', [
                                     'customAttributes'  => app('Webkul\Attribute\Repositories\AttributeRepository')->findWhere([
                                         'entity_type' => 'leads',
@@ -57,6 +45,11 @@
                                         ],
                                     ],
                                 ])
+
+                        {{-- <tabs>
+                            {!! view_render_event('admin.leads.create.form_controls.details.before') !!}
+
+                            <tab name="{{ __('admin::app.leads.details') }}" :selected="true">
                             </tab>
 
                             {!! view_render_event('admin.leads.create.form_controls.details.after') !!}
@@ -68,12 +61,12 @@
                                 @include('admin::leads.common.contact')
 
                                 <contact-component :data='@json(old('person'))'></contact-component>
-                            </tab>
+                            </tab> --}}
 
-                            {!! view_render_event('admin.leads.create.form_controls.contact_person.after') !!}
+                            {{-- {!! view_render_event('admin.leads.create.form_controls.contact_person.after') !!} --}}
 
 
-                            {!! view_render_event('admin.leads.create.form_controls.products.before') !!} 
+                            {{-- {!! view_render_event('admin.leads.create.form_controls.products.before') !!} 
 
                             <tab name="{{ __('admin::app.leads.products') }}">
                                 @include('admin::leads.common.products')
@@ -81,10 +74,10 @@
                                 <product-list :data='@json(old('products'))'></product-list>
                             </tab>
 
-                            {!! view_render_event('admin.leads.create.form_controls.products.after') !!}
-                        </tabs>
+                            {!! view_render_event('admin.leads.create.form_controls.products.after') !!} --}}
+                        {{-- </tabs> --}}
 
-                        {!! view_render_event('admin.leads.create.form_controls.after') !!}
+                        {{-- {!! view_render_event('admin.leads.create.form_controls.after') !!} --}}
 
                     </div>
 

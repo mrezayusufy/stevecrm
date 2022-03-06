@@ -127,34 +127,33 @@ class LeadRepository extends Repository
      */
     public function create(array $data)
     {
-        if (isset($data['person']['id'])) {
-            $person = $this->personRepository->update(array_merge($data['person'], [
-                'entity_type' => 'persons',
-            ]), $data['person']['id']);
-        } else {
-            $person = $this->personRepository->create(array_merge($data['person'], [
-                'entity_type' => 'persons',
-            ]));
-        }
+        // if (isset($data['person']['id'])) {
+        //     $person = $this->personRepository->update(array_merge($data['person'], [
+        //         'entity_type' => 'persons',
+        //     ]), $data['person']['id']);
+        // } else {
+        //     $person = $this->personRepository->create(array_merge($data['person'], [
+        //         'entity_type' => 'persons',
+        //     ]));
+        // }
 
         $stage = $this->stageRepository->find($data['lead_pipeline_stage_id']);
 
         $lead = parent::create(array_merge([
-            'person_id'              => $person->id,
             'lead_pipeline_id'       => 1,
             'lead_pipeline_stage_id' => 1,
         ], $data));
 
         $this->attributeValueRepository->save($data, $lead->id);
 
-        if (isset($data['products'])) {
-            foreach ($data['products'] as $product) {
-                $this->productRepository->create(array_merge($product, [
-                    'lead_id' => $lead->id,
-                    'amount'  => $product['price'] * $product['quantity'],
-                ]));
-            }
-        }
+        // if (isset($data['products'])) {
+        //     foreach ($data['products'] as $product) {
+        //         $this->productRepository->create(array_merge($product, [
+        //             'lead_id' => $lead->id,
+        //             'amount'  => $product['price'] * $product['quantity'],
+        //         ]));
+        //     }
+        // }
 
         return $lead;
     }
