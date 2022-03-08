@@ -37,11 +37,22 @@ class Lead extends Model implements LeadContract
         'closed_at',
         'user_id',
         'person_id',
+        'phone',
+        'phone_secondary',
+        'email',
+        'email_secondary',
+        'location',
+        'assign_to',
+        'csr',
+        'firstname',
+        'lastname',
+        'dot',
         'lead_source_id',
         'lead_type_id',
         'lead_pipeline_id',
         'lead_pipeline_stage_id',
     ];
+    
 
     /**
      * Get the user that owns the lead.

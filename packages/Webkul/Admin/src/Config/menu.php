@@ -27,20 +27,23 @@ return [
         'route'      => 'admin.customers.index',
         'sort'       => 3,
         'icon-class' => 'mdi-account-group',
-    ], [
+    ], 
+    [
         'key'        => 'mail',
         'name'       => 'admin::app.layouts.mail.title',
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'inbox'],
         'sort'       => 4,
         'icon-class' => 'mdi-email-outline',
-    ], [
+    ], 
+    [
         'key'        => 'mail.compose',
         'name'       => 'admin::app.layouts.mail.compose',
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'compose'],
         'sort'       => 1,
-    ], [
+    ], 
+    [
         'key'        => 'mail.inbox',
         'name'       => 'admin::app.layouts.mail.inbox',
         'route'      => 'admin.mail.index',
@@ -233,11 +236,19 @@ return [
         'route'      => 'admin.settings.tags.index',
         'sort'       => 1,
         'icon-class' => 'icon tag-icon',
-    ], [
+    ], 
+    [
         'key'        => 'configuration',
         'name'       => 'admin::app.layouts.configuration',
         'route'      => 'admin.configuration.index',
         'sort'       => 9,
         'icon-class' => 'mdi-math-compass',
-    ]
+    ],
+    [
+        'key'        => 'configuration.twilio',
+        'name'       => 'twilio',
+        'route'      => 'admin.configuration.twilio',
+        'params'     => ['route' => 'twilio'],
+        'sort'       => 2,
+    ], 
 ];

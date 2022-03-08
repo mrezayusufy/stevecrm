@@ -112,6 +112,11 @@ return [
     'available_locales' => [
         'en' => 'English',
     ],
+    'twilio_api' => [
+        'twilio_sid' => env('TWILIO_SID'),
+        'twilio_secret' => env('TWILIO_SECRET'),
+        'twilio_number' => env('TWILIO_NUMBER'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

@@ -5,7 +5,8 @@ return [
         'key'  => 'general',
         'name' => 'admin::app.configuration.general',
         'sort' => 1,
-    ], [
+    ],
+    [
         'key'    => 'general.locale_settings',
         'name'   => 'admin::app.configuration.locale-settings',
         'sort'   => 1,
@@ -17,5 +18,10 @@ return [
                 'data_source'   => 'Webkul\Core\Core@locales'
             ],
         ],
+    ],
+    [
+        'key'  => 'twilio',
+        'name' => 'Twilio',
+        'sort' => 2,
     ],
 ];

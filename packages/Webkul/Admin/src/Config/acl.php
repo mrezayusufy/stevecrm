@@ -56,12 +56,14 @@ return [
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.quotes.delete', 'admin.quotes.mass_delete'],
         'sort'  => 4,
-    ],  [
+    ],  
+    [
         'key'   => 'mail',
         'name'  => 'admin::app.acl.mail',
         'route' => 'admin.mail.index',
         'sort'  => 4,
-    ], [
+    ], 
+    [
         'key'   => 'mail.inbox',
         'name'  => 'admin::app.acl.inbox',
         'route' => 'admin.mail.index',
@@ -421,10 +423,17 @@ return [
         'name'  => 'admin::app.acl.delete',
         'route' => ['admin.settings.tags.delete', 'admin.settings.tags.mass_delete', 'admin.leads.tags.delete'],
         'sort'  => 2,
-    ], [
+    ], 
+    [
         'key'   => 'configuration',
         'name'  => 'admin::app.acl.configuration',
         'route' => 'admin.configuration.index',
         'sort'  => 9,
-    ]
+    ],
+    [
+        'key'   => 'configuration.sms',
+        'name'  => 'admin::app.acl.configuration.sms',
+        'route' => 'admin.configuration.sms',
+        'sort'  => 4,
+    ],
 ];

@@ -9,7 +9,7 @@ use Webkul\Admin\Http\Requests\LeadForm;
 use Webkul\Lead\Repositories\LeadRepository;
 use Webkul\Lead\Repositories\PipelineRepository;
 use Webkul\Lead\Repositories\StageRepository;
-
+use Twilio\Rest\Client;
 class LeadController extends Controller
 {
     /**
@@ -327,5 +327,16 @@ class LeadController extends Controller
         return response()->json([
             'message' => trans('admin::app.response.destroy-success', ['name' => trans('admin::app.leads.title')]),
         ]);
+    }
+
+    public function sendMessage() {
+        $account_sid = getenv("TWILIO_SID");
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+        $client->messages->create(
+            $recipients,
+            ['from' => $twilio_number, 'body' => $message]
+        );
     }
 }

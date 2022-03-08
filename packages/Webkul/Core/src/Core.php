@@ -76,6 +76,11 @@ class Core
         return config('app.available_locales');
     }
 
+    public function twilio()
+    {
+        return config('app.twilio_api');
+    }
+
     /**
      * Retrieve all countries.
      *

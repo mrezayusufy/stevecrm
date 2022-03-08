@@ -485,8 +485,9 @@ Route::group(['middleware' => ['web']], function () {
                 'prefix'    => 'configuration',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Configuration'
             ], function () {
+                Route::get('/twilio', 'ConfigurationController@twilio')->name('admin.configuration.twilio');
+                Route::post('/twilio', 'ConfigurationController@twilioStore')->name('admin.configuration.twilio.store');
                 Route::get('{slug?}', 'ConfigurationController@index')->name('admin.configuration.index');
-
                 Route::post('{slug?}', 'ConfigurationController@store')->name('admin.configuration.index.store');
             });
         });

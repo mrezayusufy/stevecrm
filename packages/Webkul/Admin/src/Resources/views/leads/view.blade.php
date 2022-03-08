@@ -89,7 +89,7 @@
 
                 {!! view_render_event('admin.leads.view.informations.contact_person.before', ['lead' => $lead]) !!}
 
-                <div class="panel">
+                <div class="panel d-none">
                     <div class="panel-header">
                         {{ __('admin::app.leads.contact-person') }}
                     </div>
@@ -143,7 +143,7 @@
 
                 {!! view_render_event('admin.leads.view.informations.products.before', ['lead' => $lead]) !!}
 
-                <div class="panel">
+                <div class="panel d-none">
                     <div class="panel-header">
                         {{ __('admin::app.leads.products') }}
                     </div>
@@ -271,7 +271,6 @@
 
 
                         {!! view_render_event('admin.leads.view.edit.form_controls.contact_person.before', ['lead' => $lead]) !!}
-
                         <tab name="{{ __('admin::app.leads.contact-person') }}">
                             @include('admin::leads.common.contact')
 

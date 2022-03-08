@@ -119,6 +119,7 @@
         ],
 
         'leads' => [
+            'message'                    => 'Message',
             'title'                    => 'Leads',
             'lead'                     => 'Lead',
             'create-title'             => 'Create Lead',
@@ -695,6 +696,8 @@
             'general'           => 'General',
             'locale-settings'   => 'Locale Settings',
             'locale'            => 'Locale',
+            'sms'               => 'SMS',
+            'twilio'            => 'Twilio',
             'timezone'          => 'Timezone',
             'date-time-formats' => 'Date And Time Formats',
             'save-message'      => 'Configuration updated successfully!',
@@ -783,6 +786,7 @@
             'lead'            => 'Lead',
             'quotes'          => 'Quotes',
             'mail'            => 'Mail',
+            'sms'             => 'SMS',
             'inbox'           => 'Inbox',
             'draft'           => 'Draft',
             'outbox'          => 'Outbox',

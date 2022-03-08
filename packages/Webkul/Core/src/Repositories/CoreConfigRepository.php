@@ -29,6 +29,7 @@ class CoreConfigRepository extends Repository
         unset($data['_token']);
 
         foreach ($data as $method => $fieldData) {
+            print_r($method);
             $recurssiveData = $this->recuressiveArray($fieldData , $method);
 
             foreach ($recurssiveData as $fieldName => $value) {

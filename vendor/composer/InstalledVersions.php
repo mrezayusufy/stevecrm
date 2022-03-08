@@ -25,12 +25,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => 'c652af79d30ca535a672b201ef941d711609e975',
+    'reference' => '5599eaf194c65b3a78e624fca052cf7bbfa92d42',
     'name' => 'steve/laravel-crm',
   ),
   'versions' => 
@@ -1062,8 +1062,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0|2.0',
-        1 => '1.0.0 || 2.0.0 || 3.0.0',
+        0 => '1.0.0 || 2.0.0 || 3.0.0',
+        1 => '1.0|2.0',
       ),
     ),
     'psr/simple-cache' => 
@@ -1280,12 +1280,12 @@ private static $installed = array (
     ),
     'steve/laravel-crm' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => 'c652af79d30ca535a672b201ef941d711609e975',
+      'reference' => '5599eaf194c65b3a78e624fca052cf7bbfa92d42',
     ),
     'swiftmailer/swiftmailer' => 
     array (
@@ -1579,6 +1579,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'da444caae6aca7a19c0c140f68c6182e337d5b1c',
+    ),
+    'twilio/sdk' => 
+    array (
+      'pretty_version' => '6.35.0',
+      'version' => '6.35.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9cfb888bdb2555365ef0b48a81c140394e53ab83',
     ),
     'vlucas/phpdotenv' => 
     array (
