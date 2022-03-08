@@ -1,7 +1,10 @@
 <?php
+// User Routes
+Route::get('/message/automation/{id}', 'Webkul\Admin\Http\Controllers\Message\MessageController@sendByAutomation')->name('admin.message.automation');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin')->name('krayin.home');
+
 
     Route::prefix(config('app.admin_path'))->group(function () {
 
