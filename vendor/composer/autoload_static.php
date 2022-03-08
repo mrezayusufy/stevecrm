@@ -67,12 +67,14 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
             'Webkul\\Product\\' => 15,
             'Webkul\\Page\\' => 12,
             'Webkul\\PackageGenerator\\' => 24,
+            'Webkul\\Message\\' => 15,
             'Webkul\\Lead\\' => 12,
             'Webkul\\Email\\' => 13,
             'Webkul\\EmailTemplate\\' => 21,
             'Webkul\\Customer\\' => 16,
             'Webkul\\Core\\' => 12,
             'Webkul\\Contact\\' => 15,
+            'Webkul\\Automation\\' => 18,
             'Webkul\\Attribute\\' => 17,
             'Webkul\\Admin\\' => 13,
             'Webkul\\Activity\\' => 16,
@@ -292,6 +294,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         array (
             0 => __DIR__ . '/..' . '/krayin/krayin-package-generator/src',
         ),
+        'Webkul\\Message\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/Webkul/Message/src',
+        ),
         'Webkul\\Lead\\' => 
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/Lead/src',
@@ -315,6 +321,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Contact\\' => 
         array (
             0 => __DIR__ . '/../..' . '/packages/Webkul/Contact/src',
+        ),
+        'Webkul\\Automation\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/Webkul/Automation/src',
         ),
         'Webkul\\Attribute\\' => 
         array (
@@ -9463,7 +9473,6 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\Http\\Controllers\\Automation\\AutomationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Automation/AutomationController.php',
         'Webkul\\Admin\\Http\\Controllers\\Compensation\\CompensationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Compensation/CompensationController.php',
         'Webkul\\Admin\\Http\\Controllers\\Configuration\\ConfigurationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Configuration/ConfigurationController.php',
-        'Webkul\\Admin\\Http\\Controllers\\Configuration\\SmsController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Configuration/SmsController.php',
         'Webkul\\Admin\\Http\\Controllers\\Contact\\OrganizationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Contact/OrganizationController.php',
         'Webkul\\Admin\\Http\\Controllers\\Contact\\PersonController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Contact/PersonController.php',
         'Webkul\\Admin\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Controller.php',
@@ -9473,6 +9482,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\Http\\Controllers\\Lead\\QuoteController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Lead/QuoteController.php',
         'Webkul\\Admin\\Http\\Controllers\\Lead\\TagController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Lead/TagController.php',
         'Webkul\\Admin\\Http\\Controllers\\Mail\\EmailController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Mail/EmailController.php',
+        'Webkul\\Admin\\Http\\Controllers\\Message\\MessageController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Message/MessageController.php',
         'Webkul\\Admin\\Http\\Controllers\\Page\\PageController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Page/PageController.php',
         'Webkul\\Admin\\Http\\Controllers\\Product\\ProductController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Product/ProductController.php',
         'Webkul\\Admin\\Http\\Controllers\\Quote\\QuoteController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Quote/QuoteController.php',
@@ -9525,6 +9535,12 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Attribute\\Repositories\\AttributeRepository' => __DIR__ . '/../..' . '/packages/Webkul/Attribute/src/Repositories/AttributeRepository.php',
         'Webkul\\Attribute\\Repositories\\AttributeValueRepository' => __DIR__ . '/../..' . '/packages/Webkul/Attribute/src/Repositories/AttributeValueRepository.php',
         'Webkul\\Attribute\\Traits\\CustomAttribute' => __DIR__ . '/../..' . '/packages/Webkul/Attribute/src/Traits/CustomAttribute.php',
+        'Webkul\\Automation\\Contracts\\Automation' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Contracts/Automation.php',
+        'Webkul\\Automation\\Models\\Automation' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Models/Automation.php',
+        'Webkul\\Automation\\Models\\AutomationProxy' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Models/AutomationProxy.php',
+        'Webkul\\Automation\\Providers\\AutomationServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Providers/AutomationServiceProvider.php',
+        'Webkul\\Automation\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Providers/ModuleServiceProvider.php',
+        'Webkul\\Automation\\Repositories\\AutomationRepository' => __DIR__ . '/../..' . '/packages/Webkul/Automation/src/Repositories/AutomationRepository.php',
         'Webkul\\Contact\\Contracts\\Organization' => __DIR__ . '/../..' . '/packages/Webkul/Contact/src/Contracts/Organization.php',
         'Webkul\\Contact\\Contracts\\Person' => __DIR__ . '/../..' . '/packages/Webkul/Contact/src/Contracts/Person.php',
         'Webkul\\Contact\\Models\\Organization' => __DIR__ . '/../..' . '/packages/Webkul/Contact/src/Models/Organization.php',
@@ -9620,6 +9636,12 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Lead\\Repositories\\SourceRepository' => __DIR__ . '/../..' . '/packages/Webkul/Lead/src/Repositories/SourceRepository.php',
         'Webkul\\Lead\\Repositories\\StageRepository' => __DIR__ . '/../..' . '/packages/Webkul/Lead/src/Repositories/StageRepository.php',
         'Webkul\\Lead\\Repositories\\TypeRepository' => __DIR__ . '/../..' . '/packages/Webkul/Lead/src/Repositories/TypeRepository.php',
+        'Webkul\\Message\\Contracts\\Message' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Contracts/Message.php',
+        'Webkul\\Message\\Models\\Message' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Models/Message.php',
+        'Webkul\\Message\\Models\\MessageProxy' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Models/MessageProxy.php',
+        'Webkul\\Message\\Providers\\MessageServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Providers/MessageServiceProvider.php',
+        'Webkul\\Message\\Providers\\ModuleServiceProvider' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Providers/ModuleServiceProvider.php',
+        'Webkul\\Message\\Repositories\\MessageRepository' => __DIR__ . '/../..' . '/packages/Webkul/Message/src/Repositories/MessageRepository.php',
         'Webkul\\PackageGenerator\\Console\\Command\\CommandMakeCommand' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Console/Command/CommandMakeCommand.php',
         'Webkul\\PackageGenerator\\Console\\Command\\ControllerMakeCommand' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Console/Command/ControllerMakeCommand.php',
         'Webkul\\PackageGenerator\\Console\\Command\\DatagridMakeCommand' => __DIR__ . '/..' . '/krayin/krayin-package-generator/src/Console/Command/DatagridMakeCommand.php',

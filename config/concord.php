@@ -18,7 +18,9 @@ return [
         \Webkul\Workflow\Providers\ModuleServiceProvider::class,
         \Webkul\Page\Providers\ModuleServiceProvider::class,
         \Webkul\Task\Providers\ModuleServiceProvider::class,
+        \Webkul\Message\Providers\ModuleServiceProvider::class,
         \Webkul\Customer\Providers\ModuleServiceProvider::class,
+        \Webkul\Automation\Providers\ModuleServiceProvider::class,
     ],
     'register_route_models' => true
 ];

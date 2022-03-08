@@ -14,7 +14,7 @@
 
                 <div v-for="subType in ['planned', 'done']" :class="subType + '-activities ' + type">
 
-                    <div class="section-tag" v-if="type != 'note' && type != 'file' && type != 'email'">
+                    <div class="section-tag" v-if="type != 'note' && type != 'file' && type != 'message'">
                         <span v-if="subType == 'planned'">{{ __('admin::app.leads.planned') }}</span>
 
                         <span v-else>{{ __('admin::app.leads.done') }}</span>
@@ -25,10 +25,10 @@
                     <div
                         class="activity-item"
                         v-for="activity in getActivities(type, subType)"
-                        :class="[activity.type == 'email' ? 'email' : 'activity']"
+                        :class="[activity.type == 'message' ? 'message' : 'activity']"
                     >
 
-                        <template v-if="activity.type != 'email'">
+                        <template v-if="activity.type != 'message'">
                             <div class="title">
                                 <h4 v-if="activity.title">
                                     @{{ activity.title }}
@@ -268,15 +268,14 @@
         Vue.component('activity-list-component', {
 
             template: '#activity-list-component-template',
-    
+            
             inject: ['$validator'],
 
             data: function () {
                 return {
                     activities: @json(app('\Webkul\Lead\Repositories\LeadRepository')->getAllActivities($lead->id)),
-
-                    types: ['all', 'note', 'call', 'meeting', 'lunch', 'file', 'email'],
-
+                    types: ['all', 'note', 'call', 'meeting', 'lunch', 'file', 'message'],
+                    // messages: @json(route('admin.message.get', $lead->phone)),
                     typeLabels: {
                         'all': "{{ __('admin::app.leads.all') }}",
 
@@ -290,7 +289,7 @@
 
                         'file': "{{ __('admin::app.leads.files') }}",
 
-                        'email': "{{ __('admin::app.leads.emails') }}",
+                        // 'message': "{{ __('admin::app.leads.messages') }}",
                     },
 
                     quotes: @json($lead->quotes()->with(['person', 'user'])->get())
@@ -318,15 +317,14 @@
                     return this.activities.filter(activity => activity.type == 'lunch');
                 },
 
-                email: function() {
-                    return this.activities.filter(activity => activity.type == 'email');
+                message: function() {
+                    return this.activities.filter(activity => activity.type == 'message');
                 },
 
                 file: function() {
                     return this.activities.filter(activity => activity.type == 'file');
                 }
-            },
-
+            }, 
             methods: {
                 getActivities: function(type, subType) {
                     if (subType == 'planned') {
@@ -335,7 +333,11 @@
                         return this[type].filter(activity => activity.is_done);
                     }
                 },
-
+                getMessage: async function(){
+                    this.$http.get("{{ route('admin.message.get', $lead->phone) }}")
+                        .then((data) => {this.messages = data});
+                    
+                },
                 markAsDone: function(activity) {
                     this.$root.pageLoaded = false;
 

@@ -65,6 +65,8 @@
             "Webkul\\Page\\": "packages/Webkul/Page/src",
             "Webkul\\Task\\": "packages/Webkul/Task/src",
             "Webkul\\Customer\\": "packages/Webkul/Customer/src",
+            "Webkul\\Message\\": "packages/Webkul/Message/src",
+            "Webkul\\Automation\\": "packages/Webkul/Automation/src",
             "Webkul\\Workflow\\": "packages/Webkul/Workflow/src"
         }
     },

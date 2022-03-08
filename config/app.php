@@ -242,6 +242,8 @@ return [
         Webkul\Page\Providers\PageServiceProvider::class,
         Webkul\Workflow\Providers\WorkflowServiceProvider::class,
         Webkul\Task\Providers\TaskServiceProvider::class,
+        Webkul\Message\Providers\MessageServiceProvider::class,
+        Webkul\Automation\Providers\AutomationServiceProvider::class,
         Webkul\Customer\Providers\CustomerServiceProvider::class
     ],
 
