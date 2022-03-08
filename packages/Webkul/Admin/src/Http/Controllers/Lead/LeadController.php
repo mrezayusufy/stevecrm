@@ -10,6 +10,8 @@ use Webkul\Lead\Repositories\LeadRepository;
 use Webkul\Lead\Repositories\PipelineRepository;
 use Webkul\Lead\Repositories\StageRepository;
 use Twilio\Rest\Client;
+use Webkul\Core\Repositories\CoreConfigRepository as ConfigurationRepository;
+
 class LeadController extends Controller
 {
     /**
@@ -33,21 +35,27 @@ class LeadController extends Controller
      */
     protected $stageRepository;
 
+    protected $configurationRepository;
+
     /**
      * Create a new controller instance.
      *
      * @param \Webkul\Lead\Repositories\LeadRepository  $leadRepository
      * @param \Webkul\Lead\Repositories\PipelineRepository  $pipelineRepository
      * @param \Webkul\Lead\Repositories\StageRepository  $stageRepository
+     * @param \Webkul\Core\Repositories\ConfigurationRepository  $configurationRepository
      *
      * @return void
      */
     public function __construct(
         LeadRepository $leadRepository,
         PipelineRepository $pipelineRepository,
-        StageRepository $stageRepository
+        StageRepository $stageRepository,
+        ConfigurationRepository $configurationRepository
     ) {
         $this->leadRepository = $leadRepository;
+
+        $this->configurationRepository = $configurationRepository;
 
         $this->pipelineRepository = $pipelineRepository;
 
@@ -330,13 +338,16 @@ class LeadController extends Controller
     }
 
     public function sendMessage() {
-        $account_sid = getenv("TWILIO_SID");
-        $auth_token = getenv("TWILIO_AUTH_TOKEN");
-        $twilio_number = getenv("TWILIO_NUMBER");
+        $data = request()->all();
+        $twilio = $this->configurationRepository->twilio();
+        $account_sid = $twilio['twilio_sid'];
+        $auth_token = $twilio['twilio_secret'];
+        $twilio_number = $twilio['twilio_number'];
         $client = new Client($account_sid, $auth_token);
         $client->messages->create(
-            $recipients,
-            ['from' => $twilio_number, 'body' => $message]
+            $data['phone'],
+            ['from' => $twilio_number, 'body' => $data['message']]
         );
+        session()->flash('success', trans('admin::app.leads.update-success'));
     }
 }

@@ -125,4 +125,31 @@ class CoreConfigRepository extends Repository
 
         return $return;
     }
+    public function twilio() {
+        $query = 'twilio';
+        
+        $twilio = $this->model->where( 'code', 'like', "%$query%" )->get();
+        $sid = '';
+        $secret = '';
+        $number = '';
+        $result = [];
+        foreach($twilio as $item) {
+            $prefix = 'twilio.setting.';
+            $str = $item['code'];
+
+            if (substr($str, 0, strlen($prefix)) == $prefix) {
+                $str = substr($str, strlen($prefix));
+            }
+            $item['code'] = $str;
+            $res = [
+                $str => $item['value']
+            ];
+            $result[] = $res;
+        }
+        $sid = (array_column($result, 'twilio_sid'))[0];
+        $secret = (array_column($result, 'twilio_secret'))[0];
+        $number = (array_column($result, 'twilio_number'))[0];
+        return ["twilio_sid" => $sid, "twilio_secret" => $secret, "twilio_number" => $number];
+        
+    }
 }

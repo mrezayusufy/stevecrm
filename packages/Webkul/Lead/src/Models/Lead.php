@@ -46,7 +46,7 @@ class Lead extends Model implements LeadContract
         'csr',
         'firstname',
         'lastname',
-        'dot',
+        'date_of_birth',
         'lead_source_id',
         'lead_type_id',
         'lead_pipeline_id',

@@ -30,11 +30,11 @@ return [
     ], 
     [
         'key'        => 'mail',
-        'name'       => 'admin::app.layouts.mail.title',
+        'name'       => 'conversation',
         'route'      => 'admin.mail.index',
         'params'     => ['route' => 'inbox'],
         'sort'       => 4,
-        'icon-class' => 'mdi-email-outline',
+        'icon-class' => 'mdi-chat',
     ], 
     [
         'key'        => 'mail.compose',

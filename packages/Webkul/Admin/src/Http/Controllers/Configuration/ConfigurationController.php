@@ -94,7 +94,7 @@ class ConfigurationController extends Controller
 
         return Storage::download($config['value']);
     }
-
+    
     public function twilio()
     {
         $query = 'twilio';
@@ -144,6 +144,7 @@ class ConfigurationController extends Controller
         ];
         return view('admin::configuration.twilio', ['fields' => $fields]);
     }
+
     public function twilioStore()
     {
         Event::dispatch('core.configuration.save.before');

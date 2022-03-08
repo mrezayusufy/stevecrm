@@ -204,7 +204,7 @@
                 {!! view_render_event('admin.leads.view.informations.activity_actions.message.before', ['lead' => $lead]) !!}
                 @if (bouncer()->hasPermission('mail.compose'))
                     <tab name="{{ __('admin::app.leads.message') }}">
-                        <form action="{{ route('admin.mail.store') }}" method="post" enctype="multipart/form-data"
+                        <form action="{{ route('admin.message.store') }}" method="post" enctype="multipart/form-data"
                             data-vv-scope="email-form" @submit.prevent="onSubmit($event, 'email-form')">
                             @csrf()
                             <div class="form-group">
@@ -220,102 +220,6 @@
                     </tab>
                 @endif
                 {!! view_render_event('admin.leads.view.informations.activity_actions.message.after', ['lead' => $lead]) !!}
-
-                {!! view_render_event('admin.leads.view.informations.activity_actions.email.before', ['lead' => $lead]) !!}
-
-                @if (bouncer()->hasPermission('mail.compose'))
-                    <tab name="{{ __('admin::app.leads.email') }}">
-                        <form action="{{ route('admin.mail.store') }}" method="post" enctype="multipart/form-data"
-                            data-vv-scope="email-form" @submit.prevent="onSubmit($event, 'email-form')">
-                
-                            @csrf()
-                
-                            <input type="hidden" name="lead_id" value="{{ $lead->id }}" />
-                
-                            @include ('admin::common.custom-attributes.edit.email-tags')
-                
-                            <div class="form-group email-control-group"
-                                :class="[errors.has('email-form.reply_to[]') ? 'has-error' : '']">
-                                <label for="to" class="required">{{ __('admin::app.leads.to') }}</label>
-                
-                                <email-tags-component control-name="reply_to[]" control-label="{{ __('admin::app.leads.to') }}" class="p-0"
-                                    :validations="'required'"></email-tags-component>
-                
-                                <span class="control-error" v-if="errors.has('email-form.reply_to[]')">
-                                    @{{ errors.first('email-form.reply_to[]') }}
-                                </span>
-                
-                                <div class="email-address-options">
-                                    <label @click="show_cc = ! show_cc">
-                                        {{ __('admin::app.leads.cc') }}
-                                    </label>
-                
-                                    <label @click="show_bcc = ! show_bcc">
-                                        {{ __('admin::app.leads.bcc') }}
-                                    </label>
-                                </div>
-                            </div>
-                
-                            <div class="form-group email-control-group" :class="[errors.has('email-form.cc[]') ? 'has-error' : '']"
-                                v-if="show_cc">
-                                <label for="cc">{{ __('admin::app.leads.cc') }}</label>
-                
-                                <email-tags-component control-name="cc[]" control-label="{{ __('admin::app.leads.cc') }}" class="p-0">
-                                </email-tags-component>
-                
-                                <span class="control-error" v-if="errors.has('email-form.cc[]')">
-                                    @{{ errors.first('email-form.cc[]') }}
-                                </span>
-                            </div>
-                
-                            <div class="form-group email-control-group" :class="[errors.has('email-form.bcc[]') ? 'has-error' : '']"
-                                v-if="show_bcc">
-                                <label for="bcc">{{ __('admin::app.leads.bcc') }}</label>
-                
-                                <email-tags-component control-name="bcc[]" control-label="{{ __('admin::app.leads.bcc') }}" class="p-0">
-                                </email-tags-component>
-                
-                                <span class="control-error" v-if="errors.has('email-form.bcc[]')">
-                                    @{{ errors.first('email-form.bcc[]') }}
-                                </span>
-                            </div>
-                
-                            <div class="form-group" :class="[errors.has('email-form.subject') ? 'has-error' : '']">
-                                <label for="subject" class="required">{{ __('admin::app.leads.subject') }}</label>
-                
-                                <input type="text" name="subject" class="control" id="subject" v-validate="'required'"
-                                    data-vv-as="&quot;{{ __('admin::app.leads.subject') }}&quot;" />
-                
-                                <span class="control-error" v-if="errors.has('email-form.subject')">
-                                    @{{ errors.first('email-form.subject') }}
-                                </span>
-                            </div>
-                
-                            <div class="form-group" :class="[errors.has('email-form.reply') ? 'has-error' : '']">
-                                <label for="reply" class="required"
-                                    style="margin-bottom: 10px">{{ __('admin::app.leads.reply') }}</label>
-                
-                                <textarea name="reply" class="control" id="reply" v-validate="'required'"
-                                    data-vv-as="&quot;{{ __('admin::app.leads.reply') }}&quot;"></textarea>
-                
-                                <span class="control-error" v-if="errors.has('email-form.reply')">
-                                    @{{ errors.first('email-form.reply') }}
-                                </span>
-                            </div>
-                
-                            <div class="form-group">
-                                <attachment-wrapper></attachment-wrapper>
-                            </div>
-                
-                            <button type="submit" class="btn btn-md btn-primary">
-                                {{ __('admin::app.leads.send') }}
-                            </button>
-                
-                        </form>
-                    </tab>
-                @endif
-
-                {!! view_render_event('admin.leads.view.informations.activity_actions.email.after', ['lead' => $lead]) !!}
 
 
                 {!! view_render_event('admin.leads.view.informations.activity_actions.file.before', ['lead' => $lead]) !!}
