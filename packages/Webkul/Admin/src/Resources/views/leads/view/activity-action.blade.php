@@ -95,7 +95,7 @@
                                 <label for="schedule_from" class="required form-label">{{ __('admin::app.leads.schedule') }}</label>
                 
                                 <div class="input-group">
-                                    <datetime>
+                                    <datetime class="calendar">
                                         <input type="text" name="schedule_from" class="form-control" v-model="schedule_from"
                                             ref="schedule_from" placeholder="{{ __('admin::app.leads.from') }}"
                                             v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:{{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}'"
@@ -106,7 +106,7 @@
                                         </span>
                                     </datetime>
                 
-                                    <datetime>
+                                    <datetime class="calendar">
                                         <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
                                             placeholder="{{ __('admin::app.leads.to') }}"
                                             v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"

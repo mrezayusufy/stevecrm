@@ -10,7 +10,6 @@ class Automation extends Model implements AutomationContract
 {
     protected $table = 'automations';
 
-    protected $with = [ 'user'];
 
     protected $dates = [
         'schedule_from',
@@ -32,17 +31,9 @@ class Automation extends Model implements AutomationContract
         'schedule_to',
         'is_done',
         'at_period',
-        'user_id',
     ];
 
-    /**
-     * Get the user that owns the activity.
-     */
-    public function user()
-    {
-        return $this->belongsTo(UserProxy::modelClass());
-    }
-    
+
     /**
      * The leads that belong to the activity.
      */

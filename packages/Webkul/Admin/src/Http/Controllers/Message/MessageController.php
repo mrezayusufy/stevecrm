@@ -3,8 +3,6 @@
 namespace Webkul\Admin\Http\Controllers\Message;
 
 use Carbon\Carbon;
-use DateTime;
-use Illuminate\Support\Facades\Event;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Message\Repositories\MessageRepository;
 use Webkul\Automation\Repositories\AutomationRepository;
@@ -51,6 +49,19 @@ class MessageController extends Controller
     session()->flash('success', trans('admin::app.leads.update-success'));
     return redirect()->back();
   }
+  public function sendAll(){
+    $automaions = $this->automationRepository->all();
+    $result = array();
+    foreach($automaions as $a){
+      if($this->sendByAutomation($a->id)) {
+        $result[$a->id] = ["msg" =>"Message send successfully."];
+      } else {
+        $result[$a->id] = ["msg" =>"Message did not send."];
+      }
+    }
+
+    return response()->json($result);
+  }
   public function sendByAutomation($id)
   {
     $now = Carbon::now("UTC");
@@ -81,9 +92,10 @@ class MessageController extends Controller
         "msg" => "message is scheduled successfully.",
         "data" => $message
       ];
+      return true;
+    } else {
+      return false;
     }
-
-    // session()->flash('success', trans('admin::app.leads.update-success'));
-    return response()->json($result);
+    return ;
   }
 }

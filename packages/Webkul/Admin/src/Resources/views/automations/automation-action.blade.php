@@ -4,86 +4,87 @@
 @push('scripts')
     <script type="text/x-template" id="automation-action-component-template">
         <form action="{{ route('admin.automations.store') }}" method="post" data-vv-scope="automation-form" class="col-5"
-            @submit.prevent="checkIfOverlapping($event, 'automation-form')">
+                    @submit.prevent="checkIfOverlapping($event, 'automation-form')">
 
-            <input type="hidden" name="lead_id" value="">
+                    <input type="hidden" name="lead_id" value="">
 
-            @csrf()
+                    @csrf()
 
-            <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
-                <label for="type" class="required form-label">{{ __('admin::app.automations.type') }}</label>
+                    <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
+                        <label for="type" class="required form-label">{{ __('admin::app.automations.type') }}</label>
 
-                <select v-model="selectType" name="type" class="form-control" v-validate="'required'"
-                    data-vv-as="&quot;{{ __('admin::app.automations.type') }}&quot;">
-                    <option value="" disabled >{{ __('admin::app.automations.select-type') }}</option>
-                    <option value="call">{{ __('admin::app.automations.call') }}</option>
-                    <option value="message" selected>{{ __('admin::app.automations.message') }}</option>
-                    <option value="meeting">{{ __('admin::app.automations.meeting') }}</option>
-                    <option value="lunch">{{ __('admin::app.automations.lunch') }}</option>
-                </select>
+                        <select v-model="selectType" name="type" class="form-control" v-validate="'required'"
+                            data-vv-as="&quot;{{ __('admin::app.automations.type') }}&quot;">
+                            <option value="" disabled >{{ __('admin::app.automations.select-type') }}</option>
+                            <option value="call">{{ __('admin::app.automations.call') }}</option>
+                            <option value="message" selected>{{ __('admin::app.automations.message') }}</option>
+                            <option value="meeting">{{ __('admin::app.automations.meeting') }}</option>
+                            <option value="lunch">{{ __('admin::app.automations.lunch') }}</option>
+                        </select>
 
-                <span class="control-error" v-if="errors.has('automation-form.type')">
-                    @{{ errors.first('automation-form.type') }}
-                </span>
-            </div>
+                        <span class="control-error" v-if="errors.has('automation-form.type')">
+                            @{{ errors.first('automation-form.type') }}
+                        </span>
+                    </div>
 
-            <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
-                <label for="title" class="required form-label">@{{ selectType === 'message' || selectType === 'call' ? 'Phone' : 'Title' }}</label>
-                <input name="title" 
-                    class="form-control" 
-                    v-validate="'required'"
-                    data-vv-as="&quot;{{ __('admin::app.automations.title-control') }}&quot;" />
-                <span class="control-error" v-if="errors.has('automation-form.title')">
-                    @{{ errors.first('automation-form.title') }}
-                </span>
-            </div>
-            
-            <div class="form-group">
-                <label class="form-label required" for="comment">{{ __('admin::app.automations.message') }}</label>
-
-                <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
-            </div>
-            
-            <div class="form-group date"
-                :class="[errors.has('automation-form.schedule_from') || errors.has('automation-form.schedule_to') ? 'has-error' : '']">
-                <label for="schedule_from" class=" form-label">{{ __('admin::app.automations.schedule') }}</label>
-
-                <div class="input-group d-flex">
+                    <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
+                        <label for="title" class="required form-label">@{{ selectType === 'message' || selectType === 'call' ? 'Phone' : 'Title' }}</label>
+                        <input name="title" 
+                            class="form-control" 
+                            v-validate="'required'"
+                            data-vv-as="&quot;{{ __('admin::app.automations.title-control') }}&quot;" />
+                        <span class="control-error" v-if="errors.has('automation-form.title')">
+                            @{{ errors.first('automation-form.title') }}
+                        </span>
+                    </div>
                     
-                    <datetime class="calender">
-                        <input type="text" name="schedule_from" class="form-control" v-model="schedule_from" ref="schedule_from"
-                            placeholder="{{ __('admin::app.automations.from') }}"
-                            v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
-                            data-vv-as="&quot;{{ __('admin::app.automations.from') }}&quot;" />
-                            <div class="mdi mdi-calender absolute"></div>
-                            @{{ errors.first('automation-form.schedule_from') }}
-                        </span>
-                    </datetime>
-                    <datetime class="calender">
-                        <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
-                            placeholder="{{ __('admin::app.automations.to') }}"
-                            v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
-                            data-vv-as="&quot;{{ __('admin::app.automations.to') }}&quot;" />
+                    <div class="form-group">
+                        <label class="form-label required" for="comment">{{ __('admin::app.automations.message') }}</label>
 
-                        <span class="control-error" v-if="errors.has('automation-form.schedule_to')">
-                            @{{ errors.first('automation-form.schedule_to') }}
-                        </span>
-                    </datetime>
-                </div>
-            </div>
+                        <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
+                    </div>
+                    
+                    <div class="form-group date"
+                        :class="[errors.has('automation-form.schedule_from') || errors.has('automation-form.schedule_from') ? 'has-error' : '']">
+                        <label for="schedule_from" class=" form-label">{{ __('admin::app.automations.schedule') }}</label>
 
-            <div class="form-group">
-                <label class="form-label" for="at_period">{{ __('admin::app.automations.at_period') }}</label>                
-                <input name="at_period" class="form-control" />
-            </div>           
+                        <div class="input-group d-flex">
+                            <datetime class="calender">
+                                <input type="text" name="schedule_from" class="form-control" v-model="schedule_from"
+                                    ref="schedule_from" placeholder="{{ __('admin::app.automations.from') }}"
+                                    v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:{{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}'"
+                                    data-vv-as="&quot;{{ __('admin::app.leads.from') }}&quot;" />
+        
+                                <span class="control-error" v-if="errors.has('automation-form.schedule_from')">
+                                    @{{ errors.first('automation-form.schedule_from') }}
+                                </span>
+                            </datetime>
+        
+                            <datetime class="calender">
+                                <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
+                                    placeholder="{{ __('admin::app.automations.to') }}"
+                                    v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
+                                    data-vv-as="&quot;{{ __('admin::app.automations.to') }}&quot;" />
+        
+                                <span class="control-error" v-if="errors.has('automation-form.schedule_to')">
+                                    @{{ errors.first('automation-form.schedule_to') }}
+                                </span>
+                            </datetime>
+                        </div>
+                    </div>
 
-            
-            <button type="submit" class="btn btn-md btn-primary">
-                {{ __('admin::app.automations.save-btn-title') }}
-            </button>
+                    <div class="form-group">
+                        <label class="form-label" for="at_period">{{ __('admin::app.automations.at_period') }}</label>                
+                        <input name="at_period" class="form-control" />
+                    </div>           
 
-        </form>
-    </script>
+                    
+                    <button type="submit" class="btn btn-md btn-primary">
+                        {{ __('admin::app.automations.save-btn-title') }}
+                    </button>
+
+                </form>
+            </script>
 
     <script>
         Vue.component('automation-action-component', {
@@ -131,25 +132,6 @@
             mounted: function() {
                 var self = this;
 
-                tinymce.init({
-                    selector: 'textarea#reply',
-
-                    height: 200,
-
-                    width: "100%",
-
-                    plugins: 'image imagetools media wordcount save fullscreen code table lists link hr',
-
-                    toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor link hr | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent  | removeformat | code | table',
-
-                    image_advtab: true,
-
-                    setup: function(editor) {
-                        editor.on('keyUp', function() {
-                            self.$validator.validate('email-form.reply', this.getContent());
-                        });
-                    }
-                });
             },
 
             methods: {

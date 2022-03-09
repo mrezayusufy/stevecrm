@@ -147,26 +147,7 @@ class AutomationController extends Controller
 
         $automation = $this->automationRepository->create(array_merge(request()->all(), [
             'is_done' => request('type') == 'note' ? 1 : 0,
-            'user_id' => auth()->guard('user')->user()->id,
         ]));
-
-        if (request('participants')) {
-            if (is_array(request('participants.users'))) {
-                foreach (request('participants.users') as $userId) {
-                    $automation->participants()->create([
-                        'user_id' => $userId
-                    ]);
-                }
-            }
-
-            if (is_array(request('participants.persons'))) {
-                foreach (request('participants.persons') as $personId) {
-                    $automation->participants()->create([
-                        'person_id' => $personId,
-                    ]);
-                }
-            }
-        }
 
         if (request('lead_id')) {
             $lead = $this->leadRepository->find(request('lead_id'));
