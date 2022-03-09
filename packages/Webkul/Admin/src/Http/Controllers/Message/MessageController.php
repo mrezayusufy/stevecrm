@@ -59,13 +59,13 @@ class MessageController extends Controller
     $schedule_from = Carbon::parse($automation['schedule_from']);
     $schedule_to = Carbon::parse($automation['schedule_to']);
     $result = [];
-    if($schedule_from <= $now && $now <= $schedule_to) {
-      $at_period = $automation['at_period'];
-      $is_done = $automation['is_done'];
-      $account_sid = $this->twilio['twilio_sid'];
-      $auth_token = $this->twilio['twilio_secret'];
-      $twilio_number = $this->twilio['twilio_number'];
-      $client = new Client($account_sid, $auth_token);
+    $at_period = $automation['at_period'];
+    $is_done = $automation['is_done'];
+    $account_sid = $this->twilio['twilio_sid'];
+    $auth_token = $this->twilio['twilio_secret'];
+    $twilio_number = $this->twilio['twilio_number'];
+    $client = new Client($account_sid, $auth_token);
+    if(isset($schedule_from) && isset($schedule_to) ){
       $client->messages->create(
         $to,
         ['from' => $twilio_number, 'body' => $body]
@@ -76,7 +76,21 @@ class MessageController extends Controller
       ];
       $this->messageRepository->create($message);
       $result = [
-        "msg" => "data send successfully.",
+        "msg" => "message send successfully.",
+        "data" => $message
+      ];
+    } elseif ($schedule_from <= $now && $now <= $schedule_to) {
+      $client->messages->create(
+        $to,
+        ['from' => $twilio_number, 'body' => $body]
+      );
+      $message = [
+        'to' => "$to",
+        'content' => $body,
+      ];
+      $this->messageRepository->create($message);
+      $result = [
+        "msg" => "message is scheduled successfully.",
         "data" => $message
       ];
     } 

@@ -10,16 +10,6 @@
 
             @csrf()
 
-            <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
-                <label for="title" class="required form-label">@{{ selectType === 'message' || selectType === 'call' ? 'Phone' : 'Title' }}</label>
-                <input name="title" 
-                    class="form-control" 
-                    v-validate="'required'"
-                    data-vv-as="&quot;{{ __('admin::app.automations.title-control') }}&quot;" />
-                <span class="control-error" v-if="errors.has('automation-form.title')">
-                    @{{ errors.first('automation-form.title') }}
-                </span>
-            </div>
             <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
                 <label for="type" class="required form-label">{{ __('admin::app.automations.type') }}</label>
 
@@ -35,6 +25,23 @@
                 <span class="control-error" v-if="errors.has('automation-form.type')">
                     @{{ errors.first('automation-form.type') }}
                 </span>
+            </div>
+
+            <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
+                <label for="title" class="required form-label">@{{ selectType === 'message' || selectType === 'call' ? 'Phone' : 'Title' }}</label>
+                <input name="title" 
+                    class="form-control" 
+                    v-validate="'required'"
+                    data-vv-as="&quot;{{ __('admin::app.automations.title-control') }}&quot;" />
+                <span class="control-error" v-if="errors.has('automation-form.title')">
+                    @{{ errors.first('automation-form.title') }}
+                </span>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="comment">{{ __('admin::app.automations.description') }}</label>
+
+                <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
             </div>
 
             <div class="form-group date"
@@ -76,11 +83,7 @@
                 <input name="at_period" class="form-control" />
             </div>
 
-            <div class="form-group">
-                <label class="form-label" for="comment">{{ __('admin::app.automations.description') }}</label>
-
-                <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
-            </div>
+            
 
             <div class="form-group">
                 <label class="form-label" for="participants">{{ __('admin::app.automations.participants') }}</label>                
