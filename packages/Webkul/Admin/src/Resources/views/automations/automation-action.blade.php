@@ -15,9 +15,9 @@
 
                 <select v-model="selectType" name="type" class="form-control" v-validate="'required'"
                     data-vv-as="&quot;{{ __('admin::app.automations.type') }}&quot;">
-                    <option value="" disabled selected>{{ __('admin::app.automations.select-type') }}</option>
+                    <option value="" disabled >{{ __('admin::app.automations.select-type') }}</option>
                     <option value="call">{{ __('admin::app.automations.call') }}</option>
-                    <option value="message">{{ __('admin::app.automations.message') }}</option>
+                    <option value="message" selected>{{ __('admin::app.automations.message') }}</option>
                     <option value="meeting">{{ __('admin::app.automations.meeting') }}</option>
                     <option value="lunch">{{ __('admin::app.automations.lunch') }}</option>
                 </select>
@@ -39,31 +39,30 @@
             </div>
             
             <div class="form-group">
-                <label class="form-label" for="comment">{{ __('admin::app.automations.description') }}</label>
+                <label class="form-label required" for="comment">{{ __('admin::app.automations.message') }}</label>
 
                 <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
             </div>
 
             <div class="form-group date"
                 :class="[errors.has('automation-form.schedule_from') || errors.has('automation-form.schedule_to') ? 'has-error' : '']">
-                <label for="schedule_from" class="required form-label">{{ __('admin::app.automations.schedule') }}</label>
+                <label for="schedule_from" class=" form-label">{{ __('admin::app.automations.schedule') }}</label>
 
-                <div class="input-group">
+                <div class="input-group d-flex">
                     <datetime>
-                        <input type="text" name="schedule_from" class="form-control" v-model="schedule_from"
-                            ref="schedule_from" placeholder="{{ __('admin::app.automations.from') }}"
-                            v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:{{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}'"
-                            data-vv-as="&quot;{{ __('admin::app.automations.from') }}&quot;" />
+                        <input type="text" name="schedule_from" class="form-control" v-model="schedule_from" ref="schedule_from"
+                            placeholder="{{ __('admin::app.automations.to') }}"
+                            v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
+                            data-vv-as="&quot;{{ __('admin::app.automations.to') }}&quot;" />
 
                         <span class="control-error" v-if="errors.has('automation-form.schedule_from')">
                             @{{ errors.first('automation-form.schedule_from') }}
                         </span>
                     </datetime>
-
                     <datetime>
                         <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
                             placeholder="{{ __('admin::app.automations.to') }}"
-                            v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
+                            v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
                             data-vv-as="&quot;{{ __('admin::app.automations.to') }}&quot;" />
 
                         <span class="control-error" v-if="errors.has('automation-form.schedule_to')">
@@ -74,74 +73,13 @@
             </div>
 
             <div class="form-group">
-                <label class="form-label" for="location">{{ __('admin::app.automations.location') }}</label>                
-                <input name="location" class="form-control" />
-            </div>
-
-            <div class="form-group">
                 <label class="form-label" for="at_period">{{ __('admin::app.automations.at_period') }}</label>                
                 <input name="at_period" class="form-control" />
             </div>
 
             
 
-            <div class="form-group">
-                <label class="form-label" for="participants">{{ __('admin::app.automations.participants') }}</label>                
-                <div class="lookup-control">
-                    <div class="form-group" style="margin-bottom: 0">
-                        <input type="text" class="form-control" v-model="search_term" autocomplete="off"
-                            placeholder="{{ __('admin::app.automations.participant-info') }}" v-on:keyup="search">
-
-                        <div class="lookup-results grouped" v-if="search_term.length">
-                            <label>{{ __('admin::app.automations.users') }}</label>
-
-                            <ul>
-                                <li v-for='(participant, index) in searched_participants.users'
-                                    @click="addParticipant('users', participant)">
-                                    <span>@{{ participant.name }}</span>
-                                </li>
-
-                                <li v-if='! searched_participants.users.length && search_term.length && ! is_searching'>
-                                    <span>{{ __('admin::app.common.no-result-found') }}</span>
-                                </li>
-                            </ul>
-
-                            <label>{{ __('admin::app.automations.persons') }}</label>
-
-                            <ul>
-                                <li v-for='(participant, index) in searched_participants.persons'
-                                    @click="addParticipant('persons', participant)">
-                                    <span>@{{ participant.name }}</span>
-                                </li>
-
-                                <li
-                                    v-if='! searched_participants.persons.length && search_term.length && ! is_searching'>
-                                    <span>{{ __('admin::app.common.no-result-found') }}</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <i class="icon loader-active-icon" v-if="is_searching"></i>
-                    </div>
-
-                    <div class="lookup-selected-options">
-                        <span class="badge badge-sm badge-pill badge-secondary-outline users"
-                            v-for='(participant, index) in participants.users'>
-                            <input type="hidden" name="participants[users][]" :value="participant.id" />
-                            @{{ participant.name }}
-                            <i class="icon close-icon" @click="removeParticipant('users', participant)"></i>
-                        </span>
-
-                        <span class="badge badge-sm badge-pill badge-warning-outline persons"
-                            v-for='(participant, index) in participants.persons'>
-                            <input type="hidden" name="participants[persons][]" :value="participant.id" />
-                            @{{ participant.name }}
-                            <i class="icon close-icon" @click="removeParticipant('persons', participant)"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
+            
             <button type="submit" class="btn btn-md btn-primary">
                 {{ __('admin::app.automations.save-btn-title') }}
             </button>
@@ -184,7 +122,7 @@
                         'persons': []
                     },
 
-                    selectType: "",
+                    selectType: "message",
                 }
             },
             computed: {

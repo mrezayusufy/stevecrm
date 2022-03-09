@@ -21,8 +21,8 @@
     </div>
 @stop
 @section('content-wrapper')
-    <div class="content full-page bg-light">
-        
+    <div class="content full-page bg-light h-auto">
+
         @include('admin::automations.automation-action')
     </div>
 @stop
