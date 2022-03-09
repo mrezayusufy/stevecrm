@@ -5,7 +5,6 @@ Route::get('/message/automation/{id}', 'Webkul\Admin\Http\Controllers\Message\Me
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin')->name('krayin.home');
 
-
     Route::prefix(config('app.admin_path'))->group(function () {
 
         Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin');
