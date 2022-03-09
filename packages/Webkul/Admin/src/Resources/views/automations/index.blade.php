@@ -7,6 +7,14 @@
 @section('title')
     Lifecycle Automation
 @stop
+@push('css')
+    <style>
+        .calender::after {
+            margin-top: -20px !important;
+        }
+
+    </style>
+@endpush
 @section('navbar-top')
     <div class="flex center g-10 px-10">
         <button class="btn btn-outline-secondary d-flex align-items-center">
@@ -20,6 +28,7 @@
         </button>
     </div>
 @stop
+
 @section('content-wrapper')
     <div class="content full-page bg-light h-auto">
 

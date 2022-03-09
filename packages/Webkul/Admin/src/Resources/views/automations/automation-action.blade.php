@@ -43,23 +43,23 @@
 
                 <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
             </div>
-
+            
             <div class="form-group date"
                 :class="[errors.has('automation-form.schedule_from') || errors.has('automation-form.schedule_to') ? 'has-error' : '']">
                 <label for="schedule_from" class=" form-label">{{ __('admin::app.automations.schedule') }}</label>
 
                 <div class="input-group d-flex">
-                    <datetime>
+                    
+                    <datetime class="calender">
                         <input type="text" name="schedule_from" class="form-control" v-model="schedule_from" ref="schedule_from"
                             placeholder="{{ __('admin::app.automations.from') }}"
                             v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
                             data-vv-as="&quot;{{ __('admin::app.automations.from') }}&quot;" />
-
-                        <span class="control-error" v-if="errors.has('automation-form.schedule_from')">
+                            <div class="mdi mdi-calender absolute"></div>
                             @{{ errors.first('automation-form.schedule_from') }}
                         </span>
                     </datetime>
-                    <datetime>
+                    <datetime class="calender">
                         <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
                             placeholder="{{ __('admin::app.automations.to') }}"
                             v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
@@ -75,9 +75,7 @@
             <div class="form-group">
                 <label class="form-label" for="at_period">{{ __('admin::app.automations.at_period') }}</label>                
                 <input name="at_period" class="form-control" />
-            </div>
-
-            
+            </div>           
 
             
             <button type="submit" class="btn btn-md btn-primary">
