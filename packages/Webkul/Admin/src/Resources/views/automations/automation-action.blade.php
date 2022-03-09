@@ -51,9 +51,9 @@
                 <div class="input-group d-flex">
                     <datetime>
                         <input type="text" name="schedule_from" class="form-control" v-model="schedule_from" ref="schedule_from"
-                            placeholder="{{ __('admin::app.automations.to') }}"
+                            placeholder="{{ __('admin::app.automations.from') }}"
                             v-validate="'date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
-                            data-vv-as="&quot;{{ __('admin::app.automations.to') }}&quot;" />
+                            data-vv-as="&quot;{{ __('admin::app.automations.from') }}&quot;" />
 
                         <span class="control-error" v-if="errors.has('automation-form.schedule_from')">
                             @{{ errors.first('automation-form.schedule_from') }}
