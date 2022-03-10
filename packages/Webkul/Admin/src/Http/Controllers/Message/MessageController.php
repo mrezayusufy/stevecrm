@@ -104,9 +104,13 @@ class MessageController extends Controller
     $number = $_POST['From'];
     $body = $_POST['Body'];
     header('Content-Type: text/xml');
+
     // $message = $response->message("");
     // $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
-    // $this->messageRepository->create($message);
+    $this->messageRepository->create([
+      "to" => $number,
+      "body" => $body
+    ]);
     "<Response>
       <Message>
         Hello $number.
