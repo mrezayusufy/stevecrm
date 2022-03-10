@@ -5,6 +5,7 @@ namespace Webkul\Admin\Http\Controllers\Message;
 use Carbon\Carbon;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Message\Repositories\MessageRepository;
+use Webkul\Attribute\Http\Requests\AttributeForm as Request;
 use Webkul\Automation\Repositories\AutomationRepository;
 use Webkul\Core\Repositories\CoreConfigRepository as ConfigurationRepository;
 use Twilio\Rest\Client;
@@ -31,20 +32,22 @@ class MessageController extends Controller
     $response = $this->messageRepository->where('to', 'like', "%$phone%")->get();
     return response()->json($response);
   }
-  public function send($phone)
+  public function send(Request $request, $phone)
   {
-    $data = request()->all();
+
+    $input = request()->all();
+    $body = $input['body'];
     $account_sid = $this->twilio['twilio_sid'];
     $auth_token = $this->twilio['twilio_secret'];
     $twilio_number = $this->twilio['twilio_number'];
     $client = new Client($account_sid, $auth_token);
     $client->messages->create(
       $phone,
-      ['from' => $twilio_number, 'body' => $data['body']]
+      ['from' => $twilio_number, 'body' => $body]
     );
     $message = [
       'to' => "$phone",
-      'content' => $data['body']
+      'content' => $body
     ];
     $this->messageRepository->create($message);
     session()->flash('success', trans('admin::app.leads.update-success'));
@@ -99,16 +102,10 @@ class MessageController extends Controller
     }
     return ;
   }
-  public function receive() {
 
-
-    echo "We get your reply";
-    
-   
-  }
   
       // $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
-      // $this->messageRepository->create([
+      //333 $this->messageRepository->create([
       //   "to" => $number,
       //   "body" => $body
       // ]);
