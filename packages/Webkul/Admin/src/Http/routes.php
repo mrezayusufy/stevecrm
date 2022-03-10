@@ -64,14 +64,14 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             // User Routes
-            Route::group([
-                'prefix'    => 'message',
-                'namespace' => 'Webkul\Admin\Http\Controllers\Message'
-            ], function () {
-                Route::get('/{phone}', 'MessageController@get')->name('admin.message.get');
-                Route::post('/{phone}', 'MessageController@send')->name('admin.message.send');
-                Route::get('/automation/{id}', 'MessageController@sendByAutomation')->name('admin.message.send.automation');
-            });
+            // Route::group([
+            //     'prefix'    => 'message',
+            //     'namespace' => 'Webkul\Admin\Http\Controllers\Message'
+            // ], function () {
+            //     Route::get('/{phone}', 'MessageController@get')->name('admin.message.get');
+            //     Route::post('/{phone}', 'MessageController@send')->name('admin.message.send');
+            //     Route::get('/automation/{id}', 'MessageController@sendByAutomation')->name('admin.message.send.automation');
+            // });
 
             // Leads Routes
             Route::group([
