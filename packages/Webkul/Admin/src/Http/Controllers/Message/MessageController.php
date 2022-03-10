@@ -100,17 +100,15 @@ class MessageController extends Controller
     return ;
   }
   public function receive() {
-    // $response = new MessagingResponse;
-    $data = request()->all();
     $number = $_POST['From'];
     $body = $_POST['Body'];
     header('Content-Type: text/xml');
 
     // $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
-    $this->messageRepository->create([
-      "to" => $number,
-      "body" => $body
-    ]);
+    // $this->messageRepository->create([
+    //   "to" => $number,
+    //   "body" => $body
+    // ]);
     return response()->json([
       "msg" => "this is a test"
     ]);
