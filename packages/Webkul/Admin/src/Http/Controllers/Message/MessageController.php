@@ -100,12 +100,11 @@ class MessageController extends Controller
     return ;
   }
   public function receive() {
+
+
+    echo "We get your reply";
     
-    $data = request()->all();
-    $from = $data["From"];
-    $body = $data["Body"];
-    header('Content-Type: xml');
-    return "<Response>$from</Response>";   
+   
   }
   
       // $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
