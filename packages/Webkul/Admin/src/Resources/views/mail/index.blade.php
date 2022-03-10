@@ -8,8 +8,5 @@
 @stop
 
 @section('content-wrapper')
-    <div class="content full-page">
-        <table-component data-src="{{ route('admin.mail.index') }}">
-        <table-component>
-    </div>
+    @include("admin::mail.chat")
 @stop
