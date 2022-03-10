@@ -111,12 +111,8 @@ class MessageController extends Controller
       "to" => $number,
       "body" => $body
     ]);
-    return response()->xml(
-    "<Response>
-      <Message>
-        Hello $number.
-        You said: $body
-      </Message>
-    </Response>");
+    return response()->json([
+      "msg" => "this is a test"
+    ]);
   }
 }
