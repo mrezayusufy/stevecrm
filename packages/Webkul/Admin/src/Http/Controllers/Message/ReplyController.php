@@ -8,11 +8,8 @@ class ReplyController extends Controller {
     public function index() {
         $number = $_POST["From"];
         $body = $_POST["Body"];
-        header("Content-type: text/xml");
-        return response()->xml([
-            "Response"=> [
-                "Message" => "Dear Customer $number, Your message: $body."
-            ]
-        ]);
+        
+        return response("<Response><Message>Dear Customer $number, You said: $body</Message></Response>", 200)
+                  ->header('Content-Type', 'text/xml');
     }
 }
