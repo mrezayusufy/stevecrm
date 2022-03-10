@@ -244,7 +244,8 @@ return [
         Webkul\Task\Providers\TaskServiceProvider::class,
         Webkul\Message\Providers\MessageServiceProvider::class,
         Webkul\Automation\Providers\AutomationServiceProvider::class,
-        Webkul\Customer\Providers\CustomerServiceProvider::class
+        Webkul\Customer\Providers\CustomerServiceProvider::class,
+        XmlResponse\XmlResponseServiceProvider::class
     ],
 
     /*
@@ -298,6 +299,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Menu' => Webkul\Admin\Facades\Menu::class,
+        'Xml' => XmlResponse\Facades\XmlFacade::class
     ],
 
 ];

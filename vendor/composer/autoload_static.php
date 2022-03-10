@@ -54,6 +54,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         array (
             'ZipStream\\' => 10,
         ),
+        'X' => 
+        array (
+            'XmlResponse\\' => 12,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -249,6 +253,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+        ),
+        'XmlResponse\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jailtonsc/laravel-response-xml/src',
         ),
         'Whoops\\' => 
         array (
@@ -9769,6 +9777,10 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'XmlResponse\\Exception\\XmlResponseException' => __DIR__ . '/..' . '/jailtonsc/laravel-response-xml/src/Exception/XmlResponseException.php',
+        'XmlResponse\\Facades\\XmlFacade' => __DIR__ . '/..' . '/jailtonsc/laravel-response-xml/src/Facades/XmlFacade.php',
+        'XmlResponse\\XmlResponse' => __DIR__ . '/..' . '/jailtonsc/laravel-response-xml/src/XmlResponse.php',
+        'XmlResponse\\XmlResponseServiceProvider' => __DIR__ . '/..' . '/jailtonsc/laravel-response-xml/src/XmlResponseServiceProvider.php',
         'ZipStream\\Bigint' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Bigint.php',
         'ZipStream\\DeflateStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/DeflateStream.php',
         'ZipStream\\Exception' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Exception.php',

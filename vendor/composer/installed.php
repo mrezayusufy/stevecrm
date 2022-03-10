@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '004292b503f8befcd5057869555b30b96dff8cf5',
+    'reference' => '69ddd0a2f2681e011894d86b89ded6a1a590dde8',
     'name' => 'steve/laravel-crm',
   ),
   'versions' => 
@@ -502,6 +502,15 @@
       array (
         0 => 'v8.83.1',
       ),
+    ),
+    'jailtonsc/laravel-response-xml' => 
+    array (
+      'pretty_version' => 'v3.0.1',
+      'version' => '3.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd7debb3893693fc50b9afd29bf9492f9a43506b3',
     ),
     'kodova/hamcrest-php' => 
     array (
@@ -1261,7 +1270,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '004292b503f8befcd5057869555b30b96dff8cf5',
+      'reference' => '69ddd0a2f2681e011894d86b89ded6a1a590dde8',
     ),
     'swiftmailer/swiftmailer' => 
     array (

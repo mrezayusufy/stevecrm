@@ -2253,6 +2253,49 @@
             "install-path": "../hamcrest/hamcrest-php"
         },
         {
+            "name": "jailtonsc/laravel-response-xml",
+            "version": "v3.0.1",
+            "version_normalized": "3.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jailtonsc/laravel-response-xml.git",
+                "reference": "d7debb3893693fc50b9afd29bf9492f9a43506b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jailtonsc/laravel-response-xml/zipball/d7debb3893693fc50b9afd29bf9492f9a43506b3",
+                "reference": "d7debb3893693fc50b9afd29bf9492f9a43506b3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "time": "2018-06-30T18:37:31+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "XmlResponse\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Add the method xml integrating the laravel's response, converting eloquent return to XML.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "response",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/jailtonsc/laravel-response-xml/issues",
+                "source": "https://github.com/jailtonsc/laravel-response-xml/tree/v3.0.1"
+            },
+            "install-path": "../jailtonsc/laravel-response-xml"
+        },
+        {
             "name": "konekt/concord",
             "version": "1.10.2",
             "version_normalized": "1.10.2.0",
