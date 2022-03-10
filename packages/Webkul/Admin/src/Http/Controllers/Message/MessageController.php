@@ -104,11 +104,7 @@ class MessageController extends Controller
     $number = $_POST['From'];
     $body = $_POST['Body'];
     header('Content-Type: xml');
-    return response()->xml([
-      "Response" => [
-        "Message" => "Hello $number, $body"
-      ]
-    ]);
+    return "<Response></Response>";
   
 
    
