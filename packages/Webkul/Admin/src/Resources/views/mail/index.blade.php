@@ -8,5 +8,5 @@
 @stop
 
 @section('content-wrapper')
-    @include("admin::mail.chat")
+    @include("admin::conversations.chat")
 @stop

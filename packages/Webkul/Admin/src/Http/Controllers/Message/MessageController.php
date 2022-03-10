@@ -8,6 +8,7 @@ use Webkul\Message\Repositories\MessageRepository;
 use Webkul\Automation\Repositories\AutomationRepository;
 use Webkul\Core\Repositories\CoreConfigRepository as ConfigurationRepository;
 use Twilio\Rest\Client;
+use Twilio\TwiML\MessagingResponse;
 
 class MessageController extends Controller
 {
@@ -97,5 +98,12 @@ class MessageController extends Controller
       return false;
     }
     return ;
+  }
+  public function receive() {
+    $response = new MessagingResponse;
+    $message = $response->message("");
+    $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
+    // $this->messageRepository->create($message);
+    return response()->json($message);
   }
 }

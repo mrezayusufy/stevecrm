@@ -1,5 +1,12 @@
 @push('css')
     <style>
+        :root {
+            --primary: hsl(218, 88%, 60%);
+            --primary-dark: hsl(218, 88%, 40%);
+            --primary-light: hsl(218, 88%, 70%);
+            --primary-secondary: hsl(218, 88%, 20%);
+        }
+
         #frame {
             width: 100%;
             height: 90vh;
@@ -21,7 +28,7 @@
             max-width: 340px;
             width: 40%;
             height: 100%;
-            background: #2c3e50;
+            background: var(--primary);
             color: #f5f5f5;
             overflow: hidden;
             position: relative;
@@ -44,27 +51,10 @@
                 width: 100%;
                 margin: 0 auto;
                 padding: 5px 0 0 0;
-                background: #32465a;
+                background: var(--primary);
             }
         }
 
-        #frame #sidepanel #profile.expanded .wrap {
-            height: 210px;
-            line-height: initial;
-        }
-
-        #frame #sidepanel #profile.expanded .wrap p {
-            margin-top: 20px;
-        }
-
-        #frame #sidepanel #profile.expanded .wrap i.expand-button {
-            -moz-transform: scaleY(-1);
-            -o-transform: scaleY(-1);
-            -webkit-transform: scaleY(-1);
-            transform: scaleY(-1);
-            filter: FlipH;
-            -ms-filter: "FlipH";
-        }
 
         #frame #sidepanel #profile .wrap {
             height: 60px;
@@ -130,19 +120,7 @@
             }
         }
 
-        #frame #sidepanel #profile .wrap i.expand-button {
-            float: right;
-            margin-top: 23px;
-            font-size: 0.8em;
-            cursor: pointer;
-            color: #435f7a;
-        }
 
-        @media screen and (max-width: 735px) {
-            #frame #sidepanel #profile .wrap i.expand-button {
-                display: none;
-            }
-        }
 
         #frame #sidepanel #profile .wrap #status-options {
             position: absolute;
@@ -153,7 +131,7 @@
             border-radius: 6px;
             z-index: 99;
             line-height: initial;
-            background: #435f7a;
+            background: var(--primary-dark);
             -moz-transition: 0.3s all ease;
             -o-transition: 0.3s all ease;
             -webkit-transition: 0.3s all ease;
@@ -186,7 +164,7 @@
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-bottom: 8px solid #435f7a;
+            border-bottom: 8px solid var(--primary-dark);
             margin: -8px 0 0 24px;
         }
 
@@ -214,7 +192,7 @@
         }
 
         #frame #sidepanel #profile .wrap #status-options ul li:hover {
-            background: #496886;
+            background: var(--primary);
         }
 
         #frame #sidepanel #profile .wrap #status-options ul li span.status-circle {
@@ -285,11 +263,11 @@
         }
 
         #frame #sidepanel #profile .wrap #status-options ul li#status-offline span.status-circle {
-            background: #95a5a6;
+            background: var(--primary);
         }
 
         #frame #sidepanel #profile .wrap #status-options ul li#status-offline.active span.status-circle:before {
-            border: 1px solid #95a5a6;
+            border: 1px solid var(--primary);
         }
 
         #frame #sidepanel #profile .wrap #expanded {
@@ -308,7 +286,7 @@
         #frame #sidepanel #profile .wrap #expanded input {
             border: none;
             margin-bottom: 6px;
-            background: #32465a;
+            background: var(--primary-dark);
             border-radius: 3px;
             color: #f5f5f5;
             padding: 7px;
@@ -317,12 +295,12 @@
 
         #frame #sidepanel #profile .wrap #expanded input:focus {
             outline: none;
-            background: #435f7a;
+            background: var(--primary-dark);
         }
 
         #frame #sidepanel #search {
-            border-top: 1px solid #32465a;
-            border-bottom: 1px solid #32465a;
+            border-top: 1px solid var(--primary-dark);
+            border-bottom: 1px solid var(--primary-dark);
             font-weight: 300;
         }
 
@@ -332,23 +310,19 @@
             }
         }
 
-        #frame #sidepanel #search label {
-            position: absolute;
-            margin: 10px 0 0 20px;
-        }
 
         #frame #sidepanel #search input {
             font-family: "proxima-nova", "Source Sans Pro", sans-serif;
             padding: 10px 0 10px 46px;
             width: calc(100% - 25px);
             border: none;
-            background: #32465a;
+            background: var(--primary);
             color: #f5f5f5;
         }
 
         #frame #sidepanel #search input:focus {
             outline: none;
-            background: #435f7a;
+            background: var(--primary-dark);
         }
 
         #frame #sidepanel #search input::-webkit-input-placeholder {
@@ -391,11 +365,11 @@
 
         #frame #sidepanel #contacts::-webkit-scrollbar {
             width: 8px;
-            background: #2c3e50;
+            background: var(--primary-dark);
         }
 
         #frame #sidepanel #contacts::-webkit-scrollbar-thumb {
-            background-color: #243140;
+            background-color: var(--primary-dark);
         }
 
         #frame #sidepanel #contacts ul li.contact {
@@ -412,16 +386,16 @@
         }
 
         #frame #sidepanel #contacts ul li.contact:hover {
-            background: #32465a;
+            background: var(--primary-dark);
         }
 
         #frame #sidepanel #contacts ul li.contact.active {
-            background: #32465a;
-            border-right: 5px solid #435f7a;
+            background: var(--primary-dark);
+            border-right: 5px solid var(--primary-secondary);
         }
 
         #frame #sidepanel #contacts ul li.contact.active span.contact-status {
-            border: 2px solid #32465a !important;
+            border: 2px solid var(--primary-dark) !important;
         }
 
         #frame #sidepanel #contacts ul li.contact .wrap {
@@ -443,7 +417,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            border: 2px solid #2c3e50;
+            border: 2px solid var(--primary-dark);
             background: #95a5a6;
         }
 
@@ -520,7 +494,7 @@
             border: none;
             width: 50%;
             padding: 10px 0;
-            background: #32465a;
+            background: var(--primary-dark);
             color: #f5f5f5;
             cursor: pointer;
             font-size: 0.85em;
@@ -540,18 +514,18 @@
         }
 
         #frame #sidepanel #bottom-bar button:nth-child(1) {
-            border-right: 1px solid #2c3e50;
+            border-right: 1px solid var(--primary-dark);
         }
 
         @media screen and (max-width: 735px) {
             #frame #sidepanel #bottom-bar button:nth-child(1) {
                 border-right: none;
-                border-bottom: 1px solid #2c3e50;
+                border-bottom: 1px solid var(--primary-dark);
             }
         }
 
         #frame #sidepanel #bottom-bar button:hover {
-            background: #435f7a;
+            background: var(--primary-dark);
         }
 
         #frame #sidepanel #bottom-bar button i {
@@ -610,27 +584,11 @@
             float: left;
         }
 
-        #frame .content .contact-profile .social-media {
-            float: right;
-        }
-
-        #frame .content .contact-profile .social-media i {
-            margin-left: 14px;
-            cursor: pointer;
-        }
-
-        #frame .content .contact-profile .social-media i:nth-last-child(1) {
-            margin-right: 20px;
-        }
-
-        #frame .content .contact-profile .social-media i:hover {
-            color: #435f7a;
-        }
 
         #frame .content .messages {
             height: auto;
-            min-height: calc(100% - 110px);
-            max-height: calc(100% - 110px);
+            min-height: calc(100% - 130px);
+            max-height: calc(100% - 130px);
             overflow-y: scroll;
             overflow-x: hidden;
             width: 100%;
@@ -648,7 +606,7 @@
         }
 
         #frame .content .messages::-webkit-scrollbar-thumb {
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: var(--primary-dark);
         }
 
         #frame .content .messages ul li {
@@ -669,7 +627,7 @@
         }
 
         #frame .content .messages ul li.sent p {
-            background: #435f7a;
+            background: var(--primary-dark);
             color: #f5f5f5;
         }
 
@@ -721,7 +679,7 @@
             width: calc(100% - 50px);
             padding: 11px 32px 10px 8px;
             font-size: 0.8em;
-            color: #32465a;
+            color: var(--primary);
         }
 
         @media screen and (max-width: 735px) {
@@ -749,11 +707,8 @@
         #frame .content .message-input .wrap button {
             float: right;
             border: none;
-            height: 40px;
-            width: 50px;
-            padding: 12px 0;
             cursor: pointer;
-            background: #32465a;
+            background: var(--primary);
             color: #f5f5f5;
         }
 
@@ -764,7 +719,7 @@
         }
 
         #frame .content .message-input .wrap button:hover {
-            background: #435f7a;
+            background: var(--primary-dark);
         }
 
         #frame .content .message-input .wrap button:focus {
@@ -779,10 +734,9 @@
     <div id="sidepanel">
         <div id="profile">
             <div class="wrap">
-                <p>Mike Ross</p>
-                <i class="mdi mdi-chevron-down expand-button" aria-hidden="true"></i>
+                <p class="m-0">Mike Ross</p>
                 <div id="status-options">
-                    <ul>
+                    <ul class="list-unstyled">
                         <li id="status-online" class="active"><span class="status-circle"></span>
                             <p>Online</p>
                         </li>
@@ -797,111 +751,107 @@
                         </li>
                     </ul>
                 </div>
-                <div id="expanded">
-                    <label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
-                    <input name="twitter" type="text" value="mikeross" />
-                    <label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
-                    <input name="twitter" type="text" value="ross81" />
-                    <label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
-                    <input name="twitter" type="text" value="mike.ross" />
-                </div>
+                
             </div>
         </div>
-        <div id="search">
-            <label for=""><i class="mdi mdi-magnify" aria-hidden="true"></i></label>
+        <div id="search" class="d-flex flex-row">
             <input type="text" placeholder="Search contacts..." />
+            <label class="p-3 m-1"><i class="mdi mdi-24px mdi-magnify" aria-hidden="true"></i></label>
         </div>
         <div id="contacts">
             <ul class="list-unstyled">
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Louis Litt</p>
-                            <p class="preview">You just got LITT up, Mike.</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Louis Litt</p>
+                            <p class="m-0 preview text-truncate">You just got LITT up, Mike.</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact active">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Harvey Specter</p>
-                            <p class="preview">Wrong. You take the gun, or you pull out a bigger one. Or, you
+                        <div class="meta w-100">
+                            <p class="m-0 name">Harvey Specter</p>
+                            <p class="m-0 preview text-truncate">Wrong. You take the gun, or you pull out a bigger one.
+                                Or, you
                                 call their bluff. Or, you do any one of a hundred and forty six other things.</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75 ">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Rachel Zane</p>
-                            <p class="preview">I was thinking that we could have chicken tonight, sounds good?
+                        <div class="meta w-100">
+                            <p class="m-0 name">Rachel Zane</p>
+                            <p class="m-0 preview text-truncate">I was thinking that we could have chicken tonight,
+                                sounds good?
                             </p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Donna Paulsen</p>
-                            <p class="preview">Mike, I know everything! I'm Donna..</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Donna Paulsen</p>
+                            <p class="m-0 preview text-truncate">Mike, I know everything! I'm Donna..</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75 text-truncate">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Jessica Pearson</p>
-                            <p class="preview">Have you finished the draft on the Hinsenburg deal?</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Jessica Pearson</p>
+                            <p class="m-0 preview text-truncate">Have you finished the draft on the Hinsenburg deal?</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Harold Gunderson</p>
-                            <p class="preview">Thanks Mike! :)</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Harold Gunderson</p>
+                            <p class="m-0 preview text-truncate">Thanks Mike! :)</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Daniel Hardman</p>
-                            <p class="preview">We'll meet again, Mike. Tell Jessica I said 'Hi'.</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Daniel Hardman</p>
+                            <p class="m-0 preview text-truncate">We'll meet again, Mike. Tell Jessica I said 'Hi'.</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Katrina Bennett</p>
-                            <p class="preview">I've sent you the files for the Garrett trial.</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Katrina Bennett</p>
+                            <p class="m-0 preview text-truncate">I've sent you the files for the Garrett trial.</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Charles Forstman</p>
-                            <p class="preview">Mike, this isn't over.</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Charles Forstman</p>
+                            <p class="m-0 preview text-truncate">Mike, this isn't over.</p>
                         </div>
                     </div>
                 </li>
                 <li class="contact">
-                    <div class="wrap d-flex align-items-center">
+                    <div class="align-items-center d-flex mx-3 position-relative w-75">
                         <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-                        <div class="meta">
-                            <p class="name">Jonathan Sidwell</p>
-                            <p class="preview"><span>You:</span> That's bullshit. This deal is solid.</p>
+                        <div class="meta w-100">
+                            <p class="m-0 name">Jonathan Sidwell</p>
+                            <p class="m-0 preview text-truncate"><span>You:</span> That's bullshit. This deal is solid.
+                            </p>
                         </div>
                     </div>
                 </li>
@@ -910,13 +860,8 @@
     </div>
     <div class="content">
         <div class="contact-profile align-items-center contact-profile d-flex px-3">
-            <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
-            <p>Harvey Specter</p>
-            <div class="social-media">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </div>
+            <div class="bg-white btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account"></i></div>
+            <p class="m-0">Harvey Specter</p>
         </div>
         <div class="messages">
             <ul class="list-unstyled">
@@ -956,15 +901,17 @@
             </ul>
         </div>
         <div class="message-input">
-            <div class="wrap">
-                <input type="text" placeholder="Write your message..." />
-                <button class="submit"><i class="mdi mdi-send" aria-hidden="true"></i></button>
+            <div class="wrap d-flex">
+                <textarea type="text" placeholder="Write your message..." class="form-control m-2"></textarea>
+                <button class="submit btn-circle m-2 p-3"><i class="mdi mdi-send " aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
 </div>
 
 @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
         $(".messages").animate({
             scrollTop: $(document).height()

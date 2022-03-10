@@ -9439,6 +9439,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Activity\\Repositories\\ParticipantRepository' => __DIR__ . '/../..' . '/packages/Webkul/Activity/src/Repositories/ParticipantRepository.php',
         'Webkul\\Admin\\Bouncer' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Bouncer.php',
         'Webkul\\Admin\\DataGrids\\Activity\\ActivityDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Activity/ActivityDataGrid.php',
+        'Webkul\\Admin\\DataGrids\\Automation\\AutomationDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Automation/AutomationDataGrid.php',
         'Webkul\\Admin\\DataGrids\\Contact\\OrganizationDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Contact/OrganizationDataGrid.php',
         'Webkul\\Admin\\DataGrids\\Contact\\PersonDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Contact/PersonDataGrid.php',
         'Webkul\\Admin\\DataGrids\\Customer\\CustomerDataGrid' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/DataGrids/Customer/CustomerDataGrid.php',

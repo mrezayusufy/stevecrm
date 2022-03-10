@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5599eaf194c65b3a78e624fca052cf7bbfa92d42',
+    'reference' => '004292b503f8befcd5057869555b30b96dff8cf5',
     'name' => 'steve/laravel-crm',
   ),
   'versions' => 
@@ -1285,7 +1285,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '5599eaf194c65b3a78e624fca052cf7bbfa92d42',
+      'reference' => '004292b503f8befcd5057869555b30b96dff8cf5',
     ),
     'swiftmailer/swiftmailer' => 
     array (

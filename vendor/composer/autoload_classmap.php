@@ -8672,6 +8672,7 @@ return array(
     'Webkul\\Activity\\Repositories\\ParticipantRepository' => $baseDir . '/packages/Webkul/Activity/src/Repositories/ParticipantRepository.php',
     'Webkul\\Admin\\Bouncer' => $baseDir . '/packages/Webkul/Admin/src/Bouncer.php',
     'Webkul\\Admin\\DataGrids\\Activity\\ActivityDataGrid' => $baseDir . '/packages/Webkul/Admin/src/DataGrids/Activity/ActivityDataGrid.php',
+    'Webkul\\Admin\\DataGrids\\Automation\\AutomationDataGrid' => $baseDir . '/packages/Webkul/Admin/src/DataGrids/Automation/AutomationDataGrid.php',
     'Webkul\\Admin\\DataGrids\\Contact\\OrganizationDataGrid' => $baseDir . '/packages/Webkul/Admin/src/DataGrids/Contact/OrganizationDataGrid.php',
     'Webkul\\Admin\\DataGrids\\Contact\\PersonDataGrid' => $baseDir . '/packages/Webkul/Admin/src/DataGrids/Contact/PersonDataGrid.php',
     'Webkul\\Admin\\DataGrids\\Customer\\CustomerDataGrid' => $baseDir . '/packages/Webkul/Admin/src/DataGrids/Customer/CustomerDataGrid.php',
