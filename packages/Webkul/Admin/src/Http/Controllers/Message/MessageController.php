@@ -100,7 +100,7 @@ class MessageController extends Controller
     return ;
   }
   public function receive() {
-    /*
+    
     $number = $_POST['From'];
     $body = $_POST['Body'];
     header('Content-Type: xml');
@@ -109,8 +109,9 @@ class MessageController extends Controller
         "Message" => "Hello $number, $body"
       ]
     ]);
-    */
-    echo "Hi";
+  
+
+   
   }
   
       // $message->body("Thanks for the message. Configure your number's SMS URL to change this message.Reply HELP for help.Reply STOP to unsubscribe.Msg&Data rates may apply.");
