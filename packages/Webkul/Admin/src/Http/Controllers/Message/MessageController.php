@@ -101,10 +101,11 @@ class MessageController extends Controller
   }
   public function receive() {
     
-    $number = $_POST['From'];
-    $body = $_POST['Body'];
+    $data = request()->all();
+    $from = $data["From"];
+    $body = $data["Body"];
     header('Content-Type: xml');
-    return "<Response></Response>";
+    return "<Response>$from</Response>";
   
 
    
