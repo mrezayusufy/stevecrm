@@ -11,18 +11,39 @@ class ReplyController extends Controller {
         $this->messageRepository = $messageRepository;
     }
     public function index() {
-        $number = $_POST["From"];
-        $body = $_POST["Body"];
-        $this->messageRepository->create([
-            "to" => $number,
-            "body" => $body
-        ]);
+        // $number = $_POST["From"];
+        // $body = $_POST["Body"];
+        // $this->messageRepository->create([
+        //     "to" => $number,
+        //     "content" => "Dear Customer $number, You said: $body"
+        // ]);
         return response(
             "<Response>".
                 "<Message>".
-                    "Dear Customer $number, You said: $body".
+                    "thanks for messaging me.".
                 "</Message>".
             "</Response>", 
             200)->header('Content-Type', 'text/xml');
-    }
+        // return response()->xml([
+        //     "Message" => "This is a test"
+        // ]);
+    } 
+    public function store() {
+        // $number = $_POST["From"];
+        // $body = $_POST["Body"];
+        // $this->messageRepository->create([
+        //     "to" => $number,
+        //     "content" => "Dear Customer $number, You said: $body"
+        // ]);
+        return response(
+            "<Response>".
+                "<Message>".
+                    "thanks for messaging me.".
+                "</Message>".
+            "</Response>", 
+            200)->header('Content-Type', 'text/xml');
+        // return response()->xml([
+        //     "Message" => "This is a test"
+        // ]);
+    } 
 }

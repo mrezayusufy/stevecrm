@@ -11,7 +11,7 @@ return [
     | <root xmlns:v1="http://www.site.com/schema"></root>
     |
     */
-    'template' => '<root></root>',
+    'template' => '<Response></Response>',
     'caseSensitive' => false,
     'showEmptyField' => true, //Show empty field
     'charset' => 'utf-8',

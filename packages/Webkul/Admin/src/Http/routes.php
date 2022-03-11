@@ -3,7 +3,8 @@
 Route::get('/message/automation/{id}', 'Webkul\Admin\Http\Controllers\Message\MessageController@sendByAutomation')->name('admin.message.automation');
 Route::get('/message/automation', 'Webkul\Admin\Http\Controllers\Message\MessageController@sendAll')->name('admin.message.automation.send.all');
 Route::post('/message/{phone}', 'Webkul\Admin\Http\Controllers\Message\MessageController@send')->name('admin.message.automation.send.sms');
-Route::post('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@index')->name('message.reply');
+Route::post('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@store')->name('message.reply.store');
+Route::get('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@index')->name('message.reply.index');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin')->name('krayin.home');
