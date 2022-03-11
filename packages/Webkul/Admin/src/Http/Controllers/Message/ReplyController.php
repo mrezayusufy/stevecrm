@@ -3,6 +3,7 @@ namespace Webkul\Admin\Http\Controllers\Message;
 use Webkul\Admin\Http\Controllers\Controller;
 use XmlResponse\Facades\XmlFacade;
 use Webkul\Message\Repositories\MessageRepository;
+use Twilio\TwiML\MessagingResponse;
 
 // reply controller
 class ReplyController extends Controller {
@@ -17,6 +18,9 @@ class ReplyController extends Controller {
         //     "to" => $number,
         //     "content" => "Dear Customer $number, You said: $body"
         // ]);
+        
+        $response = new MessagingResponse();
+        $response->message("The Robots are coming! Head for the hills!");
         return response(
             "<Response>".
                 "<Message>".
@@ -35,6 +39,8 @@ class ReplyController extends Controller {
         //     "to" => $number,
         //     "content" => "Dear Customer $number, You said: $body"
         // ]);
+        $response = new MessagingResponse();
+        $response->message("The Robots are coming! Head for the hills!");
         return response(
             "<Response>".
                 "<Message>".
