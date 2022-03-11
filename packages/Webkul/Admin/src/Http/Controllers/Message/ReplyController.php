@@ -12,12 +12,12 @@ class ReplyController extends Controller {
         $this->messageRepository = $messageRepository;
     }
     public function index() {
-        // $number = $_POST["From"];
-        // $body = $_POST["Body"];
-        // $this->messageRepository->create([
-        //     "to" => $number,
-        //     "content" => "Dear Customer $number, You said: $body"
-        // ]);
+        $number = $_REQUEST["From"];
+        $body = $_REQUEST["Body"];
+        $this->messageRepository->create([
+            "to" => $number,
+            "content" => "Dear Customer $number, You said: $body"
+        ]);
         
         $response = new MessagingResponse();
         $response->message("The Robots are coming! Head for the hills!");
@@ -28,28 +28,22 @@ class ReplyController extends Controller {
                 "</Message>".
             "</Response>", 
             200)->header('Content-Type', 'text/xml');
-        // return response()->xml([
-        //     "Message" => "This is a test"
-        // ]);
     } 
     public function store() {
-        // $number = $_POST["From"];
-        // $body = $_POST["Body"];
-        // $this->messageRepository->create([
-        //     "to" => $number,
-        //     "content" => "Dear Customer $number, You said: $body"
-        // ]);
+        $number = $_REQUEST["From"];
+        $body = $_REQUEST["Body"];
+        $this->messageRepository->create([
+            "to" => $number,
+            "content" => "Dear Customer $number, You said: $body"
+        ]);
         $response = new MessagingResponse();
         $response->message("The Robots are coming! Head for the hills!");
         return response(
             "<Response>".
                 "<Message>".
-                    "thanks for messaging me.".
+                    "thanks for messaging me. $number, $body".
                 "</Message>".
             "</Response>", 
             200)->header('Content-Type', 'text/xml');
-        // return response()->xml([
-        //     "Message" => "This is a test"
-        // ]);
     } 
 }
