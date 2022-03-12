@@ -8,7 +8,7 @@
 @stop
 
 @section('content-wrapper')
-    <div class="content full-page adjacent-center">
+    <div class="content full-page adjacent-center bg-light">
         <form method="POST" action="{{ route('admin.configuration.twilio.store') }}" @submit.prevent="onSubmit"
             enctype="multipart/form-data">
             <div class="page-content">

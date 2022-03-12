@@ -10,7 +10,9 @@
 [aria-hidden="true"]{
     display: none;
 }
-
+.btn-outline-primary:hover {
+    color: #fff!important;
+}
 body {
     margin: 0;
     position: static;

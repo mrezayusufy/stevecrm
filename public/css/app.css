@@ -463,6 +463,10 @@ ul.drag-inner-list {
   display: none;
 }
 
+.btn-outline-primary:hover {
+  color: #fff !important;
+}
+
 body {
   margin: 0;
   position: static;
@@ -479,6 +483,7 @@ a:active, a:focus, a:hover, a:link, a:visited {
 mdi {
   background-color: #0041ff;
   color: white;
+  padding: 10px;
 }
 
 .mdi {

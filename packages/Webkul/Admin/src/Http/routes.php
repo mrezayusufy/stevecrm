@@ -1,5 +1,4 @@
 <?php
-// User Routes
 Route::get('/message/automation/{id}', 'Webkul\Admin\Http\Controllers\Message\MessageController@sendByAutomation')->name('admin.message.automation');
 Route::get('/message/automation', 'Webkul\Admin\Http\Controllers\Message\MessageController@sendAll')->name('admin.message.automation.send.all');
 Route::post('/message/{phone}', 'Webkul\Admin\Http\Controllers\Message\MessageController@send')->name('admin.message.automation.send.sms');
@@ -63,16 +62,6 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('', 'AccountController@edit')->name('admin.user.account.edit');
                 Route::put('update', 'AccountController@update')->name('admin.user.account.update');
             });
-
-            // User Routes
-            // Route::group([
-            //     'prefix'    => 'message',
-            //     'namespace' => 'Webkul\Admin\Http\Controllers\Message'
-            // ], function () {
-            //     Route::get('/{phone}', 'MessageController@get')->name('admin.message.get');
-            //     Route::post('/{phone}', 'MessageController@send')->name('admin.message.send');
-            //     Route::get('/automation/{id}', 'MessageController@sendByAutomation')->name('admin.message.send.automation');
-            // });
 
             // Leads Routes
             Route::group([
@@ -140,7 +129,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('', 'CustomerController@index')->name('admin.customers.index');
 
                 Route::get('/create', 'CustomerController@create')->name('admin.customers.create');
-                
+
                 Route::post('/create', 'CustomerController@store')->name('admin.customers.store');
 
                 Route::get('edit/{id?}', 'CustomerController@edit')->name('admin.customers.edit');
