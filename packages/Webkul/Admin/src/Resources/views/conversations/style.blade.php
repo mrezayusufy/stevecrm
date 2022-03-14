@@ -297,7 +297,7 @@
             width: calc(100% - 43px);
         }
 
-        
+
 
         #frame #sidepanel #search {
             font-weight: 300;
@@ -364,11 +364,11 @@
 
         #frame #sidepanel #contacts::-webkit-scrollbar {
             width: 8px;
-            background: var(--gray);
+            background: #ffffff00;
         }
 
         #frame #sidepanel #contacts::-webkit-scrollbar-thumb {
-            background-color: var(--dark);
+            background-color: var(--gray);
         }
 
         #frame #sidepanel #contacts ul li.contact {
@@ -390,7 +390,7 @@
 
         #frame #sidepanel #contacts ul li.contact.active {
             background: var(--gray);
-            border-right: 5px solid var(--gray-darker);
+            border-right: 5px solid var(--primary);
             color: #000 !important;
         }
 
@@ -606,7 +606,7 @@
         }
 
         #frame .content .messages::-webkit-scrollbar-thumb {
-            background-color: var(--dark);
+            background-color: var(--gray);
         }
 
         #frame .content .messages ul li {
@@ -627,7 +627,7 @@
         }
 
         #frame .content .messages ul li.sent p {
-            background: var(--primary-dark);
+            background: var(--primary);
             color: #f5f5f5;
         }
 

@@ -6,7 +6,7 @@
             id="{{ 'is_done_' . $row->id }}"
             value="{{ $row->is_done ? '0' : '1' }}"
             {{ $row->is_done ? 'checked' : '' }}
-            onchange="updateStatus(event, '{{ route('admin.automations.update', $row->id) }}')"
+            onchange="updateStatus(event, '{{ route('admin.automation.update', $row->id) }}')"
         >
         <label for="{{ 'is_done_' . $row->id }}" class="radio-view"></label>
     </span>

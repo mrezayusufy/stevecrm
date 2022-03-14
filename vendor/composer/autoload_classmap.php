@@ -8717,6 +8717,7 @@ return array(
     'Webkul\\Admin\\Http\\Controllers\\Lead\\TagController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Lead/TagController.php',
     'Webkul\\Admin\\Http\\Controllers\\Mail\\EmailController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Mail/EmailController.php',
     'Webkul\\Admin\\Http\\Controllers\\Message\\MessageController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Message/MessageController.php',
+    'Webkul\\Admin\\Http\\Controllers\\Message\\ReplyController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Message/ReplyController.php',
     'Webkul\\Admin\\Http\\Controllers\\Page\\PageController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Page/PageController.php',
     'Webkul\\Admin\\Http\\Controllers\\Product\\ProductController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Product/ProductController.php',
     'Webkul\\Admin\\Http\\Controllers\\Quote\\QuoteController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Quote/QuoteController.php',

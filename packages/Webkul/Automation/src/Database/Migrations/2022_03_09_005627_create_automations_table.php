@@ -15,15 +15,15 @@ class CreateAutomationsTable extends Migration
     {
         Schema::create('automations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
-            $table->string('type');
-            $table->text('comment')->nullable();
-            $table->text('location')->nullable();
-            $table->json('additional')->nullable();
-            $table->datetime('schedule_from')->nullable();
-            $table->datetime('schedule_to')->nullable();
-            $table->boolean('is_done')->default(0);
-            $table->string('at_period')->nullable();
+            $table->string('type')->nullable();
+            $table->string('day_after')->nullable();
+            $table->string('send_at')->nullable();
+            $table->json('include_tags')->nullable();
+            $table->json('exclude_tags')->nullable();
+            $table->integer('sender')->unsigned();
+            $table->integer('recipient')->unsigned();
+            $table->integer('text_template_id')->unsigned();
+            $table->foreign('text_template_id')->references('id')->on('text_templates')->onDelete('cascade');
             $table->timestamps();
         });
     }

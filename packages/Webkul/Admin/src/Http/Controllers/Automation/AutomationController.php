@@ -81,7 +81,7 @@ class AutomationController extends Controller
      */
     public function index()
     {
-        return view('admin::automations.index');
+        return view('admin::automation.index');
     }
 
     /**
@@ -128,7 +128,9 @@ class AutomationController extends Controller
             'overlapping' => $isOverlapping,
         ]);
     }
-
+    public function create() {
+        return view('admin::automation.create');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -157,7 +159,7 @@ class AutomationController extends Controller
 
         Event::dispatch('automation.create.after', $automation);
 
-        session()->flash('success', trans('admin::app.automations.create-success', ['type' => trans('admin::app.automations.' . $automation->type)]));
+        session()->flash('success', trans('admin::app.automation.create-success', ['type' => trans('admin::app.automation.' . $automation->type)]));
 
         return redirect()->back();
     }
@@ -172,7 +174,7 @@ class AutomationController extends Controller
     {
         $automation = $this->automationRepository->findOrFail($id);
 
-        return view('admin::automations.edit', compact('automation'));
+        return view('admin::automation.edit', compact('automation'));
     }
 
     /**
@@ -219,12 +221,12 @@ class AutomationController extends Controller
 
         if (request()->ajax()) {
             return response()->json([
-                'message' => trans('admin::app.automations.update-success', ['type' => trans('admin::app.automations.' . $automation->type)]),
+                'message' => trans('admin::app.automation.update-success', ['type' => trans('admin::app.automation.' . $automation->type)]),
             ]);
         } else {
-            session()->flash('success', trans('admin::app.automations.update-success', ['type' => trans('admin::app.automations.' . $automation->type)]));
+            session()->flash('success', trans('admin::app.automation.update-success', ['type' => trans('admin::app.automation.' . $automation->type)]));
 
-            return redirect()->route('admin.automations.index');
+            return redirect()->route('admin.automation.index');
         }
     }
 
@@ -253,12 +255,12 @@ class AutomationController extends Controller
 
         if (!$count) {
             return response()->json([
-                'message' => trans('admin::app.automations.mass-update-failed'),
+                'message' => trans('admin::app.automation.mass-update-failed'),
             ], 400);
         }
 
         return response()->json([
-            'message' => trans('admin::app.automations.mass-update-success'),
+            'message' => trans('admin::app.automation.mass-update-success'),
         ]);
     }
 
@@ -294,7 +296,7 @@ class AutomationController extends Controller
             'file' => 'required',
         ]);
 
-        Event::dispatch('automations.file.create.before');
+        Event::dispatch('automation.file.create.before');
 
         $file = $this->fileRepository->upload(request()->all());
 
@@ -305,11 +307,11 @@ class AutomationController extends Controller
                 $lead->automations()->attach($file->automation->id);
             }
 
-            Event::dispatch('automations.file.create.after', $file);
+            Event::dispatch('automation.file.create.after', $file);
 
-            session()->flash('success', trans('admin::app.automations.file-upload-success'));
+            session()->flash('success', trans('admin::app.automation.file-upload-success'));
         } else {
-            session()->flash('error', trans('admin::app.automations.file-upload-error'));
+            session()->flash('error', trans('admin::app.automation.file-upload-error'));
         }
 
         return redirect()->back();
@@ -346,11 +348,11 @@ class AutomationController extends Controller
             Event::dispatch('automation.delete.after', $id);
 
             return response()->json([
-                'message' => trans('admin::app.automations.destroy-success', ['type' => trans('admin::app.automations.' . $automation->type)]),
+                'message' => trans('admin::app.automation.destroy-success', ['type' => trans('admin::app.automation.' . $automation->type)]),
             ], 200);
         } catch (\Exception $exception) {
             return response()->json([
-                'message' => trans('admin::app.automations.destroy-failed', ['type' => trans('admin::app.automations.' . $automation->type)]),
+                'message' => trans('admin::app.automation.destroy-failed', ['type' => trans('admin::app.automation.' . $automation->type)]),
             ], 400);
         }
     }
@@ -371,7 +373,7 @@ class AutomationController extends Controller
         }
 
         return response()->json([
-            'message' => trans('admin::app.response.destroy-success', ['name' => trans('admin::app.automations.title')])
+            'message' => trans('admin::app.response.destroy-success', ['name' => trans('admin::app.automation.title')])
         ]);
     }
 }

@@ -63,7 +63,9 @@ Route::group(['middleware' => ['web']], function () {
                 Route::put('update', 'AccountController@update')->name('admin.user.account.update');
             });
 
-            // Leads Routes
+            /**
+             * leads
+             */
             Route::group([
                 'prefix'    => 'leads',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Lead',
@@ -100,7 +102,7 @@ Route::group(['middleware' => ['web']], function () {
                 });
             });
 
-            // Leads Routes
+            // Leads quotes
             Route::group([
                 'prefix'    => 'quotes',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Quote',
@@ -181,13 +183,7 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'CompensationController@index')->name('admin.compensations.index');
             });
-            // automation routes
-            Route::group([
-                'prefix'    => 'automation',
-                'namespace' => 'Webkul\Admin\Http\Controllers\Automation',
-            ], function () {
-                Route::get('', 'AutomationController@index')->name('admin.automation.index');
-            });
+
             // conversations routes
             Route::group([
                 'prefix'    => 'conversations',
@@ -226,32 +222,33 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             Route::group([
-                'prefix'    => 'automations',
+                'prefix'    => 'automation',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Automation',
             ], function () {
-                Route::get('', 'AutomationController@index')->name('admin.automations.index');
+                Route::get('', 'AutomationController@index')->name('admin.automation.index');
 
-                Route::get('get', 'AutomationController@get')->name('admin.automations.get');
+                Route::get('get', 'AutomationController@get')->name('admin.automation.get');
 
-                Route::post('is-overlapping', 'AutomationController@checkIfOverlapping')->name('admin.automations.check_overlapping');
+                Route::post('is-overlapping', 'AutomationController@checkIfOverlapping')->name('admin.automation.check_overlapping');
 
-                Route::post('create', 'AutomationController@store')->name('admin.automations.store');
+                Route::get('create', 'AutomationController@create')->name('admin.automation.create');
+                Route::post('create', 'AutomationController@store')->name('admin.automation.store');
 
-                Route::get('edit/{id?}', 'AutomationController@edit')->name('admin.automations.edit');
+                Route::get('edit/{id?}', 'AutomationController@edit')->name('admin.automation.edit');
 
-                Route::put('edit/{id?}', 'AutomationController@update')->name('admin.automations.update');
+                Route::put('edit/{id?}', 'AutomationController@update')->name('admin.automation.update');
 
-                Route::get('search-participants', 'AutomationController@searchParticipants')->name('admin.automations.search_participants');
+                Route::get('search-participants', 'AutomationController@searchParticipants')->name('admin.automation.search_participants');
 
-                Route::post('file-upload', 'AutomationController@upload')->name('admin.automations.file_upload');
+                Route::post('file-upload', 'AutomationController@upload')->name('admin.automation.file_upload');
 
-                Route::get('file-download/{id?}', 'AutomationController@download')->name('admin.automations.file_download');
+                Route::get('file-download/{id?}', 'AutomationController@download')->name('admin.automation.file_download');
 
-                Route::delete('{id?}', 'AutomationController@destroy')->name('admin.automations.delete');
+                Route::delete('{id?}', 'AutomationController@destroy')->name('admin.automation.delete');
 
-                Route::put('mass-update', 'AutomationController@massUpdate')->name('admin.automations.mass_update');
+                Route::put('mass-update', 'AutomationController@massUpdate')->name('admin.automation.mass_update');
 
-                Route::put('mass-destroy', 'AutomationController@massDestroy')->name('admin.automations.mass_delete');
+                Route::put('mass-destroy', 'AutomationController@massDestroy')->name('admin.automation.mass_delete');
             });
 
             Route::group([

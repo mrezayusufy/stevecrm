@@ -359,8 +359,8 @@
             'delete-failed'        => ':type can not be deleted.',
             'typing-placeholder'   => 'Start typing name',
         ],
-        'automations' => [
-            'title'                => 'Automations', 
+        'automation' => [
+            'title'                => 'Automation',
             'select-type'          => 'Select Type',
             'participant-info'     => 'participant info',
             'title-control'        => 'Title',

@@ -1,7 +1,7 @@
 <div class="content full-page">
-    <table-component data-src="{{ route('admin.automations.get') }}" switch-page-url="{{ route('admin.automations.index') }}">
+    <table-component data-src="{{ route('admin.automation.get') }}" switch-page-url="{{ route('admin.automation.index') }}">
         <template v-slot:extra-filters>
-            @include('admin::automations.index.view-swither')
+            @include('admin::automation.index.view-swither')
         </template>
     <table-component>
 </div>

@@ -9492,6 +9492,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\Http\\Controllers\\Lead\\TagController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Lead/TagController.php',
         'Webkul\\Admin\\Http\\Controllers\\Mail\\EmailController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Mail/EmailController.php',
         'Webkul\\Admin\\Http\\Controllers\\Message\\MessageController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Message/MessageController.php',
+        'Webkul\\Admin\\Http\\Controllers\\Message\\ReplyController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Message/ReplyController.php',
         'Webkul\\Admin\\Http\\Controllers\\Page\\PageController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Page/PageController.php',
         'Webkul\\Admin\\Http\\Controllers\\Product\\ProductController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Product/ProductController.php',
         'Webkul\\Admin\\Http\\Controllers\\Quote\\QuoteController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Quote/QuoteController.php',
