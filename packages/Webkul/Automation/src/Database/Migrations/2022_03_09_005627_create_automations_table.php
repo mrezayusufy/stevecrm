@@ -16,12 +16,16 @@ class CreateAutomationsTable extends Migration
         Schema::create('automations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type')->nullable();
-            $table->string('day_after')->nullable();
-            $table->string('send_at')->nullable();
-            $table->json('include_tags')->nullable();
-            $table->json('exclude_tags')->nullable();
-            $table->integer('sender')->unsigned();
-            $table->integer('recipient')->unsigned();
+            $table->string('days_after')->nullable();
+            $table->string('send_time')->nullable();
+            $table->string('include_tag_ids')->nullable();
+            $table->string('exclude_tags_ids')->nullable();
+            $table->string('recipient')->nullable();
+            $table->string('send')->nullable();
+
+            $table->integer('lead_pipeline_stage_id')->unsigned();
+            $table->foreign('lead_pipeline_stage_id')->references('id')->on('lead_pipeline_stages')->onDelete('cascade');
+
             $table->integer('text_template_id')->unsigned();
             $table->foreign('text_template_id')->references('id')->on('text_templates')->onDelete('cascade');
             $table->timestamps();

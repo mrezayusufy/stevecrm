@@ -10,9 +10,8 @@
 
                         @csrf()
 
-                        <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
+                        <div class="form-group d-none" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
                             <label for="type" class="required form-label">{{ __('admin::app.automation.type') }}</label>
-
                             <select v-model="selectType" name="type" class="form-control" v-validate="'required'"
                                 data-vv-as="&quot;{{ __('admin::app.automation.type') }}&quot;">
                                 <option value="" disabled >{{ __('admin::app.automation.select-type') }}</option>
@@ -28,49 +27,57 @@
                         </div>
 
                         <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
-                            <label for="title" class="required form-label">@{{ selectType === 'message' || selectType === 'call' ? 'Phone' : 'Title' }}</label>
-                            <input name="title"
+                            <label for="days_after" class="required form-label">Days after a lead Enters "NEW" stage</label>
+                            <input name="days_after"
                                 class="form-control"
+                                type="number"
                                 v-validate="'required'"
                                 data-vv-as="&quot;{{ __('admin::app.automation.title-control') }}&quot;" />
                             <span class="control-error" v-if="errors.has('automation-form.title')">
-                                @{{ errors.first('automation-form.title') }}
+                                Please select a day.
                             </span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label required" for="comment">{{ __('admin::app.automation.message') }}</label>
+                        <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
+                            <label for="type" class="required form-label">Send text at</label>
+                            <select v-model="selectType" name="type" class="form-control" v-validate="'required'"
+                                data-vv-as="&quot;Send text at&quot;">
+                                <option value="" selected>immediately</option>
+                                <option value="0">0AM EST</option>
+                                <option value="1">1AM EST</option>
+                                <option value="2">2AM EST</option>
+                                <option value="3">3AM EST</option>
+                                <option value="4">4AM EST</option>
+                                <option value="5">5AM EST</option>
+                                <option value="6">6AM EST</option>
+                                <option value="7">7AM EST</option>
+                                <option value="8">8AM EST</option>
+                                <option value="9">9AM EST</option>
+                                <option value="10">10AM EST</option>
+                                <option value="11">11AM EST</option>
+                                <option value="12">12PM EST</option>
+                                <option value="1">1PM EST</option>
+                                <option value="2">2PM EST</option>
+                                <option value="3">3PM EST</option>
+                                <option value="4">4PM EST</option>
+                                <option value="5">5PM EST</option>
+                                <option value="6">6PM EST</option>
+                                <option value="7">7PM EST</option>
+                                <option value="8">8PM EST</option>
+                                <option value="9">9PM EST</option>
+                                <option value="10">10PM EST</option>
+                                <option value="11">11PM EST</option>
+                            </select>
 
-                            <textarea class="form-control" id="automation-comment" name="comment">{{ old('comment') }}</textarea>
+                            <span class="control-error" v-if="errors.has('automation-form.type')">
+                               Please assign the time for sending
+                            </span>
                         </div>
 
-                        <div class="form-group date"
-                            :class="[errors.has('automation-form.schedule_from') || errors.has('automation-form.schedule_from') ? 'has-error' : '']">
-                            <label for="schedule_from" class=" form-label">{{ __('admin::app.automation.schedule') }}</label>
 
-                            <div class="input-group d-flex">
-                                <datetime class="calender">
-                                    <input type="text" name="schedule_from" class="form-control" v-model="schedule_from"
-                                        ref="schedule_from" placeholder="{{ __('admin::app.automation.from') }}"
-                                        v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:{{ \Carbon\Carbon::now()->format('Y-m-d H:i:s') }}'"
-                                        data-vv-as="&quot;{{ __('admin::app.leads.from') }}&quot;" />
-
-                                    <span class="control-error" v-if="errors.has('automation-form.schedule_from')">
-                                        @{{ errors.first('automation-form.schedule_from') }}
-                                    </span>
-                                </datetime>
-
-                                <datetime class="calender">
-                                    <input type="text" name="schedule_to" class="form-control" v-model="schedule_to" ref="schedule_to"
-                                        placeholder="{{ __('admin::app.automation.to') }}"
-                                        v-validate="'required|date_format:yyyy-MM-dd HH:mm:ss|after:schedule_from'"
-                                        data-vv-as="&quot;{{ __('admin::app.automation.to') }}&quot;" />
-
-                                    <span class="control-error" v-if="errors.has('automation-form.schedule_to')">
-                                        @{{ errors.first('automation-form.schedule_to') }}
-                                    </span>
-                                </datetime>
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="message">{{ __('admin::app.automation.message') }}</label>
+                            <textarea class="form-control" id="automation-message" name="message">{{ old('message') }}</textarea>
                         </div>
 
                         <div class="form-group">
