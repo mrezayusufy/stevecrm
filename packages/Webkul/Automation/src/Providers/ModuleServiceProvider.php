@@ -9,6 +9,7 @@ use Webkul\Core\Providers\BaseModuleServiceProvider;
 class ModuleServiceProvider extends BaseModuleServiceProvider
 {
     protected $models = [
-        \Webkul\Automation\Models\Automation::class
+        \Webkul\Automation\Models\Automation::class,
+        \Webkul\Automation\Models\TextTemplate::class,
     ];
 }

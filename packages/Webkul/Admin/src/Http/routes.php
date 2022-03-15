@@ -225,6 +225,8 @@ Route::group(['middleware' => ['web']], function () {
                 'prefix'    => 'automation',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Automation',
             ], function () {
+                Route::get('/text-template', 'AutomationController@getTextTemplates')->name('admin.automation.get.text.template');
+
                 Route::get('', 'AutomationController@index')->name('admin.automation.index');
 
                 Route::get('get', 'AutomationController@get')->name('admin.automation.get');

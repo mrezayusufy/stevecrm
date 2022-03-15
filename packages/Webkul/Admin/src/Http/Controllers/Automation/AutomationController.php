@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Webkul\Automation\Repositories\AutomationRepository;
+use Webkul\Automation\Repositories\TextTemplateRepository;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Contact\Repositories\PersonRepository;
 use Webkul\Lead\Repositories\LeadRepository;
@@ -47,11 +48,18 @@ class AutomationController extends Controller
      * @var \Webkul\Contact\Repositories\PersonRepository
      */
     protected $personRepository;
+    /**
+     * PersonRepository object
+     *
+     * @var \Webkul\Contact\Repositories\TextTemplateRepository
+     */
+    protected $textTemplateRepository;
 
     /**
      * Create a new controller instance.
      *
      * @param \Webkul\Automation\Repositories\AutomationRepository  $automationRepository
+     * @param \Webkul\Contact\Repositories\TextTemplateRepository  $textTemplateRepository
      * @param \Webkul\Automation\Repositories\FileRepository  $fileRepository
      * @param \Webkul\Automation\Repositories\LeadRepository  $leadRepository
      * @param \Webkul\User\Repositories\UserRepository  $userRepository
@@ -61,11 +69,14 @@ class AutomationController extends Controller
      */
     public function __construct(
         AutomationRepository $automationRepository,
+        TextTemplateRepository $textTemplateRepository,
         LeadRepository $leadRepository,
         UserRepository $userRepository,
         PersonRepository $personRepository
     ) {
         $this->automationRepository = $automationRepository;
+
+        $this->textTemplateRepository = $textTemplateRepository;
 
         $this->leadRepository = $leadRepository;
 
@@ -139,29 +150,37 @@ class AutomationController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'type'          => 'required',
-            'comment'       => 'required_if:type,note',
-            'schedule_from' => 'required_unless:type,note',
-            'schedule_to'   => 'required_unless:type,note',
+            'type' => 'required'
         ]);
 
         Event::dispatch('automation.create.before');
 
-        $automation = $this->automationRepository->create(array_merge(request()->all(), [
-            'is_done' => request('type') == 'note' ? 1 : 0,
-        ]));
+        $text_template = $this->textTemplateRepository->create([
+            'name' => request('template_name'),
+            'body' => request('template_body')
+        ]);
+        $data = [];
+        $data['type'] = request('type');
+        $data['days_after'] = request('days_after');
+        $data['send_time'] = request('send_time');
+        $data['include_tags_id'] = request('include_tags_id');
+        $data['exclude_tags_id'] = request('exclude_tags_id');
+        $data['recipient'] = request('recipient');
+        $data['sender'] = request('sender');
+        $data['lead_pipeline_stage_id'] = request('lead_pipeline_stage_id');
+        $data['text_template_id'] = $text_template['id'];
 
-        if (request('lead_id')) {
-            $lead = $this->leadRepository->find(request('lead_id'));
-
-            $lead->automations()->attach($automation->id);
-        }
-
+        $automation = $this->automationRepository->create($data);
         Event::dispatch('automation.create.after', $automation);
+        $data = request()->all();
+        session()->flash('success', trans('admin::app.automation.create-success'));
 
-        session()->flash('success', trans('admin::app.automation.create-success', ['type' => trans('admin::app.automation.' . $automation->type)]));
+        return redirect()->route('admin.automation.index');
+    }
 
-        return redirect()->back();
+    public function getTextTemplates() {
+        $text_template = $this->textTemplateRepository->find()->all();
+        return response()->json($text_template);
     }
 
     /**

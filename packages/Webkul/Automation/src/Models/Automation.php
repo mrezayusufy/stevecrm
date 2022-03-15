@@ -2,6 +2,7 @@
 
 namespace Webkul\Automation\Models;
 
+use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Model;
 use Webkul\Automation\Contracts\Automation as AutomationContract;
 use Webkul\User\Models\UserProxy;
@@ -11,9 +12,9 @@ class Automation extends Model implements AutomationContract
     protected $table = 'automations';
 
 
-    protected $dates = [
-        'schedule_from',
-        'schedule_to',
+    protected $cast = [
+        'include_tags_ids' => 'array',
+        'exclude_tags_ids'  => 'array',
     ];
 
     /**
@@ -22,15 +23,15 @@ class Automation extends Model implements AutomationContract
      * @var array
      */
     protected $fillable = [
-        'title',
         'type',
-        'location',
-        'comment',
-        'additional',
-        'schedule_from',
-        'schedule_to',
-        'is_done',
-        'at_period',
+        'days_after',
+        'send_time',
+        'include_tags_ids',
+        'exclude_tags_ids',
+        'recipient',
+        'sender',
+        'lead_pipeline_stage_id',
+        'text_template_id',
     ];
 
 

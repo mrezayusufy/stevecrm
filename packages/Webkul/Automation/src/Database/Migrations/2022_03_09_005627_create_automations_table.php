@@ -18,16 +18,15 @@ class CreateAutomationsTable extends Migration
             $table->string('type')->nullable();
             $table->string('days_after')->nullable();
             $table->string('send_time')->nullable();
-            $table->string('include_tag_ids')->nullable();
-            $table->string('exclude_tags_ids')->nullable();
-            $table->string('recipient')->nullable();
-            $table->string('send')->nullable();
+            $table->json('include_tag_ids')->nullable();
+            $table->json('exclude_tags_ids')->nullable();
+            $table->integer('recipient')->unsigned();
+            $table->integer('sender')->unsigned();
 
             $table->integer('lead_pipeline_stage_id')->unsigned();
             $table->foreign('lead_pipeline_stage_id')->references('id')->on('lead_pipeline_stages')->onDelete('cascade');
 
             $table->integer('text_template_id')->unsigned();
-            $table->foreign('text_template_id')->references('id')->on('text_templates')->onDelete('cascade');
             $table->timestamps();
         });
     }

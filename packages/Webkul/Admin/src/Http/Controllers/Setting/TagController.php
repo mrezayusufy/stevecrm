@@ -41,6 +41,10 @@ class TagController extends Controller
         return view('admin::settings.tags.index');
     }
 
+
+    public function all(){
+        $data = $this->tagRepository->get()->all();
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -115,7 +119,7 @@ class TagController extends Controller
 
             return redirect()->back();
         }
-        
+
         Event::dispatch('settings.tag.update.before', $id);
 
         $tag = $this->tagRepository->update(request()->all(), $id);

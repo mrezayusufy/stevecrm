@@ -369,6 +369,8 @@
             'back'                 => 'Back',
             'message'              => 'Message',
             'type'                 => 'Type',
+            'sender'               => 'Sender',
+            'recipient'            => 'Recipient',
             'note'                 => 'Note',
             'call'                 => 'Call',
             'meeting'              => 'Meeting',
