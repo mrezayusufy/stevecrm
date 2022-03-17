@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '69ddd0a2f2681e011894d86b89ded6a1a590dde8',
+    'reference' => 'f1b794d6f55fe046d74739156e4eafcfc8ba645f',
     'name' => 'steve/laravel-crm',
   ),
   'versions' => 
@@ -1294,7 +1294,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '69ddd0a2f2681e011894d86b89ded6a1a590dde8',
+      'reference' => 'f1b794d6f55fe046d74739156e4eafcfc8ba645f',
     ),
     'swiftmailer/swiftmailer' => 
     array (
@@ -1579,6 +1579,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '34a41e998c2183e22995f158c581e7b5e755ab9e',
+    ),
+    'thunderer/shortcode' => 
+    array (
+      'pretty_version' => 'v0.7.0',
+      'version' => '0.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ccf16e8ebc8a8beab613356a76aca5f44a62cc75',
     ),
     'tijsverkoyen/css-to-inline-styles' => 
     array (

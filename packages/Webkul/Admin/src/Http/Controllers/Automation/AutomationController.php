@@ -160,21 +160,21 @@ class AutomationController extends Controller
             'body' => request('template_body')
         ]);
         $data = [];
+        // dd(request()->all());
+
         $data['type'] = request('type');
         $data['days_after'] = request('days_after');
         $data['send_time'] = request('send_time');
-        $data['include_tags_id'] = request('include_tags_id');
-        $data['exclude_tags_id'] = request('exclude_tags_id');
+        $data['include_tags_ids'] = implode(", ",request('include_tags_ids'));
+        $data['exclude_tags_ids'] = implode(", ",request('exclude_tags_ids'));
         $data['recipient'] = request('recipient');
         $data['sender'] = request('sender');
         $data['lead_pipeline_stage_id'] = request('lead_pipeline_stage_id');
         $data['text_template_id'] = $text_template['id'];
-
         $automation = $this->automationRepository->create($data);
         Event::dispatch('automation.create.after', $automation);
         $data = request()->all();
         session()->flash('success', trans('admin::app.automation.create-success'));
-
         return redirect()->route('admin.automation.index');
     }
 

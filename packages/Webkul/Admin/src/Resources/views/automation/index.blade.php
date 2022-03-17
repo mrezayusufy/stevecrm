@@ -101,6 +101,7 @@
 @stop
 
 @section('content-wrapper')
+
     <div class="content bg-light h-auto">
         <mygrid class="d-none">
             <gspan class="bg-white" style="--span: 3;">
@@ -116,7 +117,8 @@
                             <div class="py-3 d-flex flex-column ms-4">
                                 <button class="btn btn-outline-primary border-0 rounded-0 text-start"> NEW </button>
                                 <button class="btn btn-outline-primary border-0 rounded-0 text-start"> Contracted </button>
-                                <button class="btn btn-outline-primary border-0 rounded-0 text-start"> Waiting on Quote </button>
+                                <button class="btn btn-outline-primary border-0 rounded-0 text-start"> Waiting on Quote
+                                </button>
                                 <button class="btn btn-outline-primary border-0 rounded-0 text-start"> Quoted </button>
                                 <button class="btn btn-outline-primary border-0 rounded-0 text-start"> Quoted HOT </button>
                             </div>
@@ -171,8 +173,7 @@
                 <gspan>
                     <mygrid style="--columns: 14">
                         {{-- date --}}
-                        <gspan
-                            style="--span: 2"
+                        <gspan style="--span: 2"
                             class="bg-white d-flex flex-column justify-content-center m-auto p-2 position-relative rounded shadow-sm text-center">
                             <p class="fs-s m-0">START</p>
                             <i class="mdi mdi-24px mdi-menu-right position-absolute end-0 text-white top-50"
@@ -191,149 +192,144 @@
                     </mygrid>
                     {{-- date --}}
                     <div style="--w: 60px;"
-                    class="bg-white square d-flex flex-column justify-content-center m-auto mt-3 p-2 position-relative rounded shadow-sm text-center">
-                    <p class="fs-xs m-0">Biz Days</p>
-                    <div class="text-danger fs-4 lh-1">1</div>
-                    <i class="mdi mdi-24px mdi-menu-right position-absolute end-0 text-white top-50"
-                        style="margin-right: -14px;"></i>
-                </div>
-                {{-- automation content --}}
-                <grid style="--flow: row;" >
-                    <div
-                        class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
-                        <i class="circle position-absolute start-0 top-50"></i>
-                        <i class="line position-absolute start-0 top-0"></i>
-                        <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
-                            style="margin-left: -14px;"></i>
-                        <div class="d-flex flex-row">
-                            <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
-                            <div class="ms-2">
-                                <p class="m-0">Automated Text</p>
-                                <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
-                                <i class="mdi mdi-filter"></i>
-                                <span class="fs-xs ms-2">All Lead sources</span>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
-                            </div>
-                            <div class="btn p-0">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </div>
-                        </div>
+                        class="bg-white square d-flex flex-column justify-content-center m-auto mt-3 p-2 position-relative rounded shadow-sm text-center">
+                        <p class="fs-xs m-0">Biz Days</p>
+                        <div class="text-danger fs-4 lh-1">1</div>
+                        <i class="mdi mdi-24px mdi-menu-right position-absolute end-0 text-white top-50"
+                            style="margin-right: -14px;"></i>
                     </div>
-                    <div
-                        class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
-                        <i class="circle position-absolute start-0 top-50"></i>
-                        <i class="line position-absolute start-0 top-0"></i>
-                        <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
-                            style="margin-left: -14px;"></i>
-                        <div class="d-flex flex-row">
-                            <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
-                            <div class="ms-2">
-                                <p class="m-0">Automated Text</p>
-                                <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                    {{-- automation content --}}
+                    <grid style="--flow: row;">
+                        <div
+                            class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
+                            <i class="circle position-absolute start-0 top-50"></i>
+                            <i class="line position-absolute start-0 top-0"></i>
+                            <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
+                                style="margin-left: -14px;"></i>
+                            <div class="d-flex flex-row">
+                                <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
+                                <div class="ms-2">
+                                    <p class="m-0">Automated Text</p>
+                                    <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
+                                    <i class="mdi mdi-filter"></i>
+                                    <span class="fs-xs ms-2">All Lead sources</span>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                </div>
+                                <div class="btn p-0">
+                                    <i class="mdi mdi-dots-horizontal"></i>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
-                                <i class="mdi mdi-filter"></i>
-                                <span class="fs-xs ms-2">All Lead sources</span>
+                        <div
+                            class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
+                            <i class="circle position-absolute start-0 top-50"></i>
+                            <i class="line position-absolute start-0 top-0"></i>
+                            <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
+                                style="margin-left: -14px;"></i>
+                            <div class="d-flex flex-row">
+                                <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
+                                <div class="ms-2">
+                                    <p class="m-0">Automated Text</p>
+                                    <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                                </div>
                             </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
-                            </div>
-                            <div class="btn p-0">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
-                        <i class="circle position-absolute start-0 top-50"></i>
-                        <i class="line position-absolute start-0 top-0"></i>
-                        <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
-                            style="margin-left: -14px;"></i>
-                        <div class="d-flex flex-row">
-                            <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
-                            <div class="ms-2">
-                                <p class="m-0">Automated Text</p>
-                                <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
-                                <i class="mdi mdi-filter"></i>
-                                <span class="fs-xs ms-2">All Lead sources</span>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
-                            </div>
-                            <div class="btn p-0">
-                                <i class="mdi mdi-dots-horizontal"></i>
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
+                                    <i class="mdi mdi-filter"></i>
+                                    <span class="fs-xs ms-2">All Lead sources</span>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                </div>
+                                <div class="btn p-0">
+                                    <i class="mdi mdi-dots-horizontal"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div
-                        class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
-                        <i class="circle position-absolute start-0 top-50"></i>
-                        <i class="line position-absolute start-0 top-0"></i>
-                        <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
-                            style="margin-left: -14px;"></i>
-                        <div class="d-flex flex-row">
-                            <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
-                            <div class="ms-2">
-                                <p class="m-0">Automated Text</p>
-                                <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                        <div
+                            class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
+                            <i class="circle position-absolute start-0 top-50"></i>
+                            <i class="line position-absolute start-0 top-0"></i>
+                            <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
+                                style="margin-left: -14px;"></i>
+                            <div class="d-flex flex-row">
+                                <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
+                                <div class="ms-2">
+                                    <p class="m-0">Automated Text</p>
+                                    <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
+                                    <i class="mdi mdi-filter"></i>
+                                    <span class="fs-xs ms-2">All Lead sources</span>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                </div>
+                                <div class="btn p-0">
+                                    <i class="mdi mdi-dots-horizontal"></i>
+                                </div>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
-                                <i class="mdi mdi-filter"></i>
-                                <span class="fs-xs ms-2">All Lead sources</span>
+                        <div
+                            class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
+                            <i class="circle position-absolute start-0 top-50"></i>
+                            <i class="line position-absolute start-0 top-0"></i>
+                            <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
+                                style="margin-left: -14px;"></i>
+                            <div class="d-flex flex-row">
+                                <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
+                                <div class="ms-2">
+                                    <p class="m-0">Automated Text</p>
+                                    <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                                </div>
                             </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
-                            </div>
-                            <div class="btn p-0">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
-                        <i class="circle position-absolute start-0 top-50"></i>
-                        <i class="line position-absolute start-0 top-0"></i>
-                        <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
-                            style="margin-left: -14px;"></i>
-                        <div class="d-flex flex-row">
-                            <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
-                            <div class="ms-2">
-                                <p class="m-0">Automated Text</p>
-                                <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
-                                <i class="mdi mdi-filter"></i>
-                                <span class="fs-xs ms-2">All Lead sources</span>
-                            </div>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                    checked>
-                            </div>
-                            <div class="btn p-0">
-                                <i class="mdi mdi-dots-horizontal"></i>
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
+                                    <i class="mdi mdi-filter"></i>
+                                    <span class="fs-xs ms-2">All Lead sources</span>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                </div>
+                                <div class="btn p-0">
+                                    <i class="mdi mdi-dots-horizontal"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        <div
+                            class="mx-4 bg-white position-relative shadow-sm rounded d-flex flex-row p-4 align-items-center justify-content-between w-100">
+                            <i class="circle position-absolute start-0 top-50"></i>
+                            <i class="line position-absolute start-0 top-0"></i>
+                            <i class="mdi mdi-24px mdi-menu-left position-absolute start-0 text-white top-50"
+                                style="margin-left: -14px;"></i>
+                            <div class="d-flex flex-row">
+                                <div class="btn-circle bg-primary text-white"><i class="mdi mdi-chat"></i></div>
+                                <div class="ms-2">
+                                    <p class="m-0">Automated Text</p>
+                                    <p class="text-gray fs-xs m-0">NewLead Text(2)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="rounded-pill d-flex flex-row align-items-center bg-light btn me-2">
+                                    <i class="mdi mdi-filter"></i>
+                                    <span class="fs-xs ms-2">All Lead sources</span>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                </div>
+                                <div class="btn p-0">
+                                    <i class="mdi mdi-dots-horizontal"></i>
+                                </div>
+                            </div>
+                        </div>
                 </gspan>
             </gspan>
         </mygrid>
@@ -384,6 +380,8 @@
             </div>
             {{-- automation content --}}
             <div class="col h-100">
+                {{-- <test></test> --}}
+
                 {{-- options --}}
                 <div class="p-3 d-flex flex-row align-items-center">
                     <div class="btn-group dropup">
@@ -585,3 +583,21 @@
     </div>
     </div>
 @stop
+
+@push('scripts')
+    {{-- <script type="text/x-template" id="grid-template">
+        <div style="display: grid;">
+            <slot></slot>
+        </div>
+    </script>
+    <script>
+        Vue.component('grid', {
+            template: "#grid-template"
+        })
+    </script> --}}
+
+    <script>
+        Vue.component('multiselect', window.VueMultiselect.default)
+
+    </script>
+@endpush

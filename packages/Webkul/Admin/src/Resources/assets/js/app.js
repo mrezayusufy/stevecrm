@@ -4,12 +4,12 @@ import VueTimeago from 'vue-timeago';
 import VeeValidate from 'vee-validate';
 import VueKanban from 'vue-kanban';
 import VueCal from 'vue-cal'
-import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 import 'vue-cal/dist/vuecal.css';
 import './bootstrap';
 window.moment = require('moment');
 window.Vue = Vue;
 window.VeeValidate = VeeValidate;
+Vue.component('multiselect', window.VueMultiselect.default)
 
 Vue.use(VeeValidate, {
     events: 'input|change|blur',

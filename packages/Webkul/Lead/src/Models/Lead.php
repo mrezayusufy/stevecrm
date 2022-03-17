@@ -35,14 +35,13 @@ class Lead extends Model implements LeadContract
         'lost_reason',
         'expected_close_date',
         'closed_at',
-        'user_id',
-        'person_id',
+        'customer_id',
         'phone',
         'phone_secondary',
         'email',
         'email_secondary',
         'location',
-        'assign_to',
+        'user_id',
         'csr',
         'firstname',
         'lastname',
@@ -52,22 +51,22 @@ class Lead extends Model implements LeadContract
         'lead_pipeline_id',
         'lead_pipeline_stage_id',
     ];
-    
+
 
     /**
      * Get the user that owns the lead.
      */
     public function user()
     {
-        return $this->belongsTo(UserProxy::modelClass());
+        return $this->belongsTo(UserProxy::modelClass(), 'user_id');
     }
 
     /**
-     * Get the person that owns the lead.
+     * Get the csr that owns the lead.
      */
-    public function person()
+    public function csr()
     {
-        return $this->belongsTo(PersonProxy::modelClass());
+        return $this->belongsTo(UserProxy::modelClass(), 'csr');
     }
 
     /**
@@ -143,7 +142,7 @@ class Lead extends Model implements LeadContract
     }
 
     /**
-     * Returns the rotten days 
+     * Returns the rotten days
      */
     public function getRottenDaysAttribute()
     {

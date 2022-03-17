@@ -233,7 +233,7 @@ class LeadController extends Controller
             $data['lead_pipeline_stage_id'] = $stage->id;
         }
 
-        $lead = $this->leadRepository->update($data, $id);        
+        $lead = $this->leadRepository->update($data, $id);
 
         Event::dispatch('lead.update.after', $lead);
 

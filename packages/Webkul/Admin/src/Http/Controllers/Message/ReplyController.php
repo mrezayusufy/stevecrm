@@ -18,7 +18,7 @@ class ReplyController extends Controller {
             "to" => $number,
             "content" => "Dear Customer $number, You said: $body"
         ]);
-        
+
         $response = new MessagingResponse();
         $response->message("The Robots are coming! Head for the hills!");
         return response(
@@ -26,9 +26,9 @@ class ReplyController extends Controller {
                 "<Message>".
                     "thanks for messaging me.".
                 "</Message>".
-            "</Response>", 
+            "</Response>",
             200)->header('Content-Type', 'text/xml');
-    } 
+    }
     public function store() {
         $number = $_REQUEST["From"];
         $body = $_REQUEST["Body"];
@@ -37,13 +37,18 @@ class ReplyController extends Controller {
             "content" => "Dear Customer $number, You said: $body"
         ]);
         $response = new MessagingResponse();
+        $message = [
+            'to' => "$number",
+            'content' => $body,
+          ];
+        $this->messageRepository->create($message);
         $response->message("The Robots are coming! Head for the hills!");
         return response(
             "<Response>".
                 "<Message>".
-                    "thanks for messaging me. $number, $body".
+                    "Hello Dear Customer, $number".
                 "</Message>".
-            "</Response>", 
+            "</Response>",
             200)->header('Content-Type', 'text/xml');
-    } 
+    }
 }

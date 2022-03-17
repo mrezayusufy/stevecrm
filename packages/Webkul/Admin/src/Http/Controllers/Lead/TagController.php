@@ -4,7 +4,9 @@ namespace Webkul\Admin\Http\Controllers\Lead;
 
 use Illuminate\Support\Facades\Event;
 use Webkul\Lead\Repositories\LeadRepository;
+use Webkul\Tag\Repositories\TagRepository;
 use Webkul\Admin\Http\Controllers\Controller;
+use Webkul\Tag\Models\Tag;
 
 class TagController extends Controller
 {
@@ -14,6 +16,7 @@ class TagController extends Controller
      * @var \Webkul\Lead\Repositories\LeadRepository
      */
     protected $leadRepository;
+    protected $tagRepository;
 
     /**
      * Create a new controller instance.
@@ -22,9 +25,10 @@ class TagController extends Controller
      *
      * @return void
      */
-    public function __construct(LeadRepository $leadRepository)
+    public function __construct(LeadRepository $leadRepository, TagRepository $tagRepository)
     {
         $this->leadRepository = $leadRepository;
+        $this->tagRepository = $tagRepository;
     }
 
     /**
@@ -72,5 +76,9 @@ class TagController extends Controller
             'status'  => true,
             'message' => trans('admin::app.leads.tag-destroy-success'),
         ], 200);
+    }
+    public function index() {
+        $tags = Tag::get();
+        return response()->json($tags);
     }
 }

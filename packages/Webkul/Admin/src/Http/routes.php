@@ -191,6 +191,13 @@ Route::group(['middleware' => ['web']], function () {
             ], function () {
                 Route::get('', 'ConversationController@index')->name('admin.conversations.index');
             });
+            // tags routes
+            Route::group([
+                'prefix'    => 'tags',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Lead',
+            ], function () {
+                Route::get('', 'TagController@index')->name('admin.tag.index');
+            });
 
             Route::group([
                 'prefix'    => 'activities',

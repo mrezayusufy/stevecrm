@@ -1,8 +1,13 @@
 <automation-action-component></automation-action-component>
-
+@php
+    $tags = app('Webkul\Tag\Repositories\TagRepository')->all();
+    $users = app('Webkul\User\Repositories\UserRepository')->all();
+    $text_template = app('Webkul\Automation\Repositories\TextTemplateRepository')->all();
+@endphp
 
 @push('scripts')
-    <script src="https://unpkg.com/vue-multiselect@2.1.0"></script>
+<script src="{{ asset('js/vue-multiselect.min.js')}}"></script>
+<script src="https://unpkg.com/vue-select@latest"></script>
 
     <script type="text/x-template" id="automation-action-component-template">
         <form action="{{ route('admin.automation.store') }}" method="post" data-vv-scope="automation-form" class="row"
@@ -20,9 +25,6 @@
                         <option value="message" selected>{{ __('admin::app.automation.message') }}</option>
                         <option value="email">{{ __('admin::app.automation.email') }}</option>
                     </select>
-                    <span class="control-error" v-if="errors.has('automation-form.type')">
-                        @{{ errors.first('automation-form.type') }}
-                    </span>
                 </div>
                 <div class="form-group" :class="[errors.has('automation-form.title') ? 'has-error' : '']">
                     <label for="days_after" class="required form-label">Days after a lead Enters "NEW" stage</label>
@@ -38,8 +40,7 @@
                 </div>
                 <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
                     <label for="send_time" class="required form-label">Send text at</label>
-                    <select name="send_time" id="send_time"  class="form-control" v-validate="'required'"
-                        data-vv-as="&quot;Send text at&quot;">
+                    <select name="send_time" id="send_time"  class="form-control">
                         <option value="" selected>immediately</option>
                         <option value="0">0AM EST</option>
                         <option value="1">1AM EST</option>
@@ -54,49 +55,35 @@
                         <option value="10">10AM EST</option>
                         <option value="11">11AM EST</option>
                         <option value="12">12PM EST</option>
-                        <option value="1">1PM EST</option>
-                        <option value="2">2PM EST</option>
-                        <option value="3">3PM EST</option>
-                        <option value="4">4PM EST</option>
-                        <option value="5">5PM EST</option>
-                        <option value="6">6PM EST</option>
-                        <option value="7">7PM EST</option>
-                        <option value="8">8PM EST</option>
-                        <option value="9">9PM EST</option>
-                        <option value="10">10PM EST</option>
-                        <option value="11">11PM EST</option>
+                        <option value="13">1PM EST</option>
+                        <option value="14">2PM EST</option>
+                        <option value="15">3PM EST</option>
+                        <option value="16">4PM EST</option>
+                        <option value="17">5PM EST</option>
+                        <option value="18">6PM EST</option>
+                        <option value="19">7PM EST</option>
+                        <option value="20">8PM EST</option>
+                        <option value="21">9PM EST</option>
+                        <option value="22">10PM EST</option>
+                        <option value="23">11PM EST</option>
                     </select>
                     <span class="control-error" v-if="errors.has('automation-form.type')">
                         Please assign the time for sending
                     </span>
                 </div>
+                {{-- include tags ids --}}
+
                 <div class="form-group">
                     <label class="form-label" for="include_tags_ids">Include these tags</label>
-                    <multiselect
-                        v-model="include_tags"
-                        :options="include_tags_list"
-                        id="include_tags_ids"
-                        track-by="id"
-                        label="name"
-                        :searchable="true"
-                        name="include_tags_ids[]"
-                        :taggable="true"
-                        :multiple="true">
-                    </multiselect>
+                    <select id="include_tags_ids" class="form-select" name="include_tags_ids[]" multiple >
+                        <option v-for="tag in tags" :key="tag.id" :value="tag.id">@{{ tag.name }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="exclude_tags_ids">Exclude these tags</label>
-                    <multiselect
-                        v-model="exclude_tags"
-                        :options="exclude_tags_list"
-                        id="exclude_tags_ids"
-                        track-by="id"
-                        label="name"
-                        :searchable="true"
-                        name="exclude_tags_ids[]"
-                        :taggable="true"
-                        :multiple="true">
-                    </multiselect>
+                    <select id="exclude_tags_ids" class="form-select" name="exclude_tags_ids[]" multiple >
+                        <option v-for="tag in tags" :key="tag.id" :value="tag.id">@{{ tag.name }}</option>
+                    </select>
                 </div>
             </div>
 
@@ -104,21 +91,27 @@
                 <div class="row">
                     <div class="form-group col">
                         <label class="form-label" for="sender">{{ __('admin::app.automation.sender') }}</label>
-                        <input name="sender" id="sender" value="1" class="form-control" />
+                        <select name="sender" id="sender" class="form-control" placeholder="Sender">
+                            @foreach ($users as $user)
+                                <option value="{{$user->id}}">{{$user->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group col">
                         <label class="form-label" for="recipient">{{ __('admin::app.automation.recipient') }}</label>
-                        <input name="recipient" id="recipient" value="1" class="form-control" />
+                        <select name="recipient" id="recipient" value="option" class="form-control" placeholder="recipient">
+                            <option value="lead">Lead</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group" :class="[errors.has('automation-form.type') ? 'has-error' : '']">
                     <label for="text_template" class="required form-label">Text template</label>
-                    <select name="text_template" class="form-control" v-validate="'required'"
+                    <select name="text_template_id" v-model="text_template_id" class="form-control" v-validate="'required'"
                         data-vv-as="&quot;Text template&quot;">
-                        <option value="4" selected>Create template</option>
-                        <option value="1">Text template 1</option>
-                        <option value="2">Text template 2</option>
-                        <option value="3">Text template 3</option>
+                        <option value="0" selected>Create template</option>
+                        @foreach ($text_template as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group" :class="[errors.has('automation-form.name') ? 'has-error' : '']">
@@ -151,13 +144,11 @@
                     {{ __('admin::app.automation.save-btn-title') }}
                 </button>
             </div>
-
         </form>
     </script>
 
     <script>
-        Vue.component('multiselect', window.VueMultiselect.default)
-
+        Vue.component('multiselect', window.VueMultiselect.default);
         Vue.component('automation-action-component', {
 
             template: '#automation-action-component-template',
@@ -168,14 +159,11 @@
 
             data: function() {
                 return {
-
                     selectType: "message",
-
-                    include_tags: [{id: 1, name: 'not applied'}],
-                    include_tags_list: [{id: 1, name: 'not applied' },{id: 2, name: 'Annual.Renewal'}, {id: 3, name: 'Annaul.Renewal.Text'}, {id: 4, name: 'New.Venture'}],
-
-                    exclude_tags: [ {id: 1, name: 'not applied'} ],
-                    exclude_tags_list: [{id: 1, name: 'not applied' },{id: 2, name: 'Annual.Renewal'}, {id: 3, name: 'Annaul.Renewal.Text'}, {id: 4, name: 'New.Venture'}]
+                    tags: [],
+                    include_tags: [1],
+                    exclude_tags: [1],
+                    isloading : false
                 }
             },
             computed: {
@@ -184,18 +172,24 @@
                 }
             },
             mounted: function() {
-                var self = this;
-
+                this.fetchTags();
             },
 
             methods: {
+                fetchTags(){
+                    this.isloading = true;
+                    var url = window.location.origin;
+                    axios.get(url+"/admin/tags")
+                    .then((res) => this.tags = res.data)
+                    .finally(() => this.isloading = false);
+                    console.log(this.tags);
+                },
                 addIncludeTag(newTag){
-                    this.include_tags_list.push(newTag);
-                    this.include_tags.push(newTag);
+                    this.include_tags.push(newTag.id);
+                    console.log(newTag.id);
                 },
                 addExcludeTag(newTag){
-                    this.exclude_tags_list.push(newTag);
-                    this.exclude_tags.push(newTag);
+                    this.exclude_tags.push(newTag.id);
                 },
                 onSubmit: function(e, formScope) {
                     this.$root.onSubmit(e, formScope);

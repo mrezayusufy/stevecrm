@@ -7,12 +7,7 @@
     {{ __('admin::app.automation.title') }}
 @stop
 @push('css')
-    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
-    <style>
-        .calender::after {
-            margin-top: -20px !important;
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
 @endpush
 
 @section('content-wrapper')

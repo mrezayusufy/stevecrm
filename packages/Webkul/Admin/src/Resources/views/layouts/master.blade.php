@@ -24,10 +24,12 @@
 
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
         {{-- <link rel="stylesheet" href="{{ asset('tailwind/app.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         {{-- <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/fonts/agencyzoom-logo/style.css') }}">
+
         @yield('head')
         @yield('css')
         @stack('css')

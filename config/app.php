@@ -210,8 +210,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
+        * Package Service Providers...
+        */
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Konekt\Concord\ConcordServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
@@ -299,7 +299,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Menu' => Webkul\Admin\Facades\Menu::class,
-        'Xml' => XmlResponse\Facades\XmlFacade::class
+        'Xml' => XmlResponse\Facades\XmlFacade::class,
     ],
 
 ];
