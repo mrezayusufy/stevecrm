@@ -34,12 +34,12 @@ class ReplyController extends Controller {
         $body = $_REQUEST["Body"];
         $this->messageRepository->create([
             "to" => $number,
-            "content" => "Dear Customer $number, You said: $body"
+            "content" => "Hello Dear customer, $number"
         ]);
         $response = new MessagingResponse();
         $message = [
-            'to' => "$number",
-            'content' => $body,
+            "to" => $number,
+            "content" => "Hello Dear customer, $number"
           ];
         $this->messageRepository->create($message);
         $response->message("The Robots are coming! Head for the hills!");
