@@ -18,8 +18,6 @@
 @section('content-wrapper')
     <div class="content full-page">
         <table-component data-src="{{ route('admin.settings.attributes.index') }}">
-
-          
         <table-component>
     </div>
 @stop

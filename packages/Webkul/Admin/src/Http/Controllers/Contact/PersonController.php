@@ -114,7 +114,7 @@ class PersonController extends Controller
     public function search()
     {
         $results = $this->personRepository->findWhere([
-            ['name', 'like', '%' . urldecode(request()->input('query')) . '%']
+            ['firstname', 'like', '%' . urldecode(request()->input('query')) . '%']
         ]);
 
         return response()->json($results);
@@ -138,11 +138,11 @@ class PersonController extends Controller
             Event::dispatch('contacts.person.delete.after', $id);
 
             return response()->json([
-                'message' => trans('admin::app.response.destroy-success', ['name' => trans('admin::app.contacts.persons.person')]),
+                'message' => trans('admin::app.response.destroy-success', ['firstname' => trans('admin::app.contacts.persons.person')]),
             ], 200);
         } catch (\Exception $exception) {
             return response()->json([
-                'message' => trans('admin::app.response.destroy-failed', ['name' => trans('admin::app.contacts.persons.person')]),
+                'message' => trans('admin::app.response.destroy-failed', ['firstname' => trans('admin::app.contacts.persons.person')]),
             ], 400);
         }
     }
@@ -163,7 +163,7 @@ class PersonController extends Controller
         }
 
         return response()->json([
-            'message' => trans('admin::app.response.destroy-success', ['name' => trans('admin::app.contacts.persons.title')])
+            'message' => trans('admin::app.response.destroy-success', ['firstname' => trans('admin::app.contacts.persons.title')])
         ]);
     }
 

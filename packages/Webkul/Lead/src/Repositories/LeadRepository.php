@@ -92,13 +92,13 @@ class LeadRepository extends Repository
                     'leads.created_at as created_at',
                     'title',
                     'lead_value',
-                    'persons.name as person_name',
                     'leads.person_id as person_id',
                     'lead_pipelines.id as lead_pipeline_id',
                     'lead_pipeline_stages.name as status',
                     'lead_pipeline_stages.id as lead_pipeline_stage_id'
                 )
                 ->addSelect(\DB::raw('DATEDIFF(leads.created_at + INTERVAL lead_pipelines.rotten_days DAY, now()) as rotten_days'))
+                ->addSelect(\DB::raw('CONCAT(persons.firstname," ", persons.lastname) AS person_name'))
                 ->leftJoin('persons', 'leads.person_id', '=', 'persons.id')
                 ->leftJoin('lead_pipelines', 'leads.lead_pipeline_id', '=', 'lead_pipelines.id')
                 ->leftJoin('lead_pipeline_stages', 'leads.lead_pipeline_stage_id', '=', 'lead_pipeline_stages.id')
@@ -127,33 +127,26 @@ class LeadRepository extends Repository
      */
     public function create(array $data)
     {
-        // if (isset($data['person']['id'])) {
-        //     $person = $this->personRepository->update(array_merge($data['person'], [
-        //         'entity_type' => 'persons',
-        //     ]), $data['person']['id']);
-        // } else {
-        //     $person = $this->personRepository->create(array_merge($data['person'], [
-        //         'entity_type' => 'persons',
-        //     ]));
-        // }
+        dd($data);
+        if (isset($data['person']['id'])) {
+            $person = $this->personRepository->update(array_merge($data['person'], [
+                'entity_type' => 'persons',
+            ]), $data['person']['id']);
+        } else {
+            $person = $this->personRepository->create(array_merge($data['person'], [
+                'entity_type' => 'persons',
+            ]));
+        }
 
         $stage = $this->stageRepository->find($data['lead_pipeline_stage_id']);
 
         $lead = parent::create(array_merge([
+            'person_id'              => $person->id,
             'lead_pipeline_id'       => 1,
             'lead_pipeline_stage_id' => 1,
         ], $data));
 
         $this->attributeValueRepository->save($data, $lead->id);
-
-        // if (isset($data['products'])) {
-        //     foreach ($data['products'] as $product) {
-        //         $this->productRepository->create(array_merge($product, [
-        //             'lead_id' => $lead->id,
-        //             'amount'  => $product['price'] * $product['quantity'],
-        //         ]));
-        //     }
-        // }
 
         return $lead;
     }
@@ -270,7 +263,7 @@ class LeadRepository extends Repository
             $item->folders =  json_decode($item->folders);
 
             $item->type = 'email';
-            
+
             return $item;
         }))->sortBy('created_at')->toArray());
     }

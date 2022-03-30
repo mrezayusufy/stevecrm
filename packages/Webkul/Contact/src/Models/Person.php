@@ -17,6 +17,10 @@ class Person extends Model implements PersonContract
     protected $casts = [
         'emails'          => 'array',
         'contact_numbers' => 'array',
+        'birthday' => 'date',
+        'expected_close_date' => 'date',
+        'next_expiration_date' => 'date',
+        'address' => 'array'
     ];
 
     /**
@@ -25,10 +29,16 @@ class Person extends Model implements PersonContract
      * @var array
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'birthday',
         'emails',
+        'address',
         'contact_numbers',
         'organization_id',
+        'status',
+        'expected_close_date',
+        'next_expiration_date',
     ];
 
     /**

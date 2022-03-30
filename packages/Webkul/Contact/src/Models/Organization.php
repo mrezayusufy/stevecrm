@@ -10,9 +10,7 @@ class Organization extends Model implements OrganizationContract
 {
     use CustomAttribute;
 
-    protected $casts = [
-        'address' => 'array',
-    ];
+
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +18,12 @@ class Organization extends Model implements OrganizationContract
      * @var array
      */
     protected $fillable = [
-        'name',
-        'address',
+        'business_entity',
+        'business_classification',
+        'fein',
+        'year_business_started',
+        'number_of_employees',
+        'annual_revenue',
+        'payroll',
     ];
 }

@@ -126,11 +126,11 @@ class AttributeController extends Controller
     {
         $attribute = $this->attributeRepository->findOrFail($id);
 
-        if (! $attribute->is_user_defined) {
-            return response()->json([
-                'message' => trans('admin::app.settings.attributes.user-define-error'),
-            ], 400);
-        }
+        // if (! $attribute->is_user_defined) {
+        //     return response()->json([
+        //         'message' => trans('admin::app.settings.attributes.user-define-error'),
+        //     ], 400);
+        // }
 
         try {
             Event::dispatch('settings.attribute.delete.before', $id);

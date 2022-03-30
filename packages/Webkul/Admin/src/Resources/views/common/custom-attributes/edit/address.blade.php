@@ -18,7 +18,6 @@
                     data-vv-as="&quot;{{ __('admin::app.common.address') }}&quot;"
                 >@{{ data ? data['address'] : '' }}</textarea>
             </div>
-    
             <div class="address-right">
 
                 <select
@@ -65,7 +64,7 @@
                     v-else
                 />
 
-                
+
                 <input
                     type="text"
                     :name="attribute['code'] + '[city]'"
@@ -86,7 +85,7 @@
                     data-vv-as="&quot;{{ __('admin::app.common.city') }}&quot;"
                     v-else
                 />
-                
+
                 <input
                     type="text"
                     :name="attribute['code'] + '[postcode]'"
@@ -119,7 +118,7 @@
         Vue.component('address-component', {
 
             template: '#address-component-template',
-    
+
             props: ['validations', 'attribute', 'data'],
 
             inject: ['$validator'],

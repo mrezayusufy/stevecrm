@@ -166,7 +166,7 @@ class MessageController extends Controller
             ];
         }
     } // end foreach
-    return $res;
+    return ;
   }
 
 

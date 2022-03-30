@@ -33,19 +33,12 @@ class Lead extends Model implements LeadContract
         'lead_value',
         'status',
         'lost_reason',
+        'location',
         'expected_close_date',
         'closed_at',
-        'customer_id',
-        'phone',
-        'phone_secondary',
-        'email',
-        'email_secondary',
-        'location',
+        'person_id',
         'user_id',
         'csr',
-        'firstname',
-        'lastname',
-        'date_of_birth',
         'lead_source_id',
         'lead_type_id',
         'lead_pipeline_id',
@@ -59,6 +52,13 @@ class Lead extends Model implements LeadContract
     public function user()
     {
         return $this->belongsTo(UserProxy::modelClass(), 'user_id');
+    }
+    /**
+     * Get the user that owns the lead.
+     */
+    public function person()
+    {
+        return $this->belongsTo(PersonProxy::modelClass(), 'person_id');
     }
 
     /**
@@ -109,13 +109,6 @@ class Lead extends Model implements LeadContract
         return $this->belongsToMany(ActivityProxy::modelClass(), 'lead_activities');
     }
 
-    /**
-     * Get the products.
-     */
-    public function products()
-    {
-        return $this->hasMany(ProductProxy::modelClass());
-    }
 
     /**
      * Get the emails.
