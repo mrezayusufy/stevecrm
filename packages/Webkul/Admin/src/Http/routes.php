@@ -4,6 +4,7 @@ Route::get('/message/automation', 'Webkul\Admin\Http\Controllers\Message\Message
 Route::post('/message/{phone}', 'Webkul\Admin\Http\Controllers\Message\MessageController@send')->name('admin.message.automation.send.sms');
 Route::post('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@store')->name('message.reply.store');
 Route::get('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@index')->name('message.reply.index');
+Route::get('/token/{identity}', 'Webkul\Admin\Http\Controllers\Chat\ChatController@token')->name('chat.token');
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin')->name('krayin.home');
@@ -142,6 +143,27 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::put('mass-destroy', 'CustomerController@massDestroy')->name('admin.customers.mass_delete');
             });
+            // chat routes
+            Route::group([
+                'prefix'    => 'chat',
+                'namespace' => 'Webkul\Admin\Http\Controllers\Chat',
+            ], function () {
+                Route::get('', 'ChatController@index')->name('admin.chat.index');
+
+                Route::post('/token', 'ChatController@getToken')->name('admin.chat.token');
+
+                Route::get('/token/{username}', 'ChatController@token')->name('admin.chat.get.token');
+
+                Route::get('/conversations', 'ChatController@conversations')->name('admin.chat.conversations');
+
+                Route::get('/conversations/fetch', 'ChatController@fetchConversations')->name('admin.chat.fetch.conversations');
+
+                Route::get('/messages/{sid}/msid/{msid}', 'ChatController@messages')->name('admin.chat.fetch.messages');
+
+                Route::get('/participant', 'ChatController@participant')->name('admin.chat.participant');
+                // used in chat app
+                Route::get('/identity', 'ChatController@identity')->name('admin.chat.identity');
+            });
             // reports routes
             Route::group([
                 'prefix'    => 'reports',
@@ -163,7 +185,9 @@ Route::group(['middleware' => ['web']], function () {
                 'namespace' => 'Webkul\Admin\Http\Controllers\Task',
             ], function () {
                 Route::get('/', 'TaskController@index')->name('admin.task.index');
+
                 Route::get('create', 'TaskController@create')->name('admin.task.create');
+
                 Route::post('create', 'TaskController@store')->name('admin.task.store');
 
                 Route::get('edit/{id}', 'TaskController@edit')->name('admin.task.edit');

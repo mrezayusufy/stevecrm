@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
+        "@twilio/conversations": "^2.1.0",
         "axios": "^0.21.1",
         "chart.js": "^2.9.4",
         "debounce": "^1.2.1",

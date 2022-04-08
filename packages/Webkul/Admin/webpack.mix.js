@@ -21,7 +21,9 @@ mix.js(__dirname + "/src/Resources/assets/js/app.js", "js/admin.js")
     .options({
         processCssUrls: false,
     })
-    .vue();
+    .vue()
+    .sourceMaps()
+    .version();
 
 mix.webpackConfig({
     resolve: {
@@ -31,10 +33,10 @@ mix.webpackConfig({
     }
 });
 
-if (! mix.inProduction()) {
-    mix.sourceMaps();
-}
+// if (! mix.inProduction()) {
+//     mix.sourceMaps();
+// }
 
-if (mix.inProduction()) {
-    mix.version();
-}
+// if (mix.inProduction()) {
+//     mix.version();
+// }

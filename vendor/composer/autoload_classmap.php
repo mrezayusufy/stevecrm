@@ -8760,6 +8760,7 @@ return array(
     'Webkul\\Admin\\Http\\Controllers\\Activity\\ActivityController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Activity/ActivityController.php',
     'Webkul\\Admin\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Admin/DashboardController.php',
     'Webkul\\Admin\\Http\\Controllers\\Automation\\AutomationController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Automation/AutomationController.php',
+    'Webkul\\Admin\\Http\\Controllers\\Chat\\ChatController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Chat/ChatController.php',
     'Webkul\\Admin\\Http\\Controllers\\Compensation\\CompensationController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Compensation/CompensationController.php',
     'Webkul\\Admin\\Http\\Controllers\\Configuration\\ConfigurationController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Configuration/ConfigurationController.php',
     'Webkul\\Admin\\Http\\Controllers\\Contact\\OrganizationController' => $baseDir . '/packages/Webkul/Admin/src/Http/Controllers/Contact/OrganizationController.php',

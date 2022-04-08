@@ -2,17 +2,13 @@ import store from './store';
 import VTooltip from 'v-tooltip';
 import DateRangePicker from 'vue2-daterange-picker';
 import 'vue2-daterange-picker/dist/vue2-daterange-picker.css';
-
 Vue.use(DateRangePicker);
 Vue.use(require('vue-moment'));
 
 window.EventBus = new Vue();
 window.debounce = require('./debounce');
-
 VTooltip.options.disposeTimeout = 0;
 
-Vue.directive('tooltip', VTooltip.VTooltip)
-Vue.directive('debounce', require('./directives/debounce').default);
 
 Vue.filter('formatDate', function(value) {
     if (value) {
@@ -50,6 +46,8 @@ Vue.mixin({
 	}
 });
 
+Vue.component('chat', require('./components/chat.vue').default);
+Vue.component('conversation', require('./components/conversation.vue').default);
 Vue.component('flash-wrapper', require('./components/flash-wrapper.vue').default);
 Vue.component('flash', require('./components/flash.vue').default);
 Vue.component('bar-chart', require('./components/bar-chart.vue').default);
@@ -84,7 +82,8 @@ Vue.component('tree-radio', require('./components/tree-view/tree-radio').default
 Vue.component('date-range-basic', require('./components/date-range-basic').default);
 Vue.component('date-range', require('./components/date-range').default);
 Vue.component('spinner-meter', require('./components/spinner-meter').default);
-
+Vue.directive('tooltip', VTooltip.VTooltip)
+Vue.directive('debounce', require('./directives/debounce').default);
 Vue.mixin(require('./components/trans'));
 
 Vue.filter('truncate', function (value, limit, trail) {
@@ -100,6 +99,7 @@ Vue.filter('truncate', function (value, limit, trail) {
 Vue.filter('date', function (value) {
 	return value ? moment(val).format("YYYY-MM-DD") : "";
 });
+
 
 
 require('flatpickr/dist/flatpickr.css');

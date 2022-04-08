@@ -5,6 +5,8 @@
 @stop
 
 @section('content-wrapper')
+<chat></chat>
+
     <div class="content full-page">
         <div class="page-header">
             <div class="page-title">
@@ -260,7 +262,7 @@
 
                     <div class="form-group">
                         <label for="">Radio</label>
-    
+
                         <span class="radio">
                             <input type="radio" id="radio2" name="radio">
                             <label class="radio-view" for="radio2"></label>
@@ -272,7 +274,7 @@
                             <label class="radio-view" for="radio1"></label>
                             Radio Value (Checked)
                         </span>
-    
+
                         <span class="radio">
                             <input type="radio" id="radio1" name="radio" disabled="disabled">
                             <label class="radio-view" for="radio1"></label>
@@ -282,7 +284,7 @@
 
                     <div class="form-group">
                         <label for="">Checkbox</label>
-    
+
                         <span class="checkbox">
                             <input type="checkbox" id="checkbox2" name="checkbox[]">
                             <label class="checkbox-view" for="checkbox2"></label>
@@ -294,7 +296,7 @@
                             <label class="checkbox-view" for="checkbox1"></label>
                             Checkbox Value (Checked)
                         </span>
-    
+
                         <span class="checkbox">
                             <input type="checkbox" id="checkbox2" name="checkbox[]" disabled="disabled">
                             <label class="checkbox-view" for="checkbox2"></label>
@@ -410,7 +412,7 @@
                 <div class="panel-header">
                     Alert
                 </div>
-                
+
                 <div class="panel-body">
 
                     <div class="alert-wrapper" style="position: relative">
@@ -445,13 +447,13 @@
                 <div class="panel-header">
                     Modal
                 </div>
-                
+
                 <div class="panel-body">
                     <button class="btn btn-primary btn-lg" @click="openModal('modelId')">Open Modal</button>
 
                     <modal id="modelId" :is-open="modalIds.modelId">
                         <h3 slot="header-title">Modal Title</h3>
-                        
+
                         <div slot="header-actions">
                             <button class="btn btn-sm btn-secondary-outline" @click="closeModal('modelId')">Cancel</button>
 
@@ -481,7 +483,7 @@
                                     <th>Code</th>
                                 </tr>
                             </thead>
-                            
+
                             <tbody>
                                 <tr class="active">
                                     <td>1</td>
@@ -495,7 +497,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                     </div>
                 </div>
             </div>

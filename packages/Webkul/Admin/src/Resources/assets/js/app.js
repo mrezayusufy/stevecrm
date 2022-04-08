@@ -9,7 +9,6 @@ import './bootstrap';
 window.moment = require('moment');
 window.Vue = Vue;
 window.VeeValidate = VeeValidate;
-Vue.component('multiselect', window.VueMultiselect.default)
 
 Vue.use(VeeValidate, {
     events: 'input|change|blur',

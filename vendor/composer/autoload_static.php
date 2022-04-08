@@ -9545,6 +9545,7 @@ class ComposerStaticInit7f66497b0d7b0ab2b5f40187dded325d
         'Webkul\\Admin\\Http\\Controllers\\Activity\\ActivityController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Activity/ActivityController.php',
         'Webkul\\Admin\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Admin/DashboardController.php',
         'Webkul\\Admin\\Http\\Controllers\\Automation\\AutomationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Automation/AutomationController.php',
+        'Webkul\\Admin\\Http\\Controllers\\Chat\\ChatController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Chat/ChatController.php',
         'Webkul\\Admin\\Http\\Controllers\\Compensation\\CompensationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Compensation/CompensationController.php',
         'Webkul\\Admin\\Http\\Controllers\\Configuration\\ConfigurationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Configuration/ConfigurationController.php',
         'Webkul\\Admin\\Http\\Controllers\\Contact\\OrganizationController' => __DIR__ . '/../..' . '/packages/Webkul/Admin/src/Http/Controllers/Contact/OrganizationController.php',

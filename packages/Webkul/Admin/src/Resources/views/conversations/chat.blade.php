@@ -1,5 +1,4 @@
 @include('admin::conversations.style')
-
 <div id="frame" class="d-flex flex-row border">
     <div id="sidepanel" class="col-4">
         <div id="profile d-none">
