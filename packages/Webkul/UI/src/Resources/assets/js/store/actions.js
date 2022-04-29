@@ -1,3 +1,4 @@
+import axios from 'axios';
 const toggleSidebarFilter = ({state}) => {
     state.sidebarFilter = ! state.sidebarFilter;
 
@@ -20,10 +21,22 @@ const updateTableData = ({state}, payload) => {
     state.tableData = payload;
 };
 
+const fetchConversations = async ({state, commit}) => {
+    try {
+        const data = await axios.get("/admin/chat/conversations/fetch").then(res => res.conversations);
+        console.log(data);
+        commit("FETCH_CONVERSATIONS", data)
+    } catch (error) {
+        alert(error);
+        console.log(error);
+    }
+}
+
 export default {
     toggleSidebarFilter,
     updateFilterValues,
     selectAllRows,
     selectTableRow,
-    updateTableData
+    updateTableData,
+    fetchConversations,
 };

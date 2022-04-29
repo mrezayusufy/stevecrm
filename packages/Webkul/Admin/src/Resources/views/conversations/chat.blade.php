@@ -29,173 +29,26 @@
                     aria-hidden="true"></i></label>
         </div>
         <div id="contacts">
-            <contact-item
-                v-for="contact in contacts"
-                ></contact-item>
             <ul class="list-unstyled">
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Louis Litt</p>
-                            <p class="m-0 preview text-truncate">You just got LITT up, Mike.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact active">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Harvey Specter</p>
-                            <p class="m-0 preview text-truncate">Wrong. You take the gun, or you pull out a bigger one.
-                                Or, you
-                                call their bluff. Or, you do any one of a hundred and forty six other things.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75 ">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Rachel Zane</p>
-                            <p class="m-0 preview text-truncate">I was thinking that we could have chicken tonight,
-                                sounds good?
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Donna Paulsen</p>
-                            <p class="m-0 preview text-truncate">Mike, I know everything! I'm Donna..</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75 text-truncate">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Jessica Pearson</p>
-                            <p class="m-0 preview text-truncate">Have you finished the draft on the Hinsenburg deal?</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Harold Gunderson</p>
-                            <p class="m-0 preview text-truncate">Thanks Mike! :)</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Daniel Hardman</p>
-                            <p class="m-0 preview text-truncate">We'll meet again, Mike. Tell Jessica I said 'Hi'.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Katrina Bennett</p>
-                            <p class="m-0 preview text-truncate">I've sent you the files for the Garrett trial.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Charles Forstman</p>
-                            <p class="m-0 preview text-truncate">Mike, this isn't over.</p>
-                        </div>
-                    </div>
-                </li>
-                <li class="contact">
-                    <div class="align-items-center d-flex mx-3 position-relative w-75">
-                        <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
-                        </div>
-                        <div class="meta w-100">
-                            <p class="m-0 name">Jonathan Sidwell</p>
-                            <p class="m-0 preview text-truncate"><span>You:</span> That's bullshit. This deal is solid.
-                            </p>
-                        </div>
-                    </div>
-                </li>
+                <div id="loading">loading...</div>
             </ul>
         </div>
     </div>
     <div class="content col border-start bg-white">
         <div class="contact-profile align-items-center contact-profile d-flex px-3">
             <div class="bg-white btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i></div>
-            <p class="m-0">Harvey Specter</p>
+            <p class="m-0 username"></p>
         </div>
         <div class="messages">
-            <message></message>
-            <ul class="list-unstyled">
-                <li class="sent">
-                    <div class="bg-gray btn-circle float-left me-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
-                </li>
-                <li class="replies">
-                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>When you're backed against the wall, break the god damn thing down.</p>
-                </li>
-                <li class="replies">
-                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>Excuses don't win championships.</p>
-                </li>
-                <li class="sent">
-                    <div class="bg-gray btn-circle float-left me-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>Oh yeah, did Michael Jordan tell you that?</p>
-                </li>
-                <li class="replies">
-                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>No, I told him that.</p>
-                </li>
-                <li class="replies">
-                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>What are your choices when someone puts a gun to your head?</p>
-                </li>
-                <li class="sent">
-                    <div class="bg-gray btn-circle float-left me-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>What are you talking about? You do what they say or they shoot you.</p>
-                </li>
-                <li class="replies">
-                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
-                            class="mdi mdi-24px mdi-account-outline "></i></div>
-                    <p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any
-                        one of a hundred and forty six other things.</p>
-                </li>
+            <ul class="list-unstyled overflow-auto" id="messages">
+
             </ul>
         </div>
         <div class="message-input">
             <div class="wrap d-flex">
                 <textarea type="text" placeholder="Write your message..." class="form-control m-2"></textarea>
-                <button class="submit btn-circle m-2 p-3"><i class="mdi mdi-send " aria-hidden="true"></i></button>
+                <button type="submit" class="submit btn-circle m-2 p-3"><i class="mdi mdi-send "
+                        aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
@@ -204,7 +57,7 @@
             <div class="btn-circle bg-light m-2" style="padding: 2rem">
                 <i class="m-5 mdi mdi-48px mdi-account-outline"></i>
             </div>
-            <div class="h3">(901) 633-8101</div>
+            <div class="h3 username"></div>
         </div>
         <a href="{{ route('admin.leads.create') }}"
             class="align-content-center align-items-center btn btn-outline-primary d-flex flex-row fs-5 my-2">
@@ -215,10 +68,204 @@
 </div>
 
 @push('scripts')
+    <script>
+        Date.prototype.monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+        Date.prototype.getMonthName = function() {
+            return this.monthNames[this.getMonth()];
+        };
+        Date.prototype.getShortMonthName = function() {
+            return this.getMonthName().substr(0, 3);
+        };
+        $(document).ready(function() {
+            var $loading = $("#loading").hide();
+            $(".write_msg").val("");
+            let conversations = [];
+            let loading = false;
+            let conversationSid;
+
+            function fetchMessage(sid) {
+                $.ajax({
+                    url: "/conversation/action.php?q=msg&sid=" + sid,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.info(data);
+                    },
+                    error: function(e) {
+                        console.error(e);
+                    },
+                });
+            }
+
+            // $.ajax({
+            //     url: "{{ route('admin.chat.fetch.conversations') }}",
+            //     type: "GET",
+            //     dataType: "json",
+            //     beforeSend: function(xhr) {
+            //         loading = true;
+            //         $loading.show();
+            //     },
+            //     success: function(data) {
+            //         conversations = data.conversations;
+            //         $.each(conversations, function(i) {
+            //             $("#alert").append(i.friendlyName);
+            //         });
+            //     },
+            //     error: function(e) {
+            //         $("#alert").append(e);
+            //     },
+            //     complete: function() {
+            //         loading = false;
+            //         $loading.hide();
+            //         $.each(conversations, function(item) {
+            //             $("#alert").append(item.friendlyName);
+            //         });
+            //     },
+            // });
+            $.getJSON("{{ route('admin.chat.fetch.conversations') }}", function(data) {
+                conversations = data.conversations;
+                $.each(conversations, function(index, c) {
+
+                    $("#contacts ul").append( //html
+                        `
+                        <li class="contact bg-white ${c.sid === conversationSid ? 'active' : ''}" id="${index}" value="${c.sid}">
+                            <div class="align-items-center d-flex mx-3 position-relative w-75">
+                                <div class="bg-light btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i>
+                                </div>
+                                <div class="meta w-100">
+                                    <p class="m-0 name">${c.friendlyName}</p>
+                                    <p class="m-0 preview text-truncate"></p>
+                                </div>
+                            </div>
+                        </li>
+                        `
+                    );
+
+                    $(".contact").click(function() {
+                        var current = $(this).attr("value");
+                        $(".username").append(c.friendlyName)
+                        conversationSid = current;
+                        console.log(current)
+                        $.getJSON(
+                            "{{ route('admin.chat.fetch.messages', '') }}/" + current,
+                            function(data) {
+                                var messages = data;
+                                $.each(messages, function(index, m) {
+                                    const d = moment(m.created_at.date);
+                                    let month = d.format("MMMM");
+                                    let day = d.format("D");
+                                    let time = d.format("LT");
+                                    if (m.author === m.identity)
+                                        $(".messages ul").append( //html
+                                            `
+                                            <li class="replies d-flex">
+                                                <div class="ms-auto">
+                                                    <div class="bg-gray btn-circle float-right ms-2 text-white"><i
+                                                            class="mdi mdi-24px mdi-account-outline "></i></div>
+                                                    <div class="d-flex flex-column">
+                                                        <p class="m-0">${m.body}</p>
+                                                        <span class="fs-xs"> ${time} | ${month} ${day}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            `
+                                        );
+                                    else
+                                        $(".messages ul").append( //html
+                                            `
+                                            <li class="sent d-flex">
+                                                <div>
+                                                    <div class="bg-gray btn-circle float-left me-2 text-white"><i
+                                                            class="mdi mdi-24px mdi-account-outline "></i></div>
+                                                    <div class="d-flex flex-column">
+                                                        <p class="m-0">${m.body}</p>
+                                                    <span class="fs-xs"> ${time} | ${month} ${day}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            `
+                                        );
+                                });
+                            }
+                        );
+                        $("#messages").scrollTop(100000);
+                    });
+                });
+            });
+            $(".message-input button").click(function() {
+                var msg = $(".message-input textarea").val();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: "{{ route('admin.chat.send.message', '') }}/" + conversationSid,
+                    type: "POST",
+                    data: {
+                        body: msg,
+                    },
+                    dataType: "json",
+                    beforeSend: function(xhr) {
+                        loading = true;
+                    },
+                    success: function(data) {
+                        const response = data.response;
+                        console.log("response", response);
+                        const d = moment(response.created_at.date);
+                        let month = d.format("MMMM");
+                        let day = d.format("D");
+                        let time = d.format("LT");
+                        $(".messages ul").append( //html
+                            `
+                        <li class="replies d-flex">
+                            <div class="ms-auto">
+                                <div class="bg-gray btn-circle float-right ms-2 text-white"><i
+                                        class="mdi mdi-24px mdi-account-outline "></i></div>
+                                <div class="d-flex flex-column">
+                                    <p class="m-0">${response.body}</p>
+                                    <span class="fs-xs"> ${time} | ${month} ${day}</span>
+                                </div>
+                            </div>
+                        </li>
+                        `
+                        );
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    },
+                    complete: function() {
+                        $(".message-input textarea").val("");
+                        loading = false;
+                    },
+                });
+            });
+            setInterval(() => {
+                $(".messages").scrollTop(100000);
+                if (conversationSid) {
+                    // fetchMessage(conversationSid)
+                }
+            }, 1000);
+        });
+    </script>
     {{-- message component --}}
     <script type="text/x-template" id="message-template">
-        <div>@{{msg}}</div>
-    </script>
+        <div>@{{ msg }}</div>
+                        </script>
     <script>
         Vue.component("message", {
             data: function() {
@@ -231,67 +278,15 @@
     </script>
     {{-- contact component --}}
     <script type="text/x-template" id="contact-template">
-            <li>
-                @{{ contact.name }}
-            </li>
-    </script>
+        <li>
+                                    @{{ contact.name }}
+                                </li>
+                        </script>
     <script>
         Vue.component("contact-item", {
             props: ['contact'],
             template: "#contact-template"
         })
     </script>
-    {{-- chat vue app --}}
-    <script>
-        var chat = new Vue({
-            el: "#frame",
-            data: {
-                msg: "hello",
-                contact: "",
-                contacts: [
-                    {
-                        number: "07777777",
-                        name: "ali"
-                    },
-                    {
-                        number: "079898989",
-                        name: "mohsen"
-                    },
-                ]
-            },
-            methods: {
-                selectContact() {
-
-                }
-            },
-
-        })
-    </script>
     {{-- end --}}
-    <script>
-        function newMessage() {
-            message = $(".message-input input").val();
-            if ($.trim(message) == '') {
-                return false;
-            }
-            $('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>')
-                .appendTo($('.messages ul'));
-            $('.message-input input').val(null);
-            $('.contact.active .preview').html('<span>You: </span>' + message);
-            $(".messages").animate({
-                scrollTop: $(document).height()
-            }, "fast");
-        };
-
-        $('.submit').click(function() {
-            newMessage();
-        });
-
-        $(window).on('keydown', function(e) {
-            if (e.which == 13) {
-                newMessage();
-                return false;
-            }
-        });
-    </script>
 @endpush

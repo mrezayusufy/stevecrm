@@ -12,7 +12,6 @@
 					<a href="#" @click="activeConversation = c">{{ c.friendlyName }}</a>
 				</li>
 			</ul>
-      <button @click="createConversation">Join chat</button>
     </div>
     <Conversation v-if="activeConversation" :active-conversation="activeConversation" :conversations="conversations" :name="name" />
   </div>
@@ -60,13 +59,19 @@ export default {
 					break
 				}
 			})
-			this.conversationsClient.on("conversationJoined", (conversation) => {
-				console.info(conversation)
-				this.conversations.push(conversation)
-			})
+			await fetch("/admin/chat/conversations/fetch", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    this.conversations = data
+                })
 		},
 		getToken: async function(identity) {
-			const response = await fetch(`http://agencyzoon.test/token/${identity}`).then((res) => res.json()).catch(e=> e)
+			const response = await fetch(`/token/${identity}`).then((res) => res.json()).catch(e=> e)
 			console.log(response)
 			const responseJson = response.token
 			return responseJson

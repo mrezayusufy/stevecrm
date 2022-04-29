@@ -51,8 +51,12 @@ const SELECT_TABLE_ROW = (state, payload) => {
     state.allSelected = (state.tableData.records.data.length == state.selectedTableRows.length);
 };
 
+const FETCH_CONVERSATIONS = (state, conversations) => {
+    state.conversations = conversations;
+}
 export default {
     UPDATE_FILTER_VALUES,
     SELECT_ALL_ROWS,
     SELECT_TABLE_ROW,
+    FETCH_CONVERSATIONS,
 };

@@ -65,7 +65,7 @@ export default {
 			})
 		},
 		getToken: async function(identity) {
-			const response = await fetch(`http://agencyzoon.test/token/${identity}`).then((res) => res.json()).catch(e=> e)
+			const response = await fetch(`/token/${identity}`).then((res) => res.json()).catch(e=> e)
 			console.log(response)
 			const responseJson = response.token
 			return responseJson

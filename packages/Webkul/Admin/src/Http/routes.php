@@ -5,7 +5,8 @@ Route::post('/message/{phone}', 'Webkul\Admin\Http\Controllers\Message\MessageCo
 Route::post('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@store')->name('message.reply.store');
 Route::get('/reply', 'Webkul\Admin\Http\Controllers\Message\ReplyController@index')->name('message.reply.index');
 Route::get('/token/{identity}', 'Webkul\Admin\Http\Controllers\Chat\ChatController@token')->name('chat.token');
-
+Route::post('/send/{sid}', 'Webkul\Admin\Http\Controllers\Chat\ChatController@sendMessage')->name('chat.send');
+Route::post('/conversation', 'Webkul\Admin\Http\Controllers\Chat\ChatController@createConversation')->name('create.conversation');
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'Webkul\Admin\Http\Controllers\Controller@redirectToLogin')->name('krayin.home');
 
@@ -143,7 +144,10 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::put('mass-destroy', 'CustomerController@massDestroy')->name('admin.customers.mass_delete');
             });
-            // chat routes
+            /**
+             * chat controller
+             * @return messages
+             */
             Route::group([
                 'prefix'    => 'chat',
                 'namespace' => 'Webkul\Admin\Http\Controllers\Chat',
@@ -156,9 +160,13 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::get('/conversations', 'ChatController@conversations')->name('admin.chat.conversations');
 
+                Route::post('/conversation', 'ChatController@createConversation')->name('admin.create.conversation');
+
                 Route::get('/conversations/fetch', 'ChatController@fetchConversations')->name('admin.chat.fetch.conversations');
 
-                Route::get('/messages/{sid}/msid/{msid}', 'ChatController@messages')->name('admin.chat.fetch.messages');
+                Route::get('/messages/{sid}', 'ChatController@messages')->name('admin.chat.fetch.messages');
+
+                Route::post('/messages/{sid}', 'ChatController@sendMessage')->name('admin.chat.send.message');
 
                 Route::get('/participant', 'ChatController@participant')->name('admin.chat.participant');
                 // used in chat app

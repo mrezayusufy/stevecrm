@@ -8,6 +8,7 @@
 @stop
 @section('content-wrapper')
 <div class="content full-page adjacent-center">
-    <chat></chat>
+    @include("admin::chat.chat")
+    <chat-component></chat-component>
 </div>
 @stop

@@ -15,107 +15,102 @@
     }
 </style>
 <script type="text/x-template" id="chat-template">
-    <div>
-        <h1>Welcome to the Vue chat app<span v-if="nameRegistered">, @{{ name }}</span>!</h1>
-        <p>@{{ statusString }}</p>
-        <div v-if="!nameRegistered">
-            <input @keyup.enter="registerName" v-model="name" placeholder="Enter your name">
-            <button @click="registerName">Register name</button>
+    <section>
+        <section class="d-flex flex-column col-5 gap-3">
+            <div v-if="alert">@{{alert}}</div>
+            <div class="row">
+                <label for="friendlyName" class="form-label">friendly Name:</label>
+                <input type="text" id="friendlyName" class="form-control" v-model="friendlyName" />
+            </div>
+            <div class="row">
+                <label for="participant" class="form-label">phone Number:</label>
+                <input type="text" id="participant" class="form-control" v-model="participant" />
+            </div>
+            <div class="d-flex flex-start"><button @click="createConversation" class="btn btn-success">Create</button></div>
+        </section>
+
+        <div v-if="newConversation">
+            <div class="px-2">&#128100;</div> @{{ newConversation.friendlyName}} <div class="px-2">&#x1F4DE;</div> @{{ newConversation.participant }} ( @{{ newConversation.sid }} )
         </div>
-        <div v-else-if="nameRegistered && !activeConversation && isConnected">
-            @{{activeConversation.friendlyName}}
-            <button @click="createConversation">Join chat</button>
+        <h1>Welcome to the chat app<span v-if="nameRegistered">, @{{ name }}</span>!</h1>
+        <p v-if="statusString === 'loading'">
+            <spinner-meter></spinner-meter>
+        </p>
+
+        <div v-for="(c, index) in conversations" :key="index">
+            <a href="#" @click="joinConversation(c)">@{{ c.friendlyName }}</a>
+             (<small>@{{ c.sid }}</small>)
         </div>
         @include("admin::chat.conversation")
-        {{-- <Conversation v-if="activeConversation" :active-conversation="activeConversation" :name="name" /> --}}
-    </div>
+        <Conversation v-if="activeConversation" :active-conversation="activeConversation" :name="name" />
+    </section>
 </script>
 
 
-{{-- <script type="text/javascript" src="{{ asset('vendor/webkul/admin/assets/js/twilio-conversations.min.js') }}"></script> --}}
-{{-- <script src="https://media.twiliocdn.com/sdk/js/conversations/releases/1.0.0/twilio-conversations.min.js"
-        integrity="sha256-wwGP7TgNRaTpRZj6r7CM/ZPMa/mMj44/QRLQNnQMJjU="
-        crossorigin="anonymous"></script> --}}
-<script src="https://media.twiliocdn.com/sdk/js/conversations/v2.0/twilio-conversations.min.js"></script>
-
 <script>
+
     Vue.component('chat-component',
     {
         template: "#chat-template",
         data: function () {
             return {
-                statusString: "",
+                statusString: "loading...",
                 activeConversation: null,
                 name: "",
+                friendlyName: "",
+                participant: "",
                 nameRegistered: false,
                 isConnected: false,
                 conversationsClient: "",
                 conversations: [],
+                newConversation: null,
                 selectedConversation: "",
                 messages: [],
+                alert: null,
             }
         },
         mounted() {
             this.initConversationsClient();
+            this.$store.dispatch('fetchConversations');
+            this.$store.getters.conversations
         },
         methods: {
             initConversationsClient: async function() {
-                const token = await this.getToken(this.name)
-                this.conversationsClient = new Twilio.Conversations.Client(token);
-                this.statusString = "Connecting to Twilio…"
-                this.activeConversation = await this.conversationsClient.on("conversationJoined", (conversation) => {
-                    this.conversations.push(conversation);
-                    this.name = conversation.friendlyName;
-                    return conversation;
-                })
-                console.log(this.activeConversation);
-                this.conversationsClient.on("connectionStateChanged", (state) => {
-                    switch (state) {
-                        case "connected":
-                            this.statusString = "You are connected."
-                            this.isConnected = true
-                            break
-                        case "disconnecting":
-                            this.statusString = "Disconnecting from Twilio…"
-                            break
-                        case "disconnected":
-                            this.statusString = "Disconnected."
-                            break
-                        case "denied":
-                            this.statusString = "Failed to connect."
-                            break
-                    }
-                })
+                this.statusString = "loading";
+                this.conversations = await fetch("/admin/chat/conversations/fetch")
+                .then((response) => response.json())
+                .then((data) => data.conversations)
+                this.statusString = "success";
+
             },
             getToken: async  function(identity) {
                 let response;
-                await axios.get("{{ route('admin.chat.get.token', 'steve')}}").then((res) => response = res.data)
+                await this.$http.get("{{ route('admin.chat.get.token', 'steve')}}").then((res) => response = res.data)
                 return response.token
             },
             registerName: async function() {
                 this.nameRegistered = true
                 await this.initConversationsClient()
             },
+            joinConversation: function(conversation) {
+                this.nameRegistered = true;
+                this.activeConversation = conversation;
+                this.name = conversation.friendlyName;
+            },
             createConversation: async function() {
-                // Ensure User1 and User2 have an open client session
-                try {
-                    await this.conversationsClient.getUser("User1")
-                    await this.conversationsClient.getUser("User2")
-                } catch {
-                    console.error("Waiting for User1 and User2 client sessions")
-                    return
-                }
-                // Try to create a new conversation and add User1 and User2
-                // If it already exists, join instead
-                try {
-                    const newConversation = await this.conversationsClient.createConversation({uniqueName: "chat"})
-                    const joinedConversation = await newConversation.join().catch(err => console.log(err))
-                    await joinedConversation.add("User1").catch(err => console.log("error: ", err))
-                    await joinedConversation.add("User2").catch(err => console.log("error: ", err))
-                    this.activeConversation = joinedConversation
-                } catch {
-                    this.activeConversation = await (this.conversationsClient.getConversationByUniqueName("chat"))
-                }
+                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const data = JSON.stringify({
+                        "friendlyName": this.friendlyName,
+                        "participant": this.participant
+                    });
+                await this.$http.post( "{{route('admin.create.conversation')}}" , data)
+                .then(response=> this.newConversation = response.data)
+                .catch(error => { alert(error) })
+            },
+        },
+        computed: {
+            convesations() {
+                return this.$store.getters.conversations;
             }
         }
     })

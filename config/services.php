@@ -36,7 +36,8 @@ return [
         'secret' => env('TWILIO_SECRET'),
         'auth' => env('TWILIO_AUTH_TOKEN'),
         'grant' => env('TWILIO_CHAT_SID'),
-        'number' => env('TWILIO_NUMBER')
+        'number' => env('TWILIO_NUMBER'),
+        'identity' => env('TWILIO_IDENTITY')
     ],
 
 ];

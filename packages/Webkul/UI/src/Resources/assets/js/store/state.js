@@ -1,4 +1,6 @@
 var state = {
+    conversations:[],
+    message: [],
     filters: {},
     tableData: {
         records: {
