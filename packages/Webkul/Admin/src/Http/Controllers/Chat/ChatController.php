@@ -79,10 +79,7 @@ class ChatController extends Controller
         if (!$friendlyName && !$participant) {
             return response()->json(['error' => 'Please send data.'], 400);
         }
-        $current = $twilio->participantConversations
-            ->read([
-                "address" => $participant
-            ], 20);
+        $current = $twilio->participantConversations->read(["address" => $participant], 20);
         if (!$current) {
             try {
                 $response = $twilio->conversations->create([
@@ -111,24 +108,29 @@ class ChatController extends Controller
     }
     public function fetchConversations()
     {
-        $twilio = $this->twilio_client->conversations->v1;
-        $response = $twilio->conversations->read(20);
-        $data = [];
-        foreach ($response as $item) {
-            if ($item->friendlyName)
-                $data['conversations'][] = [
-                    'sid' => $item->sid,
-                    'friendlyName' => $item->friendlyName,
-                    'date_created' => $item->dateCreated,
-                    'date_updated' => $item->dateUpdated,
-                    'messaging_service_sid' => $item->messagingServiceSid,
-                    'chatService_sid' => $item->chatServiceSid,
-                    'state' => $item->state,
-                    'account_sid' => $item->accountSid,
-                    'bindings' => $item->bindings,
-                ];
+        try {
+            //code...
+            $twilio = $this->twilio_client->conversations->v1;
+            $response = $twilio->conversations->read(20);
+            $data = [];
+            foreach ($response as $item) {
+                if ($item->friendlyName)
+                    $data['conversations'][] = [
+                        'sid' => $item->sid,
+                        'friendlyName' => $item->friendlyName,
+                        'date_created' => $item->dateCreated,
+                        'date_updated' => $item->dateUpdated,
+                        'messaging_service_sid' => $item->messagingServiceSid,
+                        'chatService_sid' => $item->chatServiceSid,
+                        'state' => $item->state,
+                        'account_sid' => $item->accountSid,
+                        'bindings' => $item->bindings,
+                    ];
+            }
+            return response()->json($data);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 400);
         }
-        return response()->json($data);
     }
     /**
      * delete conversation
@@ -179,24 +181,28 @@ class ChatController extends Controller
      */
     public function messages($sid)
     {
-        $twilio = $this->twilio_client->conversations->v1;
-        $response = $twilio->conversations($sid)->messages->read([], 1000);
-        $messages = [];
-        foreach ($response as $message) {
-            $messages[] = [
-                'sid' => $message->sid,
-                'account_sid' => $message->accountSid,
-                'conversation_sid' => $message->conversationSid,
-                'author' => $message->author,
-                'body' => $message->body,
-                'identity' => $this->identity,
-                'participant_sid' => $message->participantSid,
-                'created_at' => $message->dateCreated,
-                'updated_at' => $message->dateUpdated,
-                'media' => $message->media,
-            ];
+        try {
+            $twilio = $this->twilio_client->conversations->v1;
+            $response = $twilio->conversations($sid)->messages->read([], 1000);
+            $messages = [];
+            foreach ($response as $message) {
+                $messages[] = [
+                    'sid' => $message->sid,
+                    'account_sid' => $message->accountSid,
+                    'conversation_sid' => $message->conversationSid,
+                    'author' => $message->author,
+                    'body' => $message->body,
+                    'identity' => $this->identity,
+                    'participant_sid' => $message->participantSid,
+                    'created_at' => $message->dateCreated,
+                    'updated_at' => $message->dateUpdated,
+                    'media' => $message->media,
+                ];
+            }
+            return response()->json(['messages' =>$messages]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e.getMessages()], 400);
         }
-        return response()->json($messages);
     }
     // create participant
     public function participant($participant, $sid)
