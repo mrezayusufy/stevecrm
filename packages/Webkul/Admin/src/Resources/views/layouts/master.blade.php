@@ -38,9 +38,9 @@
 
     </head>
 
-    <body style="scroll-behavior: smooth;">
+    <body style="scroll-behavior: smooth;" >
         {!! view_render_event('admin.layout.body.before') !!}
-        <div id="app">
+        <div id="app" >
             <spinner-meter :full-page="true" v-if="! pageLoaded"></spinner-meter>
             <flash-wrapper ref='flashes'></flash-wrapper>
 
@@ -67,7 +67,7 @@
                 {!! view_render_event('admin.layout.content.after') !!}
 
             </div>
-
+            @yield('dialog')
         </div>
 
         <script type="text/javascript">

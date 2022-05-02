@@ -73,8 +73,8 @@ class ChatController extends Controller
     }
     public function createConversation(Request $request)
     {
-        $friendlyName = $request->json()->get('friendlyName');
-        $participant = $request->json()->get('participant');
+        $friendlyName = $request->get('friendlyName');
+        $participant = $request->get('participant');
         $twilio = $this->twilio_client->conversations->v1;
         if (!$friendlyName && !$participant) {
             return response()->json(['error' => 'Please send data.'], 400);

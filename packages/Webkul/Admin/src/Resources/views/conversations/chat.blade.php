@@ -68,8 +68,11 @@
         </a>
     </div> --}}
 </div>
-
+@section('dialog')
+    <create-contact></create-contact>
+@endsection
 @push('scripts')
+
 {{-- <script>
     Date.prototype.monthNames = [
         "January",
@@ -264,6 +267,53 @@
         }, 1000);
     });
 </script> --}}
+{{-- modal --}}
+<script type="text/x-template" id="create-contact-template">
+    <dialog ref="dialog" class="position-absolute top-0 bg-dark position-relative w-100 h-100" style="z-index: 100000; --bs-bg-opacity: 0.3">
+        <div class="d-flex w-100 h-100 justify-content-center align-items-center">
+            <div class="m-auto rounded-3 p-4 d-flex flex-column gap-2 bg-white shadow-md" style="width: 30rem">
+                <h4>create contact</h4>
+                <div>
+                    <label for="friendlyName" class="form-label">Name</label>
+                    <input id="friendlyName" v-model="friendlyName" placeholder="type name" class="form-control"/>
+                </div>
+                <div>
+                    <label for="participant" class="form-label">Number</label>
+                    <input id="participant" v-model="participant" placeholder="type number" class="form-control"/>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-light" @click="close">cancel</button>
+                    <button type="submit" @click="save" class="btn btn-primary bg-primary">save</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+</script>
+<script>
+    Vue.component("create-contact",{
+        template: "#create-contact-template",
+        data: function(){
+            return {
+                participant: "",
+                friendlyName: ""
+            }
+        },
+        methods: {
+            save: async function(){
+                const form = new FormData();
+                form.append('friendlyName', this.friendlyName)
+                form.append('participant', this.participant);
+                await this.$http.post("{{ route('admin.create.conversation') }}", form)
+                    then((res) => console.log(res))
+            },
+            close: function(){
+                    const dialog = document.querySelector("dialog");
+                    if(dialog)
+                        dialog.close();
+                },
+        }
+    })
+</script>
 {{-- message --}}
     <script type="text/x-template" id="message-template">
         <li class="d-flex gap-2" :class="type">
@@ -301,19 +351,20 @@
     {{-- messages component --}}
     <script type="text/x-template" id="messages-template">
         <div class="content col border-start bg-white d-flex flex-column">
-            <div class="spinner-border text-primary m-auto " v-if="loading === 'pending'" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            <div class="contact-profile align-items-center contact-profile d-flex px-3" v-if="loading === 'success'">
+
+            <div class="contact-profile align-items-center contact-profile d-flex px-3" v-if="!loading">
                 <div class="bg-white btn-circle me-2 p-3 rounded-pill"><i class="mdi mdi-account mdi-24px"></i></div>
                 <p class="m-0 username">@{{ data.friendlyName }}</p>
             </div>
-            <div class="messages" ref="messagesList" v-if="loading === 'success'">
-                <ul class="list-unstyled overflow-auto" id="messages" >
+            <div class="spinner-border text-primary m-auto " v-if="loading" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="messages" ref="messagesList">
+                <ul class="list-unstyled overflow-auto" id="messages" v-if="!loading" >
                     <message v-for="message in messages" :key="message.sid" :message="message"></message>
                 </ul>
             </div>
-            <div class="message-input d-flex" v-if="loading === 'success'">
+            <div class="message-input d-flex" v-if="!loading">
                 <div class="wrap d-flex p-2 gap-2 bg-white w-100">
                     <textarea type="text" v-model="body" placeholder="Write your message..." class="form-control"></textarea>
                     <button @click="sendMessage(data.sid)" aria-label="send" class="submit btn-circle p-3">
@@ -330,39 +381,49 @@
             data: function() {
                 return {
                     messages: [],
-                    loading: 'idle',
+                    loading: true,
                     body: "",
                 }
             },
             mounted(){
-                this.getMessages(this.data.sid)
+                setInterval(() => this.getMessages(this.data.sid), 5000)
+                this.scrollTop()
             },
             methods: {
                 getMessages: async function(sid){
-                    this.loading = 'pending';
+                    this.loading = true;
+                    console.log(this.loading)
                     await this.$http.get("{{ route('admin.chat.fetch.messages','') }}/"+sid)
                         .then((res) => this.messages = res.data.messages)
                         .catch((e) => console.log(e))
                         .finally(this.stopLoading())
+                    console.log(this.loading)
+                    this.scrollTop();
                 },
                 sendMessage: async function(sid){
                     const body = this.body;
-                    this.loading = 'pending'
+                    this.loading = true
                     await this.$http.post("{{ route('admin.chat.send.message', '') }}/" + sid, {
                         body: body
-                    }).then((res) => {
-                        this.getMessages(sid);
-                    })
+                    }).then((res) => this.getMessages(sid))
                     .catch((e) => console.log(e))
-                    .finally(this.stopLoading())
+                    .finally(() => { this.stopLoading(); this.body = ''})
                 },
                 stopLoading: function(){
-                    this.loading = 'success';
-                    this.scrollTop();
-                    this.body = '';
+                    this.loading = false;
                 },
                 scrollTop: function(){
-                    this.$refs.messagesList.scrollTop(10000);
+                    if(this.loading === false){
+                        var messageList = this.$refs.messagesList;
+                        var msg = document.querySelector(".messages")
+
+                        if(msg || messageList){
+                            // messageList.scrollTop = messageList.scrollHeight
+                            msg.scrollTop = msg.scrollHeight;
+                            // messageList.scrollIntoView({ behavior: "smooth", block: "end" });
+                            console.log(msg)
+                        }
+                    }
                     // $("#messages").scrollTop(100000);
                 }
             }
@@ -400,7 +461,7 @@
                             aria-hidden="true"></i></label>
                 </div>
                 {{-- * contact list --}}
-                <div id="contacts">
+                <div id="contacts" class="position-relative">
                     <ul class="list-unstyled">
                         <li v-for="c in data" :key="c.sid" @click="contact = c" type="button" :class="{ 'active' : c.sid === contact.sid }" class="contact bg-white">
                             <div class="align-items-center d-flex mx-3 position-relative w-75">
@@ -413,6 +474,9 @@
                             </div>
                         </li>
                     </ul>
+                    <button @click="openDialog" class="position-absolute m-3 bottom-0 end-0 p-3 rounded-pill btn-circle fs-3 btn btn-primary">
+                        <i class="mdi mdi-plus p-1"></i>
+                    </button>
                 </div>
             </div>
             {{-- * messages and send message --}}
@@ -441,6 +505,12 @@
                         .catch((e) => console.log(e))
                         .finally(() => this.loading = false)
                 },
+                openDialog: function(){
+                    const dialog = document.querySelector("dialog");
+                    if(dialog)
+                        dialog.show();
+                },
+
             }
         })
     </script>
